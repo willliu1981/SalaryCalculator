@@ -21,6 +21,8 @@ public class DutyOfMonth {
 		return totalHours;
 	}
 	
-	
+	public int getSize() {
+		return this.dayDutys.size();
+	}
 
 }
