@@ -31,6 +31,9 @@ public class Test extends JFrame {
 		System.out.println("test :" + diff);
 		System.out.println("test :" + duration);
 		System.out.println("test :" + duration.get(ChronoField.HOUR_OF_DAY));
+		
+		Double d1=Double.valueOf(0.5);
+		System.out.println("test :" + d1.toString());
 
 		
 		
