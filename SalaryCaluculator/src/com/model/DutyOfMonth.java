@@ -3,7 +3,9 @@ package com.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DutyOfMonth {
+import com.proxy.IDutyOfMonth;
+
+public class DutyOfMonth implements IDutyOfMonth{
 	private List<DutyOfDay> dayDutys = new ArrayList<>();
 
 	public void add(DutyOfDay dayDuty) {

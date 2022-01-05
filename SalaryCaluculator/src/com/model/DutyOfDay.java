@@ -4,7 +4,9 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DutyOfDay {
+import com.proxy.IDutyOfDay;
+
+public class DutyOfDay implements IDutyOfDay{
 	private List<DutyData> dutyDatas;
 	private Date date;
 
