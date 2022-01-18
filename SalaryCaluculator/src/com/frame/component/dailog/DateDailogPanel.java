@@ -24,7 +24,7 @@ public class DateDailogPanel extends JPanel {
 		panel.add(panel_1, BorderLayout.CENTER);
 		panel_1.setLayout(null);
 		
-		JButton btnNewButton = new JButton("Test");
+		JButton btnNewButton = new JButton("Test Dailog");
 		btnNewButton.setBounds(38, 31, 193, 53);
 		btnNewButton.setFont(new Font("新細明體", Font.PLAIN, 36));
 		panel_1.add(btnNewButton);

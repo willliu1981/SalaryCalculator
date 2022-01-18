@@ -1,12 +1,17 @@
 package com.frame.component;
 
 import javax.swing.JPanel;
+
+import com.frame.component.dailog.DailogFrame;
+
 import java.awt.BorderLayout;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import javax.swing.BoxLayout;
 import java.awt.Font;
 import java.awt.Insets;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class RegisterPanel extends JPanel {
 
@@ -25,6 +30,11 @@ public class RegisterPanel extends JPanel {
 		panel_1.setLayout(null);
 		
 		JButton btnNewButton = new JButton("Date");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DailogFrame.getFrameInstance("dateDailog");
+			}
+		});
 		btnNewButton.setBounds(38, 31, 193, 53);
 		btnNewButton.setFont(new Font("新細明體", Font.PLAIN, 36));
 		panel_1.add(btnNewButton);
