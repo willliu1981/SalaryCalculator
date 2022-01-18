@@ -12,8 +12,8 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import com.frame.component.PanelFactory;
-import com.frame.component.behaver.ComponentBehaver;
-import com.frame.component.behaver.TitleComponentBehaver;
+import com.frame.component.behavior.ComponentBehavior;
+import com.frame.component.behavior.TitleComponentBehavior;
 import com.frame.component.tool.Components;
 
 public class MainFrame extends JFrame {
@@ -41,36 +41,18 @@ public class MainFrame extends JFrame {
 		contentPane.add(panel_title, BorderLayout.NORTH);
 
 		JButton btnRegister = new JButton("Register");
-		btnRegister.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				switchCardPanel("register");
-			}
-		});
 		btnRegister.setFont(new Font("新細明體", Font.PLAIN, 36));
 		panel_title.add(btnRegister);
 
 		JButton btnView = new JButton("View");
-		btnView.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				switchCardPanel("view");
-			}
-		});
 		btnView.setFont(new Font("新細明體", Font.PLAIN, 36));
 		panel_title.add(btnView);
 
-		ComponentBehaver titleComponentBehaver = new TitleComponentBehaver();
-		titleComponentBehaver.add("panelFather", panel_content);
-		titleComponentBehaver.add("register", btnRegister);
-		titleComponentBehaver.add("view", btnView);
-	}
-
-	private void switchCardPanel(String name) {
-		CardLayout layout = (CardLayout) panel_content.getLayout();
-
-		if (!Components.containPanel(panel_content, name)) {
-			panel_content.add(PanelFactory.getPanel(name), name);
-		}
-		layout.show(panel_content, name);
+		ComponentBehavior titleComponentBehavior = new TitleComponentBehavior();
+		titleComponentBehavior.add("panelContent", panel_content);
+		titleComponentBehavior.add("register", btnRegister);
+		titleComponentBehavior.add("view", btnView);
+		titleComponentBehavior.doBehavior();
 	}
 
 }

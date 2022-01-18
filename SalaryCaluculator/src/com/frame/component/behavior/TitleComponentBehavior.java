@@ -1,4 +1,4 @@
-package com.frame.component.behaver;
+package com.frame.component.behavior;
 
 import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
@@ -10,18 +10,27 @@ import javax.swing.JPanel;
 import com.frame.component.PanelFactory;
 import com.frame.component.tool.Components;
 
-public class TitleComponentBehaver extends ComponentBehaver {
+public class TitleComponentBehavior extends ComponentBehavior {
 	private JPanel panelFather = null;
 	private JButton btnRegister = null;
 
-	public TitleComponentBehaver() {
-		super();
-		String strPanelFather = "panelFather";
+	private void switchCardPanel(String name) {
+		CardLayout layout = (CardLayout) panelFather.getLayout();
+
+		if (!Components.containPanel(panelFather, name)) {
+			panelFather.add(PanelFactory.getPanel(name), name);
+		}
+		layout.show(panelFather, name);
+	}
+
+	@Override
+	public void doBehavior() {
+		String strPanelFather = "panelContent";
 		String strRegister = "register";
-		String strView = "strView";
+		String strView = "view";
 
 		if (this.isExist(strPanelFather)) {
-			panelFather = (JPanel) this.get("panelFather");
+			panelFather = (JPanel) this.get(strPanelFather);
 		} else {
 			throw new RuntimeException("找不到重要 component");
 		}
@@ -43,16 +52,6 @@ public class TitleComponentBehaver extends ComponentBehaver {
 				}
 			});
 		}
-
-	}
-
-	private void switchCardPanel(String name) {
-		CardLayout layout = (CardLayout) panelFather.getLayout();
-
-		if (!Components.containPanel(panelFather, name)) {
-			panelFather.add(PanelFactory.getPanel(name), name);
-		}
-		layout.show(panelFather, name);
 	}
 
 }
