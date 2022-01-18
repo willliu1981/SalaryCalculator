@@ -2,7 +2,6 @@ package com.frame.main;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
-import java.awt.Component;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,6 +12,8 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import com.frame.component.PanelFactory;
+import com.frame.component.behaver.ComponentBehaver;
+import com.frame.component.behaver.TitleComponentBehaver;
 import com.frame.component.tool.Components;
 
 public class MainFrame extends JFrame {
@@ -38,14 +39,15 @@ public class MainFrame extends JFrame {
 
 		JPanel panel_title = new JPanel();
 		contentPane.add(panel_title, BorderLayout.NORTH);
-		JButton btnNewButton = new JButton("Register");
-		btnNewButton.addActionListener(new ActionListener() {
+
+		JButton btnRegister = new JButton("Register");
+		btnRegister.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				switchCardPanel("register");
 			}
 		});
-		btnNewButton.setFont(new Font("新細明體", Font.PLAIN, 36));
-		panel_title.add(btnNewButton);
+		btnRegister.setFont(new Font("新細明體", Font.PLAIN, 36));
+		panel_title.add(btnRegister);
 
 		JButton btnView = new JButton("View");
 		btnView.addActionListener(new ActionListener() {
@@ -55,6 +57,11 @@ public class MainFrame extends JFrame {
 		});
 		btnView.setFont(new Font("新細明體", Font.PLAIN, 36));
 		panel_title.add(btnView);
+
+		ComponentBehaver titleComponentBehaver = new TitleComponentBehaver();
+		titleComponentBehaver.add("panelFather", panel_content);
+		titleComponentBehaver.add("register", btnRegister);
+		titleComponentBehaver.add("view", btnView);
 	}
 
 	private void switchCardPanel(String name) {
