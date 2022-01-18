@@ -1,6 +1,7 @@
 package com.frame.component.behavior;
 
 import java.awt.CardLayout;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -13,6 +14,7 @@ import com.frame.component.tool.Components;
 public class TitleComponentBehavior extends ComponentBehavior {
 	private JPanel panelFather = null;
 	private JButton btnRegister = null;
+	private JButton btnView= null;
 
 	private void switchCardPanel(String name) {
 		CardLayout layout = (CardLayout) panelFather.getLayout();
@@ -37,6 +39,7 @@ public class TitleComponentBehavior extends ComponentBehavior {
 
 		if (this.isExist(strRegister)) {
 			btnRegister = (JButton) this.get(strRegister);
+			btnRegister.setFont(new Font("新細明體", Font.PLAIN, 36));
 			btnRegister.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					switchCardPanel(strRegister);
@@ -45,8 +48,9 @@ public class TitleComponentBehavior extends ComponentBehavior {
 		}
 
 		if (this.isExist(strView)) {
-			btnRegister = (JButton) this.get(strView);
-			btnRegister.addActionListener(new ActionListener() {
+			btnView = (JButton) this.get(strView);
+			btnView.setFont(new Font("新細明體", Font.PLAIN, 36));
+			btnView.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					switchCardPanel(strView);
 				}

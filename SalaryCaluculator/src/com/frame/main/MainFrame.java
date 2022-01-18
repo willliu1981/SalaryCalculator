@@ -48,15 +48,13 @@ public class MainFrame extends JFrame {
 		contentPane.add(panel_title, BorderLayout.NORTH);
 
 		JButton btnRegister = new JButton("Register");
-		btnRegister.setFont(new Font("新細明體", Font.PLAIN, 36));
 		panel_title.add(btnRegister);
+		titleComponentBehavior.add("register", btnRegister);
 
 		JButton btnView = new JButton("View");
-		btnView.setFont(new Font("新細明體", Font.PLAIN, 36));
 		panel_title.add(btnView);
-
-		titleComponentBehavior.add("register", btnRegister);
 		titleComponentBehavior.add("view", btnView);
+
 	}
 
 	private void initContentComponent() {
