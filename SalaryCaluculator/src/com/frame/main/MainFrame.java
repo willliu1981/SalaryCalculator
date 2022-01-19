@@ -2,6 +2,9 @@ package com.frame.main;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
+import java.awt.SystemColor;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -12,7 +15,6 @@ import com.frame.component.IFrame;
 import com.frame.component.PanelFactory;
 import com.frame.component.behavior.ComponentBehavior;
 import com.frame.component.behavior.TitleComponentBehavior;
-import java.awt.SystemColor;
 
 public class MainFrame extends JFrame implements IFrame {
 
@@ -73,5 +75,7 @@ public class MainFrame extends JFrame implements IFrame {
 	private void doBehavior() {
 		titleComponentBehavior.doBehavior();
 	}
+
+	
 
 }

@@ -15,8 +15,8 @@ import com.frame.component.xcomponent.XPanel;
 
 public class DailogFrameFactory extends JFrame
 		implements IFrame, WindowListener {
-	private static DailogFrameFactory thisFrame = new DailogFrameFactory();
 
+	private XPanel content;
 	private JPanel contentPane;
 	private XListener listener;
 
@@ -48,33 +48,36 @@ public class DailogFrameFactory extends JFrame
 
 	private void setContentPanel(String name) {
 		contentPane.removeAll();
-		contentPane.add(PanelFactory.getPanel(name, this), BorderLayout.CENTER);
+		contentPane.add(content = (XPanel) PanelFactory.getPanel(name, this),
+				BorderLayout.CENTER);
 	}
 
 	public static DailogFrameFactory getFrameInstance(String name) {
-		thisFrame.setContentPanel(name);
-		thisFrame.setVisible(true);
-		return thisFrame;
+		DailogFrameFactory frame = new DailogFrameFactory();
+		frame.setContentPanel(name);
+		frame.setVisible(true);
+		frame.addWindowListener(frame);
+		return frame;
+	}
+
+	@Override
+	public void dispose() {
+		this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
 	}
 
 	@Override
 	public void windowOpened(WindowEvent e) {
-		System.out.println("dailot f factory  open**");
 	}
 
 	@Override
 	public void windowClosing(WindowEvent e) {
-		XPanel panel = (XPanel) contentPane.getComponent(0);
-		this.listener.update(panel.getReslut());
-		System.out.println("dailot f factory **" + panel.getReslut());
+		if (content != null && this.listener != null) {
+			this.listener.update(content.getReslut());
+		}
 	}
 
 	@Override
 	public void windowClosed(WindowEvent e) {
-		XPanel panel = (XPanel) contentPane.getComponent(0);
-		this.listener.update(panel.getReslut());
-		System.out.println("dailot f factory closed**" + panel.getReslut());
-
 	}
 
 	@Override

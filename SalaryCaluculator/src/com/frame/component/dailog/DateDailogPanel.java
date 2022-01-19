@@ -11,9 +11,9 @@ import javax.swing.JPanel;
 
 import com.frame.component.PanelFactory;
 import com.frame.component.xcomponent.XButton;
-import com.frame.component.xcomponent.XListener;
+import com.frame.component.xcomponent.XPanel;
 
-public class DateDailogPanel extends JPanel {
+public class DateDailogPanel extends XPanel {
 	private int month;
 	private int day;
 	private DateDailogPanel thisPanel = this;

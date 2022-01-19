@@ -1,8 +1,8 @@
 package com.frame.component;
 
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import com.frame.component.dailog.DailogFrameFactory;
 import com.frame.component.dailog.DateDailogPanel;
 import com.frame.component.dailog.MonthDailogPanel;
 import com.frame.component.dailog.RegisterTimeDailogPanel;
@@ -18,7 +18,7 @@ public class PanelFactory {
 		return getPanel(name, null);
 	}
 
-	public static JPanel getPanel(String name, JFrame father) {
+	public static JPanel getPanel(String name, DailogFrameFactory father) {
 		JPanel panel = null;
 		switch (name) {
 		case REGISTER:

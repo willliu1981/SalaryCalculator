@@ -1,17 +1,18 @@
 package com.frame.component.xcomponent;
 
-import javax.swing.JFrame;
 import javax.swing.JPanel;
+
+import com.frame.component.dailog.DailogFrameFactory;
 
 public class XPanel extends JPanel {
 	private Object result;
-	private JFrame father;
+	private DailogFrameFactory father;
 
 	public XPanel() {
 
 	}
 
-	public XPanel(JFrame father) {
+	public XPanel(DailogFrameFactory father) {
 		this.father = father;
 	}
 

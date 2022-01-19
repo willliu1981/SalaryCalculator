@@ -25,7 +25,7 @@ public class MonthDailogPanel extends XPanel {
 	/**
 	 * Create the panel.
 	 */
-	public MonthDailogPanel(JFrame father) {
+	public MonthDailogPanel(DailogFrameFactory father) {
 		super(father);
 
 		setLayout(new BorderLayout(0, 0));
