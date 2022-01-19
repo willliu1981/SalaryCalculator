@@ -2,17 +2,19 @@ package com.frame.main;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
-import java.awt.Font;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import com.frame.component.IFrame;
+import com.frame.component.PanelFactory;
 import com.frame.component.behavior.ComponentBehavior;
 import com.frame.component.behavior.TitleComponentBehavior;
+import java.awt.SystemColor;
 
-public class MainFrame extends JFrame {
+public class MainFrame extends JFrame implements IFrame {
 
 	private JPanel contentPane;
 
@@ -25,8 +27,8 @@ public class MainFrame extends JFrame {
 		initialize();
 	}
 
-	private void initialize() {
-		initMainComponent();
+	public void initialize() {
+		IFrame.super.initialize();
 
 		initContentComponent();
 		initTitleComponent();
@@ -34,7 +36,7 @@ public class MainFrame extends JFrame {
 		doBehavior();
 	}
 
-	private void initMainComponent() {
+	public void initMainComponent() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 999, 603);
 		contentPane = new JPanel();
@@ -48,12 +50,16 @@ public class MainFrame extends JFrame {
 		contentPane.add(panel_title, BorderLayout.NORTH);
 
 		JButton btnRegister = new JButton("Register");
+		btnRegister.setFocusable(false);
+		btnRegister.setBackground(SystemColor.control);
 		panel_title.add(btnRegister);
-		titleComponentBehavior.add("register", btnRegister);
+		titleComponentBehavior.add(PanelFactory.REGISTER, btnRegister);
 
 		JButton btnView = new JButton("View");
+		btnView.setFocusable(false);
+		btnView.setBackground(SystemColor.control);
 		panel_title.add(btnView);
-		titleComponentBehavior.add("view", btnView);
+		titleComponentBehavior.add(PanelFactory.VIEW, btnView);
 
 	}
 
