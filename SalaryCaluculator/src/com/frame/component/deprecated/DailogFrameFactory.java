@@ -1,4 +1,4 @@
-package com.frame.component.dailog;
+package com.frame.component.deprecated;
 
 import java.awt.BorderLayout;
 import java.awt.event.WindowEvent;
@@ -12,14 +12,14 @@ import javax.swing.border.EmptyBorder;
 
 import com.frame.component.IFrame;
 import com.frame.component.PanelFactory;
-import com.frame.component.xcomponent.IReceivable;
+import com.frame.component.dailog.DialogPanel;
+import com.frame.component.receiver.IReceivable;
 import com.frame.component.xcomponent.ReceivableListener;
-import com.frame.component.xcomponent.ReceivablePanel;
 
 public class DailogFrameFactory extends JFrame
 		implements IFrame, WindowListener, IReceivable {
 
-	private ReceivablePanel content;
+	private DialogPanel content;
 	private JPanel contentPane;
 	private ReceivableListener listener;
 	private List<ReceivableListener> listeners = new ArrayList<>();
@@ -53,7 +53,7 @@ public class DailogFrameFactory extends JFrame
 	private void setContentPanel(String name) {
 		contentPane.removeAll();
 		contentPane.add(
-				content = (ReceivablePanel) PanelFactory.getPanel(name, this),
+				content = (DialogPanel) PanelFactory.getPanel(name, this),
 				BorderLayout.CENTER);
 	}
 
@@ -114,7 +114,7 @@ public class DailogFrameFactory extends JFrame
 
 	@Override
 	public void update() {
-		listeners.forEach(x -> x.update(content.getReslut()));
+		listeners.forEach(x -> x.update(content.getResult()));
 	}
 
 }

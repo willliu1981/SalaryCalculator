@@ -1,4 +1,4 @@
-package com.frame.component.dailog;
+package com.frame.component.deprecated;
 
 import java.awt.BorderLayout;
 import java.awt.Font;
@@ -15,16 +15,18 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-public class MonthDailogPanel extends DialogPanel {
+import com.frame.component.dailog.DialogPanel;
 
-	public MonthDailogPanel() {
+public class OldMonthDailogPanel extends DialogPanel {
+
+	public OldMonthDailogPanel() {
 		this(null);
 	}
 
 	/**
 	 * Create the panel.
 	 */
-	public MonthDailogPanel(Window father) {
+	public OldMonthDailogPanel(Window father) {
 		super(father);
 
 		setLayout(new BorderLayout(0, 0));

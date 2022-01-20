@@ -2,8 +2,6 @@ package com.frame.component;
 
 import javax.swing.JPanel;
 
-import com.frame.component.dailog.DailogFrameFactory;
-
 import java.awt.BorderLayout;
 import javax.swing.JLabel;
 import javax.swing.JButton;
@@ -16,6 +14,9 @@ import javax.swing.JList;
 import javax.swing.AbstractListModel;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
+
+import com.frame.component.deprecated.DailogFrameFactory;
+
 import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 import java.awt.SystemColor;

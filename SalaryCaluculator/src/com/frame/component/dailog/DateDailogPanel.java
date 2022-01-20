@@ -10,11 +10,9 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import com.frame.component.PanelFactory;
-import com.frame.component.xcomponent.ReceivableButton;
 import com.frame.component.xcomponent.ReceivableListener;
-import com.frame.component.xcomponent.ReceivablePanel;
 
-public class DateDailogPanel extends ReceivablePanel {
+public class DateDailogPanel extends DialogPanel {
 	private int month;
 	private int day;
 	private DateDailogPanel thisPanel = this;
@@ -33,46 +31,40 @@ public class DateDailogPanel extends ReceivablePanel {
 		panel.add(panel_1, BorderLayout.CENTER);
 		panel_1.setLayout(null);
 
-		ReceivableButton btnNewButton = new ReceivableButton("Month") {
-			@Override
-			public void update(Object o) {
-				System.out.println("date d p **" + o);
-				this.setText((String) o);
-			}
-		};
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btnMonth = new JButton("Month");
+		btnMonth.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				DailogFrameFactory frame = DailogFrameFactory
+				DialogFrame dailog = DialogFactory
 						.getFrameInstance(PanelFactory.MONTHDAILOG);
-				frame.addReceivableListener(new ReceivableListener() {
+				dailog.addReceivableListener(new ReceivableListener() {
 					@Override
 					public void update(Object o) {
-						btnNewButton.setText((String) o);
+						btnMonth.setText((String) o);
 					}
 				});
 			}
 
 		});
 
-		btnNewButton.setFocusable(false);
-		btnNewButton.setBackground(SystemColor.control);
-		btnNewButton.setBounds(38, 31, 193, 53);
-		btnNewButton.setFont(new Font("新細明體", Font.PLAIN, 36));
-		panel_1.add(btnNewButton);
+		btnMonth.setFocusable(false);
+		btnMonth.setBackground(SystemColor.control);
+		btnMonth.setBounds(38, 31, 193, 53);
+		btnMonth.setFont(new Font("新細明體", Font.PLAIN, 36));
+		panel_1.add(btnMonth);
 
-		JButton btnNewButton_1 = new JButton("Date");
-		btnNewButton_1.setFocusable(false);
-		btnNewButton_1.setBackground(SystemColor.control);
-		btnNewButton_1.setBounds(302, 31, 193, 53);
-		btnNewButton_1.setFont(new Font("新細明體", Font.PLAIN, 36));
-		panel_1.add(btnNewButton_1);
+		JButton btnDay = new JButton("Day");
+		btnDay.setFocusable(false);
+		btnDay.setBackground(SystemColor.control);
+		btnDay.setBounds(302, 31, 193, 53);
+		btnDay.setFont(new Font("新細明體", Font.PLAIN, 36));
+		panel_1.add(btnDay);
 
-		JButton btnNewButton_2 = new JButton("Ok");
-		btnNewButton_2.setFocusable(false);
-		btnNewButton_2.setBackground(SystemColor.control);
-		btnNewButton_2.setBounds(212, 271, 193, 53);
-		btnNewButton_2.setFont(new Font("新細明體", Font.PLAIN, 36));
-		panel_1.add(btnNewButton_2);
+		JButton btnOK = new JButton("Ok");
+		btnOK.setFocusable(false);
+		btnOK.setBackground(SystemColor.control);
+		btnOK.setBounds(212, 271, 193, 53);
+		btnOK.setFont(new Font("新細明體", Font.PLAIN, 36));
+		panel_1.add(btnOK);
 
 	}
 

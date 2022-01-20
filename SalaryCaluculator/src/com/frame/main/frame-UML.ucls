@@ -46,8 +46,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="6" language="java" name="com.frame.component.dailog.DailogFrameFactory" project="SalaryCaluculator" 
-    file="/SalaryCaluculator/src/com/frame/component/dailog/DailogFrameFactory.java" binary="false" 
+  <class id="6" language="java" name="com.frame.component.deprecated.DailogFrameFactory" project="SalaryCaluculator" 
+    file="/SalaryCaluculator/src/com/frame/component/deprecated/DailogFrameFactory.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1008" y="601"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 

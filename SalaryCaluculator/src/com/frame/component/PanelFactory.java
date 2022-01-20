@@ -1,11 +1,13 @@
 package com.frame.component;
 
+import java.awt.Window;
+
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import com.frame.component.dailog.DailogFrameFactory;
 import com.frame.component.dailog.DateDailogPanel;
-import com.frame.component.dailog.MonthDailogPanel;
 import com.frame.component.dailog.RegisterTimeDailogPanel;
+import com.frame.component.deprecated.OldMonthDailogPanel;
 
 public class PanelFactory {
 	public static final String REGISTER = "register";
@@ -18,7 +20,7 @@ public class PanelFactory {
 		return getPanel(name, null);
 	}
 
-	public static JPanel getPanel(String name, DailogFrameFactory father) {
+	public static JPanel getPanel(String name, Window father) {
 		JPanel panel = null;
 		switch (name) {
 		case REGISTER:
@@ -34,7 +36,7 @@ public class PanelFactory {
 			panel = new RegisterTimeDailogPanel();
 			break;
 		case MONTHDAILOG:
-			panel = new MonthDailogPanel(father);
+			panel = new OldMonthDailogPanel(father);
 			break;
 		default:
 			break;
