@@ -3,6 +3,8 @@ package com.frame.component.dailog;
 import java.awt.BorderLayout;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -10,15 +12,17 @@ import javax.swing.border.EmptyBorder;
 
 import com.frame.component.IFrame;
 import com.frame.component.PanelFactory;
+import com.frame.component.xcomponent.IReceivable;
 import com.frame.component.xcomponent.ReceivableListener;
 import com.frame.component.xcomponent.ReceivablePanel;
 
 public class DailogFrameFactory extends JFrame
-		implements IFrame, WindowListener {
+		implements IFrame, WindowListener, IReceivable {
 
 	private ReceivablePanel content;
 	private JPanel contentPane;
 	private ReceivableListener listener;
+	private List<ReceivableListener> listeners = new ArrayList<>();
 
 	/**
 	 * Create the frame.
@@ -48,7 +52,8 @@ public class DailogFrameFactory extends JFrame
 
 	private void setContentPanel(String name) {
 		contentPane.removeAll();
-		contentPane.add(content = (ReceivablePanel) PanelFactory.getPanel(name, this),
+		contentPane.add(
+				content = (ReceivablePanel) PanelFactory.getPanel(name, this),
 				BorderLayout.CENTER);
 	}
 
@@ -71,9 +76,7 @@ public class DailogFrameFactory extends JFrame
 
 	@Override
 	public void windowClosing(WindowEvent e) {
-		if (content != null && this.listener != null) {
-			this.listener.update(content.getReslut());
-		}
+		update();
 	}
 
 	@Override
@@ -102,6 +105,16 @@ public class DailogFrameFactory extends JFrame
 	public void windowDeactivated(WindowEvent e) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public void addReceivableListener(ReceivableListener listener) {
+		this.listeners.add(listener);
+	}
+
+	@Override
+	public void update() {
+		listeners.forEach(x -> x.update(content.getReslut()));
 	}
 
 }
