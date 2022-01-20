@@ -11,22 +11,18 @@ import com.frame.component.receiver.IResponse;
 */
 public class DialogPanel extends JPanel implements IResponse {
 	private Object result;
-	private Window father;
+	private IResponse father;
 
 	public DialogPanel() {
 
 	}
 
-	public DialogPanel(Window father) {
+	public DialogPanel(IResponse father) {
 		this.father = father;
 	}
 
 	public void setResult(Object result) {
 		this.result = result;
-	}
-
-	public void dispose() {
-		this.father.dispose();
 	}
 
 	@Override
@@ -35,9 +31,8 @@ public class DialogPanel extends JPanel implements IResponse {
 	}
 
 	@Override
-	public void response() {
-		IResponse fa = (IResponse) father;
-		fa.setResult(this.getResult());
+	public void dispatch() {
+		father.setResult(this.getResult());
 	}
 
 }

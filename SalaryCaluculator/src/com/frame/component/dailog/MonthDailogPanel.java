@@ -15,6 +15,11 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
+import com.frame.component.receiver.IResponse;
+
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
 public class MonthDailogPanel extends DialogPanel {
 
 	public MonthDailogPanel() {
@@ -24,7 +29,7 @@ public class MonthDailogPanel extends DialogPanel {
 	/**
 	 * Create the panel.
 	 */
-	public MonthDailogPanel(Window father) {
+	public MonthDailogPanel( IResponse father) {
 		super(father);
 
 		setLayout(new BorderLayout(0, 0));
@@ -33,15 +38,18 @@ public class MonthDailogPanel extends DialogPanel {
 		add(panel, BorderLayout.CENTER);
 		panel.setLayout(new BorderLayout(0, 0));
 
-		JPanel panel_1 = new JPanel();
-		panel.add(panel_1, BorderLayout.CENTER);
-		panel_1.setLayout(null);
-
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(42, 37, 110, 330);
-		panel_1.add(scrollPane);
+		panel.add(scrollPane);
 
 		JList list = new JList();
+		list.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				setResult(list.getSelectedValue());
+				dispatch();
+			}
+		});
 		list.setFont(new Font("新細明體", Font.PLAIN, 30));
 		list.setModel(new AbstractListModel() {
 			String[] values = new String[] { "一月", "二月", "三月", "四月", "五月", "六月",
@@ -57,21 +65,6 @@ public class MonthDailogPanel extends DialogPanel {
 		});
 		list.setBounds(228, 252, 1, 1);
 		scrollPane.setViewportView(list);
-
-		JButton btnNewButton_2 = new JButton("Ok");
-		btnNewButton_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				setResult((String) list.getSelectedValue());
-				response();
-				dispose();
-			}
-		});
-		btnNewButton_2.setMargin(new Insets(12, 14, 2, 14));
-		btnNewButton_2.setFocusable(false);
-		btnNewButton_2.setBackground(SystemColor.control);
-		btnNewButton_2.setBounds(184, 187, 110, 53);
-		btnNewButton_2.setFont(new Font("新細明體", Font.PLAIN, 36));
-		panel_1.add(btnNewButton_2);
 
 	}
 }

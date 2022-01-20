@@ -16,6 +16,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 import com.frame.component.dailog.DialogPanel;
+import com.frame.component.receiver.IResponse;
 
 public class OldMonthDailogPanel extends DialogPanel {
 
@@ -26,7 +27,7 @@ public class OldMonthDailogPanel extends DialogPanel {
 	/**
 	 * Create the panel.
 	 */
-	public OldMonthDailogPanel(Window father) {
+	public OldMonthDailogPanel(IResponse father) {
 		super(father);
 
 		setLayout(new BorderLayout(0, 0));
@@ -64,8 +65,7 @@ public class OldMonthDailogPanel extends DialogPanel {
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setResult((String) list.getSelectedValue());
-				response();
-				dispose();
+				dispatch();
 			}
 		});
 		btnNewButton_2.setMargin(new Insets(12, 14, 2, 14));

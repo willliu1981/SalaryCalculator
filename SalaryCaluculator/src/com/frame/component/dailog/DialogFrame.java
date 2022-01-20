@@ -17,6 +17,8 @@ import com.frame.component.PanelFactory;
 import com.frame.component.receiver.IReceivable;
 import com.frame.component.receiver.IResponse;
 import com.frame.component.xcomponent.ReceivableListener;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class DialogFrame extends JDialog
 		implements IDailog, IReceivable, IResponse {
@@ -40,6 +42,12 @@ public class DialogFrame extends JDialog
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
 				JButton okButton = new JButton("OK");
+				okButton.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						update();
+						dispose();
+					}
+				});
 				okButton.setFont(new Font("新細明體", Font.PLAIN, 30));
 				okButton.setBackground(SystemColor.controlHighlight);
 				okButton.setActionCommand("OK");
@@ -49,6 +57,11 @@ public class DialogFrame extends JDialog
 			{
 
 				JButton cancelButton = new JButton("Cancel");
+				cancelButton.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						dispose();
+					}
+				});
 
 				cancelButton.setFont(new Font("新細明體", Font.PLAIN, 30));
 				cancelButton.setBackground(SystemColor.controlHighlight);
@@ -63,11 +76,6 @@ public class DialogFrame extends JDialog
 		baseContentPanel.removeAll();
 		baseContentPanel.add(PanelFactory.getPanel(compName, this),
 				BorderLayout.CENTER);
-	}
-
-	@Override
-	public void dispose() {
-		update();
 	}
 
 	@Override
@@ -91,7 +99,7 @@ public class DialogFrame extends JDialog
 	}
 
 	@Override
-	public void response() {
+	public void dispatch() {
 		// TODO Auto-generated method stub
 
 	}
