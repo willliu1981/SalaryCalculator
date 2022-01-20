@@ -19,8 +19,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="3" language="java" name="test.xcomponent.IReceivable" project="SalaryCaluculator" 
-    file="/SalaryCaluculator/src/test/xcomponent/IReceivable.java" binary="false" corner="BOTTOM_RIGHT">    
+  <interface id="3" language="java" name="test.test3.xcomponent.IReceivable" project="SalaryCaluculator" 
+    file="/SalaryCaluculator/src/test/test3/xcomponent/IReceivable.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="334" y="127"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -28,8 +28,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="4" language="java" name="test.xcomponent.ReceivableButton" project="SalaryCaluculator" 
-    file="/SalaryCaluculator/src/test/xcomponent/ReceivableButton.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="4" language="java" name="test.test3.xcomponent.ReceivableButton" project="SalaryCaluculator" 
+    file="/SalaryCaluculator/src/test/test3/xcomponent/ReceivableButton.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="967" y="451"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -37,8 +37,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="test.xcomponent.ReceivableLabel" project="SalaryCaluculator" 
-    file="/SalaryCaluculator/src/test/xcomponent/ReceivableLabel.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="5" language="java" name="test.test3.xcomponent.ReceivableLabel" project="SalaryCaluculator" 
+    file="/SalaryCaluculator/src/test/test3/xcomponent/ReceivableLabel.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="682" y="444"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -46,8 +46,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="6" language="java" name="test.xcomponent.ReceivableListener" project="SalaryCaluculator" 
-    file="/SalaryCaluculator/src/test/xcomponent/ReceivableListener.java" binary="false" corner="BOTTOM_RIGHT">    
+  <interface id="6" language="java" name="test.test3.xcomponent.ReceivableListener" project="SalaryCaluculator" 
+    file="/SalaryCaluculator/src/test/test3/xcomponent/ReceivableListener.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="757" y="125"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      

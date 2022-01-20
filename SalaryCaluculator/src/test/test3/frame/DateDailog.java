@@ -14,8 +14,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
-import test.xcomponent.IReceivable;
-import test.xcomponent.ReceivableListener;
+import test.test3.xcomponent.IReceivable;
+import test.test3.xcomponent.ReceivableListener;
 
 public class DateDailog extends JDialog implements IReceivable {
 

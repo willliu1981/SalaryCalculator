@@ -1,4 +1,4 @@
-package test.xcomponent;
+package test.test3.xcomponent;
 
 import javax.swing.JButton;
 

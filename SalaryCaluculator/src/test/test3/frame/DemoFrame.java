@@ -10,8 +10,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import test.xcomponent.ReceivableButton;
-import test.xcomponent.ReceivableLabel;
+import test.test3.xcomponent.ReceivableButton;
+import test.test3.xcomponent.ReceivableLabel;
 
 public class DemoFrame extends JFrame {
 
