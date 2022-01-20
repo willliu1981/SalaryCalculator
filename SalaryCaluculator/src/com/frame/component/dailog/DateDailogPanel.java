@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 
 import com.frame.component.PanelFactory;
 import com.frame.component.xcomponent.ReceivableButton;
+import com.frame.component.xcomponent.ReceivableListener;
 import com.frame.component.xcomponent.ReceivablePanel;
 
 public class DateDailogPanel extends ReceivablePanel {
@@ -43,7 +44,12 @@ public class DateDailogPanel extends ReceivablePanel {
 			public void actionPerformed(ActionEvent e) {
 				DailogFrameFactory frame = DailogFrameFactory
 						.getFrameInstance(PanelFactory.MONTHDAILOG);
-				frame.setListener(btnNewButton);
+				frame.addReceivableListener(new ReceivableListener() {
+					@Override
+					public void update(Object o) {
+						btnNewButton.setText((String) o);
+					}
+				});
 			}
 
 		});
