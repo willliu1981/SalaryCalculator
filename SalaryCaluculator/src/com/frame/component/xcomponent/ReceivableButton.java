@@ -2,13 +2,13 @@ package com.frame.component.xcomponent;
 
 import javax.swing.JButton;
 
-public  class XButton extends JButton implements XListener {
+public  class ReceivableButton extends JButton implements ReceivableListener {
 	
-	public XButton() {
+	public ReceivableButton() {
 		
 	}
 	
-	public XButton(String name) {
+	public ReceivableButton(String name) {
 		super(name);
 	}
 

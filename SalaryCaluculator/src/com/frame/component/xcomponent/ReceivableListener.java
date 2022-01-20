@@ -1,6 +1,6 @@
 package com.frame.component.xcomponent;
 
-public interface XListener {
+public interface ReceivableListener {
 	
 	void update(Object o);
 

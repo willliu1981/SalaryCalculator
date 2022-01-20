@@ -14,9 +14,9 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-import com.frame.component.xcomponent.XPanel;
+import com.frame.component.xcomponent.ReceivablePanel;
 
-public class MonthDailogPanel extends XPanel {
+public class MonthDailogPanel extends ReceivablePanel {
 
 	public MonthDailogPanel() {
 		this(null);

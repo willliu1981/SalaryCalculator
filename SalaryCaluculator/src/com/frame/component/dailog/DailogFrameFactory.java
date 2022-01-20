@@ -10,15 +10,15 @@ import javax.swing.border.EmptyBorder;
 
 import com.frame.component.IFrame;
 import com.frame.component.PanelFactory;
-import com.frame.component.xcomponent.XListener;
-import com.frame.component.xcomponent.XPanel;
+import com.frame.component.xcomponent.ReceivableListener;
+import com.frame.component.xcomponent.ReceivablePanel;
 
 public class DailogFrameFactory extends JFrame
 		implements IFrame, WindowListener {
 
-	private XPanel content;
+	private ReceivablePanel content;
 	private JPanel contentPane;
-	private XListener listener;
+	private ReceivableListener listener;
 
 	/**
 	 * Create the frame.
@@ -42,13 +42,13 @@ public class DailogFrameFactory extends JFrame
 
 	}
 
-	public void setListener(XListener listener) {
+	public void setListener(ReceivableListener listener) {
 		this.listener = listener;
 	}
 
 	private void setContentPanel(String name) {
 		contentPane.removeAll();
-		contentPane.add(content = (XPanel) PanelFactory.getPanel(name, this),
+		contentPane.add(content = (ReceivablePanel) PanelFactory.getPanel(name, this),
 				BorderLayout.CENTER);
 	}
 

@@ -4,15 +4,15 @@ import javax.swing.JPanel;
 
 import com.frame.component.dailog.DailogFrameFactory;
 
-public class XPanel extends JPanel {
+public class ReceivablePanel extends JPanel {
 	private Object result;
 	private DailogFrameFactory father;
 
-	public XPanel() {
+	public ReceivablePanel() {
 
 	}
 
-	public XPanel(DailogFrameFactory father) {
+	public ReceivablePanel(DailogFrameFactory father) {
 		this.father = father;
 	}
 

@@ -10,10 +10,10 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import com.frame.component.PanelFactory;
-import com.frame.component.xcomponent.XButton;
-import com.frame.component.xcomponent.XPanel;
+import com.frame.component.xcomponent.ReceivableButton;
+import com.frame.component.xcomponent.ReceivablePanel;
 
-public class DateDailogPanel extends XPanel {
+public class DateDailogPanel extends ReceivablePanel {
 	private int month;
 	private int day;
 	private DateDailogPanel thisPanel = this;
@@ -32,7 +32,7 @@ public class DateDailogPanel extends XPanel {
 		panel.add(panel_1, BorderLayout.CENTER);
 		panel_1.setLayout(null);
 
-		XButton btnNewButton = new XButton("Month") {
+		ReceivableButton btnNewButton = new ReceivableButton("Month") {
 			@Override
 			public void update(Object o) {
 				System.out.println("date d p **" + o);
