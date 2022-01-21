@@ -14,14 +14,17 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import com.frame.component.PanelFactory;
-import com.frame.component.receiver.IReceivable;
 import com.frame.component.receiver.IResponse;
+import com.frame.component.xcomponent.DialogPanelFactory;
+import com.frame.component.xcomponent.IReceivable;
 import com.frame.component.xcomponent.ReceivableListener;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class DialogFrame extends JDialog
-		implements IDailog, IReceivable, IResponse {
+/*
+ * 自定 Dialog 的共同窗口
+ */
+public class DialogFrame extends JDialog implements IDialog {
 
 	private final JPanel baseContentPanel = new JPanel();
 	private final List<ReceivableListener> receivableListeners = new ArrayList<>();
@@ -72,9 +75,9 @@ public class DialogFrame extends JDialog
 	}
 
 	@Override
-	public void setContentPanel(String compName) {
+	public void setContentComponent(String compName) {
 		baseContentPanel.removeAll();
-		baseContentPanel.add(PanelFactory.getPanel(compName, this),
+		baseContentPanel.add(new DialogPanelFactory().getPanel(compName, this),
 				BorderLayout.CENTER);
 	}
 
@@ -85,23 +88,7 @@ public class DialogFrame extends JDialog
 
 	@Override
 	public void update() {
-		receivableListeners.forEach(x -> x.update(this.getResult()));
-	}
-
-	@Override
-	public Object getResult() {
-		return this.result;
-	}
-
-	@Override
-	public void setResult(Object o) {
-		this.result = o;
-	}
-
-	@Override
-	public void dispatch() {
-		// TODO Auto-generated method stub
-
+		receivableListeners.forEach(x -> x.receive(null));
 	}
 
 }

@@ -1,6 +1,4 @@
-package com.frame.component.receiver;
-
-import com.frame.component.xcomponent.ReceivableListener;
+package com.frame.component.xcomponent;
 
 public interface IReceivable {
 	public void addReceivableListener(ReceivableListener listener) ;

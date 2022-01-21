@@ -12,7 +12,7 @@ public class Components {
 		Component[] comps = father.getComponents();
 		for (int i = 0; i < comps.length; i++) {
 			if (comps[i].getName()
-					.equals(PanelFactory.getPanel(comp).getName())) {
+					.equals(IPanelFactory.getPanel(comp).getName())) {
 				return true;
 			}
 		}

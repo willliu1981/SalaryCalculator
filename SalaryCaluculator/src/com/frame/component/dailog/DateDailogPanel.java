@@ -34,11 +34,11 @@ public class DateDailogPanel extends DialogPanel {
 		JButton btnMonth = new JButton("Month");
 		btnMonth.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				DialogFrame dailog = DialogFactory
-						.getFrameInstance(PanelFactory.MONTHDAILOG);
+				IDialog dailog = DialogFactory
+						.getFrameInstance(DialogFactory.MONTHDAILOG);
 				dailog.addReceivableListener(new ReceivableListener() {
 					@Override
-					public void update(Object o) {
+					public void receive(Object o) {
 						btnMonth.setText((String) o);
 					}
 				});
