@@ -22,6 +22,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class MonthDialogPanel extends DialogPanel {
+	private JList list;
 
 	/**
 	 * Create the panel.
@@ -38,7 +39,7 @@ public class MonthDialogPanel extends DialogPanel {
 		scrollPane.setBounds(42, 37, 110, 330);
 		panel.add(scrollPane);
 
-		JList list = new JList();
+		list = new JList();
 		list.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
@@ -65,6 +66,6 @@ public class MonthDialogPanel extends DialogPanel {
 
 	@Override
 	public void updateDispatcher() {
-		this.foreachDispatch(accessibleContext);
+		this.foreachDispatch(Integer.valueOf(list.getSelectedIndex() + 1));
 	}
 }
