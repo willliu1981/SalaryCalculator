@@ -15,6 +15,8 @@ import com.frame.component.IFrame;
 import com.frame.component.PanelFactory;
 import com.frame.component.behavior.ComponentBehavior;
 import com.frame.component.behavior.TitleComponentBehavior;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class MainFrame extends JFrame implements IFrame {
 
@@ -52,6 +54,11 @@ public class MainFrame extends JFrame implements IFrame {
 		contentPane.add(panel_title, BorderLayout.NORTH);
 
 		JButton btnRegister = new JButton("Register");
+		btnRegister.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		btnRegister.setFocusable(false);
 		btnRegister.setBackground(SystemColor.control);
 		panel_title.add(btnRegister);

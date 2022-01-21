@@ -5,7 +5,7 @@ import java.awt.Window;
 import javax.swing.JPanel;
 
 import com.frame.component.dailog.DateDailogPanel;
-import com.frame.component.dailog.MonthDailogPanel;
+import com.frame.component.dailog.MonthDialogPanel;
 import com.frame.component.dailog.RegisterTimeDailogPanel;
 import com.frame.component.receiver.IResponse;
 import com.frame.component.xcomponent.IPanelFactory;
@@ -37,7 +37,7 @@ public class PanelFactory implements IPanelFactory{
 			panel = new RegisterTimeDailogPanel();
 			break;
 		case MONTHDAILOG:
-			panel = new MonthDailogPanel((IResponse) father);
+			panel = new MonthDialogPanel((IResponse) father);
 			break;
 		default:
 			break;

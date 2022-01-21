@@ -10,6 +10,10 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import com.frame.component.PanelFactory;
+import com.frame.component.receiver.IResponse;
+import com.frame.component.xcomponent.DialogFactory;
+import com.frame.component.xcomponent.FrameGenerator;
+import com.frame.component.xcomponent.IDialog;
 import com.frame.component.xcomponent.ReceivableListener;
 
 public class DateDailogPanel extends DialogPanel {
@@ -17,10 +21,15 @@ public class DateDailogPanel extends DialogPanel {
 	private int day;
 	private DateDailogPanel thisPanel = this;
 
+	public DateDailogPanel() {
+		this(null);
+	}
+
 	/**
 	 * Create the panel.
 	 */
-	public DateDailogPanel() {
+	public DateDailogPanel(IResponse father) {
+		super(father);
 		setLayout(new BorderLayout(0, 0));
 
 		JPanel panel = new JPanel();
@@ -30,13 +39,12 @@ public class DateDailogPanel extends DialogPanel {
 		JPanel panel_1 = new JPanel();
 		panel.add(panel_1, BorderLayout.CENTER);
 		panel_1.setLayout(null);
-
 		JButton btnMonth = new JButton("Month");
 		btnMonth.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				IDialog dailog = DialogFactory
-						.getFrameInstance(DialogFactory.MONTHDAILOG);
-				dailog.addReceivableListener(new ReceivableListener() {
+				IDialog dialog = (IDialog) FrameGenerator
+						.getFrame(DialogFactory.MONTHDIALOG);
+				dialog.addReceivableListener(new ReceivableListener() {
 					@Override
 					public void receive(Object o) {
 						btnMonth.setText((String) o);

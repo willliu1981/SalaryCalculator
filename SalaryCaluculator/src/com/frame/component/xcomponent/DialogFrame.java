@@ -1,10 +1,11 @@
-package com.frame.component.dailog;
+package com.frame.component.xcomponent;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.SystemColor;
-import java.awt.event.WindowEvent;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,13 +14,7 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import com.frame.component.PanelFactory;
-import com.frame.component.receiver.IResponse;
-import com.frame.component.xcomponent.DialogPanelFactory;
-import com.frame.component.xcomponent.IReceivable;
-import com.frame.component.xcomponent.ReceivableListener;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import com.exception.FindErrorException;
 
 /*
  * 自定 Dialog 的共同窗口
@@ -77,8 +72,11 @@ public class DialogFrame extends JDialog implements IDialog {
 	@Override
 	public void setContentComponent(String compName) {
 		baseContentPanel.removeAll();
-		baseContentPanel.add(new DialogPanelFactory().getPanel(compName, this),
-				BorderLayout.CENTER);
+		JPanel panel = new DialogPanelFactory().getPanel(compName, this);
+		if (panel == null) {
+			throw new FindErrorException("沒找到 " + compName + " ,因此無法加入 Panel");
+		}
+		baseContentPanel.add(panel, BorderLayout.CENTER);
 	}
 
 	@Override

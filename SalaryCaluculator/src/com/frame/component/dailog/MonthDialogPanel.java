@@ -20,16 +20,16 @@ import com.frame.component.receiver.IResponse;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class MonthDailogPanel extends DialogPanel {
+public class MonthDialogPanel extends DialogPanel {
 
-	public MonthDailogPanel() {
+	public MonthDialogPanel() {
 		this(null);
 	}
 
 	/**
 	 * Create the panel.
 	 */
-	public MonthDailogPanel( IResponse father) {
+	public MonthDialogPanel( IResponse father) {
 		super(father);
 
 		setLayout(new BorderLayout(0, 0));

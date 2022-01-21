@@ -9,18 +9,18 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import com.frame.component.PanelFactory;
-import com.frame.component.tool.Components;
+import com.frame.component.tool.XComponents;
 
 public class TitleComponentBehavior extends ComponentBehavior {
 	private JPanel panelFather = null;
 	private JButton btnRegister = null;
-	private JButton btnView= null;
+	private JButton btnView = null;
 
 	private void switchCardPanel(String name) {
 		CardLayout layout = (CardLayout) panelFather.getLayout();
 
-		if (!Components.containPanel(panelFather, name)) {
-			panelFather.add(PanelFactory.getPanel(name), name);
+		if (!XComponents.containPanel(panelFather, name)) {
+			panelFather.add(new PanelFactory().getPanel(name), name);
 		}
 		layout.show(panelFather, name);
 	}

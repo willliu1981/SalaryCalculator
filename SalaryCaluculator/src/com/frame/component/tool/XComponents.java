@@ -6,13 +6,13 @@ import javax.swing.JComponent;
 
 import com.frame.component.PanelFactory;
 
-public class Components {
+public class XComponents {
 
 	public static boolean containPanel(JComponent father, String comp) {
 		Component[] comps = father.getComponents();
 		for (int i = 0; i < comps.length; i++) {
 			if (comps[i].getName()
-					.equals(IPanelFactory.getPanel(comp).getName())) {
+					.equals(new PanelFactory().getPanel(comp).getName())) {
 				return true;
 			}
 		}

@@ -15,7 +15,8 @@ import javax.swing.AbstractListModel;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 
-import com.frame.component.deprecated.DailogFrameFactory;
+import com.frame.component.xcomponent.DialogFactory;
+import com.frame.component.xcomponent.FrameGenerator;
 
 import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
@@ -42,7 +43,7 @@ public class RegisterPanel extends JPanel {
 		btnNewButton.setBackground(SystemColor.control);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				DailogFrameFactory.getFrameInstance(PanelFactory.DATEDAILOG);
+				FrameGenerator.getFrame(DialogFactory.DATEDIALOG);
 			}
 		});
 		btnNewButton.setBounds(38, 31, 193, 53);
@@ -54,7 +55,7 @@ public class RegisterPanel extends JPanel {
 		btnNewButton_1.setBackground(SystemColor.control);
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				DailogFrameFactory.getFrameInstance(PanelFactory.REGISTERTIMEDAILOG);
+				// DialogFactory.getFrameInstance(PanelFactory.REGISTERTIMEDAILOG);
 			}
 		});
 		btnNewButton_1.setBounds(291, 31, 193, 53);
@@ -70,10 +71,13 @@ public class RegisterPanel extends JPanel {
 
 		JList list = new JList();
 		list.setModel(new AbstractListModel() {
-			String[] values = new String[] {"RRR", "CCC", "ssss", "dfdf", "", "dfsf", "", "dsf"};
+			String[] values = new String[] { "RRR", "CCC", "ssss", "dfdf", "",
+					"dfsf", "", "dsf" };
+
 			public int getSize() {
 				return values.length;
 			}
+
 			public Object getElementAt(int index) {
 				return values[index];
 			}
