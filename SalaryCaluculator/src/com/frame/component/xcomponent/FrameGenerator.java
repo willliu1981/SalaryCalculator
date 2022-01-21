@@ -5,6 +5,8 @@ import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 
+import javax.swing.JPanel;
+
 import com.exception.FindErrorException;
 
 public class FrameGenerator {

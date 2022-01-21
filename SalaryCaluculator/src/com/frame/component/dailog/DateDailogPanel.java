@@ -14,7 +14,7 @@ import com.frame.component.receiver.IResponse;
 import com.frame.component.xcomponent.DialogFactory;
 import com.frame.component.xcomponent.FrameGenerator;
 import com.frame.component.xcomponent.IDialog;
-import com.frame.component.xcomponent.ReceivableListener;
+import com.frame.component.xcomponent.ReceiverListener;
 
 public class DateDailogPanel extends DialogPanel {
 	private int month;
@@ -44,7 +44,7 @@ public class DateDailogPanel extends DialogPanel {
 			public void actionPerformed(ActionEvent e) {
 				IDialog dialog = (IDialog) FrameGenerator
 						.getFrame(DialogFactory.MONTHDIALOG);
-				dialog.addReceivableListener(new ReceivableListener() {
+				dialog.addReceivableListener(new ReceiverListener() {
 					@Override
 					public void receive(Object o) {
 						btnMonth.setText((String) o);

@@ -1,4 +1,4 @@
-package com.frame.component.dailog;
+package com.frame.component.xcomponent;
 
 import java.awt.BorderLayout;
 import java.awt.Font;
@@ -15,6 +15,7 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
+import com.frame.component.dailog.DialogPanel;
 import com.frame.component.receiver.IResponse;
 
 import java.awt.event.MouseAdapter;

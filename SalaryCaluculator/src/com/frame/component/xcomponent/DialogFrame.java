@@ -22,7 +22,7 @@ import com.exception.FindErrorException;
 public class DialogFrame extends JDialog implements IDialog {
 
 	private final JPanel baseContentPanel = new JPanel();
-	private final List<ReceivableListener> receivableListeners = new ArrayList<>();
+	private final List<ReceiverListener> receivableListeners = new ArrayList<>();
 	private Object result;
 
 	/**
@@ -80,7 +80,7 @@ public class DialogFrame extends JDialog implements IDialog {
 	}
 
 	@Override
-	public void addReceivableListener(ReceivableListener listener) {
+	public void addReceivableListener(ReceiverListener listener) {
 		this.receivableListeners.add(listener);
 	}
 

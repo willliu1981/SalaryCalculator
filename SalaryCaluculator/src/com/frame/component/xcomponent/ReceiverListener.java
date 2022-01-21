@@ -1,6 +1,6 @@
 package com.frame.component.xcomponent;
 
-public interface ReceivableListener {
+public interface ReceiverListener {
 	
 	void receive(Object o);
 

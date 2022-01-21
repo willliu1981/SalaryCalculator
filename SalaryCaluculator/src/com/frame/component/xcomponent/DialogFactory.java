@@ -5,7 +5,7 @@ import java.awt.Window;
 import javax.swing.JDialog;
 
 public class DialogFactory extends FrameFactory {
-	public static final String MONTHDIALOG = "monthdailog";
+	public static final String MONTHDIALOG = "monthdialog";
 	public static final String DATEDIALOG = "datedialog";
 
 	public Window getFrameInstance(String contentPanelName) {

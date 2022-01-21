@@ -5,10 +5,10 @@ import java.awt.Window;
 import javax.swing.JPanel;
 
 import com.frame.component.dailog.DateDailogPanel;
-import com.frame.component.dailog.MonthDialogPanel;
 import com.frame.component.dailog.RegisterTimeDailogPanel;
 import com.frame.component.receiver.IResponse;
 import com.frame.component.xcomponent.IPanelFactory;
+import com.frame.component.xcomponent.MonthDialogPanel;
 
 public class PanelFactory implements IPanelFactory{
 	public static final String REGISTER = "register";
