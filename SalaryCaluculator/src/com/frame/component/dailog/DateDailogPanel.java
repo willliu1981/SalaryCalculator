@@ -12,6 +12,7 @@ import javax.swing.JPanel;
 import com.frame.component.PanelFactory;
 import com.frame.component.receiver.IResponse;
 import com.frame.component.xcomponent.DialogFactory;
+import com.frame.component.xcomponent.Dispatcher;
 import com.frame.component.xcomponent.FrameGenerator;
 import com.frame.component.xcomponent.IDialog;
 import com.frame.component.xcomponent.ReceiverListener;
@@ -19,17 +20,11 @@ import com.frame.component.xcomponent.ReceiverListener;
 public class DateDailogPanel extends DialogPanel {
 	private int month;
 	private int day;
-	private DateDailogPanel thisPanel = this;
-
-	public DateDailogPanel() {
-		this(null);
-	}
 
 	/**
 	 * Create the panel.
 	 */
-	public DateDailogPanel(IResponse father) {
-		super(father);
+	public DateDailogPanel() {
 		setLayout(new BorderLayout(0, 0));
 
 		JPanel panel = new JPanel();
@@ -44,10 +39,13 @@ public class DateDailogPanel extends DialogPanel {
 			public void actionPerformed(ActionEvent e) {
 				IDialog dialog = (IDialog) FrameGenerator
 						.getFrame(DialogFactory.MONTHDIALOG);
-				dialog.addReceivableListener(new ReceiverListener() {
+				dialog.addDispatcher(new Dispatcher() {
 					@Override
-					public void receive(Object o) {
-						btnMonth.setText((String) o);
+					public void dispatch(Object o) {
+						if (o instanceof Integer) {
+							month = ((Integer) o).intValue();
+							btnMonth.setText("月份:" + month);
+						}
 					}
 				});
 			}
@@ -74,6 +72,11 @@ public class DateDailogPanel extends DialogPanel {
 		btnOK.setFont(new Font("新細明體", Font.PLAIN, 36));
 		panel_1.add(btnOK);
 
+	}
+
+	@Override
+	public void updateDispatcher() {
+		this.foreachDispatch(null);
 	}
 
 }

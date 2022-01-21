@@ -24,7 +24,7 @@ public class DialogPanelFactory  implements IPanelFactory{
 		JPanel panel = null;
 		switch (name) {
 		case MONTHDIALOG:
-			panel = new MonthDialogPanel((IResponse) father);
+			panel = new MonthDialogPanel();
 			break;
 		case DATEDIALOG:
 			panel = new DateDailogPanel();

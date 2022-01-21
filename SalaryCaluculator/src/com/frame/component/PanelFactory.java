@@ -37,7 +37,7 @@ public class PanelFactory implements IPanelFactory{
 			panel = new RegisterTimeDailogPanel();
 			break;
 		case MONTHDAILOG:
-			panel = new MonthDialogPanel((IResponse) father);
+			panel = new MonthDialogPanel();
 			break;
 		default:
 			break;

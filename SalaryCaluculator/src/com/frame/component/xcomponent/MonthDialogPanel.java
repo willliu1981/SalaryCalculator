@@ -23,15 +23,10 @@ import java.awt.event.MouseEvent;
 
 public class MonthDialogPanel extends DialogPanel {
 
-	public MonthDialogPanel() {
-		this(null);
-	}
-
 	/**
 	 * Create the panel.
 	 */
-	public MonthDialogPanel( IResponse father) {
-		super(father);
+	public MonthDialogPanel() {
 
 		setLayout(new BorderLayout(0, 0));
 
@@ -47,8 +42,7 @@ public class MonthDialogPanel extends DialogPanel {
 		list.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
-				setResult(list.getSelectedValue());
-				dispatch();
+				updateDispatcher();
 			}
 		});
 		list.setFont(new Font("新細明體", Font.PLAIN, 30));
@@ -67,5 +61,10 @@ public class MonthDialogPanel extends DialogPanel {
 		list.setBounds(228, 252, 1, 1);
 		scrollPane.setViewportView(list);
 
+	}
+
+	@Override
+	public void updateDispatcher() {
+		this.foreachDispatch(accessibleContext);
 	}
 }

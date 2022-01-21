@@ -22,8 +22,8 @@ import com.exception.FindErrorException;
 public class DialogFrame extends JDialog implements IDialog {
 
 	private final JPanel baseContentPanel = new JPanel();
-	private final List<ReceiverListener> receivableListeners = new ArrayList<>();
-	private Object result;
+	private final List<Dispatcher> dispatchers = new ArrayList<>();
+	private Object dispatchResult = null;
 
 	/**
 	 * Create the dialog.
@@ -42,7 +42,7 @@ public class DialogFrame extends JDialog implements IDialog {
 				JButton okButton = new JButton("OK");
 				okButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						update();
+						updateDispatcher();
 						dispose();
 					}
 				});
@@ -77,16 +77,28 @@ public class DialogFrame extends JDialog implements IDialog {
 			throw new FindErrorException("沒找到 " + compName + " ,因此無法加入 Panel");
 		}
 		baseContentPanel.add(panel, BorderLayout.CENTER);
+		Dispatchable dispatchable = (Dispatchable) panel;
+		dispatchable.addDispatcher(new Dispatcher() {
+			@Override
+			public void dispatch(Object o) {
+				dispatchResult = o;
+			}
+		});
 	}
 
 	@Override
-	public void addReceivableListener(ReceiverListener listener) {
-		this.receivableListeners.add(listener);
+	public void updateDispatcher() {
+		foreachDispatch(dispatchResult);
 	}
 
 	@Override
-	public void update() {
-		receivableListeners.forEach(x -> x.receive(null));
+	public void addDispatcher(Dispatcher dispatcher) {
+		this.dispatchers.add(dispatcher);
+	}
+
+	@Override
+	public void foreachDispatch(Object o) {
+		this.dispatchers.forEach(x -> x.dispatch(o));
 	}
 
 }
