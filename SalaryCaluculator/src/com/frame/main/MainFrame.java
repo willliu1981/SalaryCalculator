@@ -13,8 +13,9 @@ import javax.swing.border.EmptyBorder;
 
 import com.frame.component.IFrame;
 import com.frame.component.PanelFactory;
-import com.frame.component.behavior.ComponentBehavior;
-import com.frame.component.behavior.TitleComponentBehavior;
+import com.frame.component.fabricate.ComponentFabricator;
+import com.frame.component.fabricate.TitleFabricator;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -22,7 +23,7 @@ public class MainFrame extends JFrame implements IFrame {
 
 	private JPanel contentPane;
 
-	private ComponentBehavior titleComponentBehavior = new TitleComponentBehavior();
+	private ComponentFabricator titleFabricator = new TitleFabricator();
 
 	/**
 	 * Create the frame.
@@ -37,7 +38,7 @@ public class MainFrame extends JFrame implements IFrame {
 		initContentComponent();
 		initTitleComponent();
 
-		doBehavior();
+		fabricate();
 	}
 
 	public void initMainComponent() {
@@ -62,13 +63,13 @@ public class MainFrame extends JFrame implements IFrame {
 		btnRegister.setFocusable(false);
 		btnRegister.setBackground(SystemColor.control);
 		panel_title.add(btnRegister);
-		titleComponentBehavior.add(PanelFactory.REGISTER, btnRegister);
+		titleFabricator.add(PanelFactory.REGISTER, btnRegister);
 
 		JButton btnView = new JButton("View");
 		btnView.setFocusable(false);
 		btnView.setBackground(SystemColor.control);
 		panel_title.add(btnView);
-		titleComponentBehavior.add(PanelFactory.VIEW, btnView);
+		titleFabricator.add(PanelFactory.VIEW, btnView);
 
 	}
 
@@ -76,11 +77,11 @@ public class MainFrame extends JFrame implements IFrame {
 		JPanel panel_content = new JPanel();
 		contentPane.add(panel_content, BorderLayout.CENTER);
 		panel_content.setLayout(new CardLayout(0, 0));
-		titleComponentBehavior.add("panelContent", panel_content);
+		titleFabricator.add("panelContent", panel_content);
 	}
 
-	private void doBehavior() {
-		titleComponentBehavior.doBehavior();
+	private void fabricate() {
+		titleFabricator.fabricate();
 	}
 
 	

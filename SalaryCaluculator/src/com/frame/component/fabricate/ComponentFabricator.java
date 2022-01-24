@@ -1,11 +1,14 @@
-package com.frame.component.behavior;
+package com.frame.component.fabricate;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.swing.JComponent;
 
-public abstract class ComponentBehavior {
+/*
+ * 用於拆分 Frame 裡數量龐大的組件
+ */
+public abstract class ComponentFabricator {
 
 	private Map<String, JComponent> comps = new HashMap<>();
 
@@ -25,6 +28,6 @@ public abstract class ComponentBehavior {
 		return this.comps.containsKey(name);
 	}
 
-	public abstract void doBehavior();
+	public abstract void fabricate();
 
 }

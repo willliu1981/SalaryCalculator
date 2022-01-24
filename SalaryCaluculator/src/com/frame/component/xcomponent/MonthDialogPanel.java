@@ -16,7 +16,6 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 import com.frame.component.dailog.DialogPanel;
-import com.frame.component.receiver.IResponse;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -66,6 +65,6 @@ public class MonthDialogPanel extends DialogPanel {
 
 	@Override
 	public void updateDispatcher() {
-		this.foreachDispatch(Integer.valueOf(list.getSelectedIndex() + 1));
+		this.foreachDispatch(Integer.valueOf(list.getSelectedIndex() + 1))	;
 	}
 }

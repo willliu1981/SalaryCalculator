@@ -5,12 +5,11 @@ import java.awt.Window;
 import javax.swing.JPanel;
 
 import com.frame.component.dailog.DateDailogPanel;
-import com.frame.component.receiver.IResponse;
 
-public class DialogPanelFactory  implements IPanelFactory{
-	
+public class DialogPanelFactory implements IPanelFactory {
+
 	public DialogPanelFactory() {
-	
+
 	}
 
 	public static final String MONTHDIALOG = "monthdialog";

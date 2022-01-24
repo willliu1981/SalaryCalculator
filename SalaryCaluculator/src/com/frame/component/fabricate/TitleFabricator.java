@@ -1,4 +1,4 @@
-package com.frame.component.behavior;
+package com.frame.component.fabricate;
 
 import java.awt.CardLayout;
 import java.awt.Font;
@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 import com.frame.component.PanelFactory;
 import com.frame.component.tool.XComponents;
 
-public class TitleComponentBehavior extends ComponentBehavior {
+public class TitleFabricator extends ComponentFabricator {
 	private JPanel panelFather = null;
 	private JButton btnRegister = null;
 	private JButton btnView = null;
@@ -26,7 +26,7 @@ public class TitleComponentBehavior extends ComponentBehavior {
 	}
 
 	@Override
-	public void doBehavior() {
+	public void fabricate() {
 		String strPanelFather = "panelContent";
 		String strRegister = "register";
 		String strView = "view";

@@ -5,9 +5,6 @@ import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-
 import com.exception.FindErrorException;
 
 public class FrameGenerator {
@@ -19,7 +16,7 @@ public class FrameGenerator {
 	}
 
 	public static Window getFrame(String name) {
-		Optional<FrameFactory> opFactory = factories.stream()
+		factories.stream()
 				.filter(x -> (frame = x.getFrameInstance(name)) != null)
 				.findAny();
 		if (frame == null) {
