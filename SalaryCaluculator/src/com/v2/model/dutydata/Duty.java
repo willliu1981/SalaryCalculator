@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.exception.FindErrorException;
-import com.v2.model.datetime.DutyDateTime;
+import com.v2.model.datetime.WageDateTime;
 
-public abstract class Duty<T extends DutyDateTime> {
+public abstract class Duty<T extends WageDateTime> {
 	private String name;
-	private DutyDateTime datetime;
+	private WageDateTime datetime;
 	private List<T> dutyList = new ArrayList<>();
 
 	public Duty() {
@@ -29,19 +29,19 @@ public abstract class Duty<T extends DutyDateTime> {
 	}
 
 	private void setDateTime(String datetime) {
-		this.datetime = new DutyDateTime(name);
+		this.datetime = new WageDateTime(name);
 	}
 
-	public DutyDateTime getDateTime() {
+	public WageDateTime getDateTime() {
 		return this.datetime;
 	}
 
-	public void add(T datetime) {
+	private void add(T datetime) {
 		this.dutyList.add(datetime);
 	}
 
 	public void add(Duty<?> duty) {
-		this.dutyList.add((T) duty.getDateTime());
+		add((T) duty.getDateTime());
 	}
 
 	public T get(String name) {

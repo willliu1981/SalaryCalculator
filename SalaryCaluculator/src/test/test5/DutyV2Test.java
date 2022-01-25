@@ -6,12 +6,15 @@ import com.v2.model.dutydata.DutyOfYear;
 public class DutyV2Test {
 
 	public static void main(String[] args) {
-	 	DutyOfYear year=new DutyOfYear("2022");
-	 	DutyOfMonth month=new DutyOfMonth("12");
-	 	
-	 	year.add(month);
-	 	
-	 	
+		DutyOfYear year = new DutyOfYear("2022");
+		DutyOfMonth month = new DutyOfMonth("12");
+
+		year.add(month);
+
+		System.out.println(year.get("12"));
+
+		
+		
 	}
 
 }

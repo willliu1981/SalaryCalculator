@@ -1,13 +1,13 @@
 package com.v2.model.datetime;
 
-public class DutyDateTime {
+public class WageDateTime {
 	private String name;
 
-	public DutyDateTime() {
+	public WageDateTime() {
 
 	}
 
-	public DutyDateTime(String name) {
+	public WageDateTime(String name) {
 		this.name = name;
 	}
 
@@ -16,6 +16,10 @@ public class DutyDateTime {
 	}
 
 	public String getName() {
+		return this.name;
+	}
+
+	public String toString() {
 		return this.name;
 	}
 }

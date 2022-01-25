@@ -1,6 +1,6 @@
 package com.v2.model.datetime;
 
-public class DutyDay extends DutyDateTime {
+public class DutyDay extends WageDateTime {
 	public DutyDay() {
 
 	}
