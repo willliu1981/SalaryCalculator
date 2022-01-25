@@ -1,4 +1,4 @@
-package com.v3.model;
+package com.v3.model.punch;
 
 import java.sql.Date;
 import java.sql.Time;
