@@ -4,29 +4,23 @@ import java.sql.Date;
 import java.sql.Timestamp;
 
 public class DefaultPunchStrategy implements PunchStrategy {
+	Timestamp defaultPunchIn;
+	Timestamp defaultPunchOut;
 
-	@Override
-	public Timestamp getDefaultPunchInTime() {
-		// TODO Auto-generated method stub
-		return null;
+	public DefaultPunchStrategy(Timestamp defaultPunchIn,
+			Timestamp defaultPunchOut) {
+		this.defaultPunchIn = defaultPunchIn;
+		this.defaultPunchOut = defaultPunchOut;
 	}
 
 	@Override
-	public Timestamp getDefaultPunchOutTime() {
-		// TODO Auto-generated method stub
-		return null;
+	public Timestamp setDefaultPunchInTime() {
+		return this.defaultPunchIn;
 	}
 
 	@Override
-	public Timestamp punchIn(Timestamp time) {
-		return this.getDefaultPunchInTime();
+	public Timestamp setDefaultPunchOutTime() {
+		return this.defaultPunchOut;
 	}
-
-	@Override
-	public Timestamp punchOut(Timestamp time) {
-		return this.getDefaultPunchOutTime();
-	}
-
-
 
 }

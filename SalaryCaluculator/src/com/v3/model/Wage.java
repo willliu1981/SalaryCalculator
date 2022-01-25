@@ -30,11 +30,11 @@ public class Wage {
 	}
 
 	public void punchIn() {
-		punchStrategy.punchIn(new Date(new java.util.Date().getTime()));
+		punchStrategy.punchIn();
 	}
 
 	public void pubchOut() {
-		punchStrategy.punchOut(new Date(new java.util.Date().getTime()));
+		punchStrategy.punchOut();
 	}
 
 }
