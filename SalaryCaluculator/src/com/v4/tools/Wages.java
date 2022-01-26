@@ -1,4 +1,4 @@
-package com.v4;
+package com.v4.tools;
 
 import com.v4.model.Wage;
 import com.v4.model.punch.PunchStrategy;

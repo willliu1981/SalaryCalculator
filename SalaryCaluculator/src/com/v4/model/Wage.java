@@ -3,17 +3,20 @@ package com.v4.model;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import com.v4.model.punch.Punch;
 import com.v4.model.punch.PunchStrategy;
+import com.v4.tools.Punches;
 
 public class Wage {
 	private User user;
-	private List<Punch> punchs = new ArrayList<>();
+	private List<Punch> punches = new ArrayList<>();
 	private Timestamp punchIn;
 	private Timestamp punchOut;
 	private Punch holdingPunch;
-	private boolean holdedPunchIsNew = true;
+	private boolean holdingPunchIsNew = true;
+	private List<Punch> foundPunches = new ArrayList<>();
 
 	public Wage() {
 
@@ -40,34 +43,88 @@ public class Wage {
 	}
 
 	public void punchIn(Timestamp punchIn) {
-		Punch punch = getHoldPunch();
+		Punch punch = getHoldingPunch();
 		punch.setPunchIn(punchIn);
-		this.addHoldedPunch();
+		this.addHoldingPunch();
 	}
 
 	public void punchOut(Timestamp punchOut) {
-		Punch punch = getHoldPunch();
+		Punch punch = getHoldingPunch();
 		punch.setPunchOut(punchOut);
-		this.addHoldedPunch();
+		this.addHoldingPunch();
 	}
 
-	private Punch getHoldPunch() {
+	private Punch getHoldingPunch() {
 		if (this.holdingPunch == null) {
 			this.holdingPunch = new Punch();
-			this.holdedPunchIsNew = true;
+			this.holdingPunchIsNew = true;
 		}
 		return this.holdingPunch;
 	}
+	
 
-	private void addHoldedPunch() {
-		if (this.holdedPunchIsNew == true) {
-			this.punchs.add(holdingPunch);
-			this.holdedPunchIsNew = false;
+	private void addHoldingPunch() {
+		if (this.holdingPunchIsNew == true) {
+			this.punches.add(holdingPunch);
+			this.holdingPunchIsNew = false;
 		}
 	}
 
-	public List<Punch> testGetPunch() {
-		return this.punchs;
+	public void newHoldingPunch() {
+		this.holdingPunch = null;
+		this.getHoldingPunch();
+	}
+
+	public void next() {
+		Punch hold=this.getHoldingPunch();
+		if (hold.getPunchIn()==null) {
+			newHoldingPunch();
+			return;
+		}
+
+		Optional<Punch> punchOp = this.punches.stream()
+				.sorted((t1,
+						t2) -> (int) (t1.getPunchIn().getTime()
+								- t2.getPunchIn().getTime()))
+				.filter(x -> Punches.isAfter(x.getPunchIn(),
+						getHoldingPunch().getPunchIn()))
+				.findFirst();
+		if (punchOp.isPresent()) {
+			this.holdingPunch = punchOp.get();
+			this.holdingPunchIsNew=false;
+		} else {
+			newHoldingPunch();
+		}
+	}
+
+	public void previous() {
+		Punch hold=this.getHoldingPunch();
+		if (hold.getPunchIn()==null) {
+			newHoldingPunch();
+			return;
+		}
+
+		Optional<Punch> punchOp = this.punches.stream()
+				.sorted((t1,
+						t2) -> (int) (t2.getPunchIn().getTime()
+								- t1.getPunchIn().getTime()))
+				.filter(x -> Punches.isBefore(x.getPunchIn(),
+						getHoldingPunch().getPunchIn()))
+				.findFirst();
+		if (punchOp.isPresent()) {
+			this.holdingPunch = punchOp.get();
+			this.holdingPunchIsNew=false;
+		} else {
+			newHoldingPunch();
+		}
+	}
+
+	public List<Punch> testGetPunches() {
+		return this.punches;
+	}
+
+	public Punch testGetHoldingPunch() {
+		return this.holdingPunch;
 	}
 
 }
