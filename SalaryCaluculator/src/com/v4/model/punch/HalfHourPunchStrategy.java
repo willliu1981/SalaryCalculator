@@ -5,18 +5,9 @@ import java.time.LocalDateTime;
 
 public class HalfHourPunchStrategy implements PunchStrategy {
 
-	Timestamp defaultPunchIn;
-	Timestamp defaultPunchOut;
-
-	public HalfHourPunchStrategy(Timestamp defaultPunchIn,
-			Timestamp defaultPunchOut) {
-		this.defaultPunchIn = defaultPunchIn;
-		this.defaultPunchOut = defaultPunchOut;
-	}
-
 	@Override
-	public Timestamp setDefaultPunchInTime() {
-		LocalDateTime local = this.defaultPunchIn.toLocalDateTime();
+	public Timestamp punchIn(Timestamp defaultPunchIn) {
+		LocalDateTime local = defaultPunchIn.toLocalDateTime();
 		int minu = local.getMinute();
 		int sec = local.getSecond();
 		local = local.minusMinutes(minu);
@@ -32,8 +23,8 @@ public class HalfHourPunchStrategy implements PunchStrategy {
 	}
 
 	@Override
-	public Timestamp setDefaultPunchOutTime() {
-		LocalDateTime local = this.defaultPunchIn.toLocalDateTime();
+	public Timestamp punchOut(Timestamp defaultPunchOut) {
+		LocalDateTime local = defaultPunchOut.toLocalDateTime();
 		int minu = local.getMinute();
 		int sec = local.getSecond();
 		local = local.minusMinutes(minu);

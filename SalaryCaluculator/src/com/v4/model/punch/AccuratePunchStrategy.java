@@ -1,19 +1,16 @@
 package com.v4.model.punch;
 
-import java.sql.Date;
 import java.sql.Timestamp;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 
 public class AccuratePunchStrategy implements PunchStrategy {
 
 	@Override
-	public Timestamp setDefaultPunchInTime() {
+	public Timestamp punchIn(Timestamp defaultPunchIn) {
 		return this.now();
 	}
 
 	@Override
-	public Timestamp setDefaultPunchOutTime() {
+	public Timestamp punchOut(Timestamp defaultPunchOut) {
 		return this.now();
 	}
 

@@ -4,13 +4,15 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.v3.model.punch.Punch;
-import com.v3.model.punch.PunchStrategy;
+import com.v4.model.punch.Punch;
+import com.v4.model.punch.PunchStrategy;
 
 public class Wage {
 	private User user;
 	private List<Punch> punchs = new ArrayList<>();
-	private PunchStrategy punchStrategy;
+	private Timestamp punchIn;
+	private Timestamp punchOut;
+
 
 	public Wage() {
 
@@ -20,19 +22,33 @@ public class Wage {
 		this.user = user;
 	}
 
-	public void setPunchStrategy(PunchStrategy punchStrategy) {
-		this.punchStrategy = punchStrategy;
+
+
+
+	public Timestamp getPunchIn() {
+		return punchIn;
 	}
 
-	public void punchIn() {
-		Timestamp time = punchStrategy.punchIn(null);
+	public void setPunchIn(Timestamp punchIn) {
+		this.punchIn = punchIn;
+	}
+
+	public Timestamp getPunchOut() {
+		return punchOut;
+	}
+
+	public void setPunchOut(Timestamp punchOut) {
+		this.punchOut = punchOut;
+	}
+
+	public void punchIn(Timestamp punchIn) {
 		Punch punch = new Punch();
-		punch.setPunch_in(time);
+		punch.setPunch_in(punchIn);
 		this.punchs.add(punch);
 	}
 
 	public void pubchOut() {
-		punchStrategy.punchOut(null);
+		
 	}
 
 	public List<Punch> testGetPunch() {
