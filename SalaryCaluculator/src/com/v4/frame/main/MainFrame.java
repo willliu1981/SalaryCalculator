@@ -10,10 +10,10 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import com.frame.component.PanelFactory;
 import com.v4.frame.IFrame;
 import com.v4.frame.component.fabricate.ComponentFabricator;
 import com.v4.frame.component.fabricate.TitleFabricator;
+import com.v4.frame.component.panel.PanelFactory;
 
 public class MainFrame extends JFrame implements IFrame {
 

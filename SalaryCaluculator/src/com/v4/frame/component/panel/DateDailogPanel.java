@@ -1,4 +1,4 @@
-package com.frame.component.dailog;
+package com.v4.frame.component.panel;
 
 import java.awt.BorderLayout;
 import java.awt.Font;
@@ -9,10 +9,11 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-import com.frame.component.xcomponent.DialogFactory;
+import com.frame.component.dailog.DialogPanel;
 import com.frame.component.xcomponent.Dispatcher;
-import com.frame.component.xcomponent.FrameGenerator;
 import com.frame.component.xcomponent.IDialog;
+import com.v4.frame.component.frame.DialogFactory;
+import com.v4.frame.component.frame.FrameGenerator;
 
 public class DateDailogPanel extends DialogPanel {
 	private int month;
@@ -56,6 +57,22 @@ public class DateDailogPanel extends DialogPanel {
 		panel_1.add(btnMonth);
 
 		JButton btnDay = new JButton("Day");
+		btnMonth.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				IDialog dialog = (IDialog) FrameGenerator
+						.getFrame(DialogFactory.DAYDIALOG);
+				dialog.addDispatcher(new Dispatcher() {
+					@Override
+					public void dispatch(Object o) {
+						if (o instanceof Integer) {
+							day = ((Integer) o).intValue();
+							btnDay.setText("日期:" + day);
+						}
+					}
+				});
+			}
+
+		});
 		btnDay.setFocusable(false);
 		btnDay.setBackground(SystemColor.control);
 		btnDay.setBounds(302, 31, 193, 53);

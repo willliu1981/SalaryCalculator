@@ -1,4 +1,4 @@
-package com.frame.component.xcomponent;
+package com.v4.frame.component.panel;
 
 import java.awt.Window;
 

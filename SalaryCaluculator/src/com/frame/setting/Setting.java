@@ -1,8 +1,8 @@
 package com.frame.setting;
 
-import com.frame.component.xcomponent.DialogFactory;
-import com.frame.component.xcomponent.FrameGenerator;
-import com.frame.component.xcomponent.JFrameFactory;
+import com.v4.frame.component.frame.DialogFactory;
+import com.v4.frame.component.frame.FrameGenerator;
+import com.v4.frame.component.frame.JFrameFactory;
 
 public class Setting {
 	public static void initialize() {

@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-import com.frame.component.PanelFactory;
+import com.v4.frame.component.panel.PanelFactory;
 import com.v4.tools.Components;
 
 public class TitleFabricator extends ComponentFabricator {

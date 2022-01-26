@@ -1,4 +1,4 @@
-package com.frame.component.xcomponent;
+package com.v4.frame.component.frame;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
@@ -15,6 +15,10 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import com.exception.FindErrorException;
+import com.frame.component.xcomponent.DialogPanelFactory;
+import com.frame.component.xcomponent.Dispatchable;
+import com.frame.component.xcomponent.Dispatcher;
+import com.frame.component.xcomponent.IDialog;
 
 /*
  * 自定 Dialog 的共同窗口

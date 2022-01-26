@@ -1,10 +1,10 @@
-package com.frame.component.xcomponent;
+package com.v4.frame.component.frame;
 
 import java.awt.Window;
 
 import javax.swing.JFrame;
 
-public class JFrameFactory extends FrameFactory {
+public class JFrameFactory extends AbsFrameFactory {
 	public static final String TESTJFRAME = "testjframe";
 
 	public Window getFrameInstance(String contentPanelName) {

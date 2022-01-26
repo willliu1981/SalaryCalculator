@@ -9,6 +9,7 @@ public class Run {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					//工廠設置
 					Setting.initialize();
 					MainFrame frame = new MainFrame();
 					frame.setVisible(true);

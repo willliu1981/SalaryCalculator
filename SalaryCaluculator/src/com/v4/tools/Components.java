@@ -4,8 +4,8 @@ import java.awt.Component;
 
 import javax.swing.JComponent;
 
-import com.frame.component.PanelFactory;
-import com.frame.component.xcomponent.IPanelFactory;
+import com.v4.frame.component.panel.IPanelFactory;
+import com.v4.frame.component.panel.PanelFactory;
 
 public class Components {
 

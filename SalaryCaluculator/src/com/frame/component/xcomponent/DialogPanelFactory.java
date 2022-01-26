@@ -4,7 +4,11 @@ import java.awt.Window;
 
 import javax.swing.JPanel;
 
-import com.frame.component.dailog.DateDailogPanel;
+import com.v4.frame.component.frame.DialogFactory;
+import com.v4.frame.component.panel.DateDailogPanel;
+import com.v4.frame.component.panel.DayDialogPanel;
+import com.v4.frame.component.panel.IPanelFactory;
+import com.v4.frame.component.panel.MonthDialogPanel;
 
 public class DialogPanelFactory implements IPanelFactory {
 
@@ -12,8 +16,9 @@ public class DialogPanelFactory implements IPanelFactory {
 
 	}
 
-	public static final String MONTHDIALOG = "monthdialog";
-	public static final String DATEDIALOG = "datedialog";
+	public static final String MONTHDIALOG = DialogFactory.MONTHDIALOG;
+	public static final String DATEDIALOG =DialogFactory.DATEDIALOG;
+	public static final String DAYDIALOG =DialogFactory.DAYDIALOG;
 
 	public JPanel getPanel(String name) {
 		return getPanel(name, null);
@@ -24,6 +29,9 @@ public class DialogPanelFactory implements IPanelFactory {
 		switch (name) {
 		case MONTHDIALOG:
 			panel = new MonthDialogPanel();
+			break;
+		case DAYDIALOG:
+			panel = new DayDialogPanel();
 			break;
 		case DATEDIALOG:
 			panel = new DateDailogPanel();

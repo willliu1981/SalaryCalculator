@@ -1,4 +1,4 @@
-package com.frame.component;
+package com.v4.frame.component.panel;
 
 import javax.swing.JPanel;
 
@@ -15,8 +15,8 @@ import javax.swing.AbstractListModel;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 
-import com.frame.component.xcomponent.DialogFactory;
-import com.frame.component.xcomponent.FrameGenerator;
+import com.v4.frame.component.frame.DialogFactory;
+import com.v4.frame.component.frame.FrameGenerator;
 
 import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
