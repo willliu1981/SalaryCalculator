@@ -37,7 +37,7 @@ public class DutyV3Test {
 		stamp = Timestamp.valueOf("2022-1-26 5:30:22");
 		HalfHourPunchStrategy strategy = new HalfHourPunchStrategy(stamp,
 				stamp);
-		Timestamp s2 = strategy.punchOut();
+		Timestamp s2 = strategy.punchOut(null);
 		System.out.println("xxx1=" + stamp);
 		System.out.println("xxx2=" + s2);
 	}

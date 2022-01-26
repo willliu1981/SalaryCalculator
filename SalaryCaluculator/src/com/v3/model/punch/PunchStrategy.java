@@ -15,12 +15,6 @@ public interface PunchStrategy {
 		return Timestamp.valueOf(LocalDateTime.now());
 	}
 
-	public default Timestamp dateTimeToTimestamp(java.util.Date date) {
-		DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		String dateStr = format.format(date);
-		return Timestamp.valueOf(dateStr);
-	}
-
 	public default Timestamp getDefaultPunchIn() {
 		return this.setDefaultPunchInTime();
 	}
@@ -29,11 +23,11 @@ public interface PunchStrategy {
 		return this.setDefaultPunchOutTime();
 	}
 
-	public default Timestamp punchIn() {
+	public default Timestamp punchIn(Timestamp defaultPunchIn) {
 		return this.getDefaultPunchIn();
 	}
 
-	public default Timestamp punchOut() {
+	public default Timestamp punchOut(Timestamp defaultPunchOut) {
 		return this.getDefaultPunchOut();
 	}
 }

@@ -1,6 +1,6 @@
 package com.v3.model;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,24 +17,26 @@ public class Wage {
 	}
 
 	public Wage(User user) {
-		this(user, null);
-	}
-
-	public Wage(PunchStrategy punchStrategy) {
-		this(null, punchStrategy);
-	}
-
-	public Wage(User user, PunchStrategy punchStrategy) {
 		this.user = user;
+	}
+
+	public void setPunchStrategy(PunchStrategy punchStrategy) {
 		this.punchStrategy = punchStrategy;
 	}
 
 	public void punchIn() {
-		punchStrategy.punchIn();
+		Timestamp time = punchStrategy.punchIn(null);
+		Punch punch = new Punch();
+		punch.setPunch_in(time);
+		this.punchs.add(punch);
 	}
 
 	public void pubchOut() {
-		punchStrategy.punchOut();
+		punchStrategy.punchOut(null);
+	}
+
+	public List<Punch> testGetPunch() {
+		return this.punchs;
 	}
 
 }

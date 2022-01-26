@@ -46,18 +46,4 @@ public class HalfHourPunchStrategy implements PunchStrategy {
 		return Timestamp.valueOf(local);
 	}
 
-	private Timestamp getHalfHourTime(Timestamp time) {
-		LocalDateTime local = time.toLocalDateTime();
-		int minu = local.getMinute();
-		int sec = local.getSecond();
-		local = local.minusMinutes(minu);
-		local = local.minusSeconds(sec);
-
-		if (minu > 30) {
-			local = local.plusHours(1);
-		}
-
-		return Timestamp.valueOf(local);
-	}
-
 }
