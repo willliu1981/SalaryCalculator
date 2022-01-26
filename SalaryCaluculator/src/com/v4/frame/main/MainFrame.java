@@ -1,23 +1,19 @@
-package com.frame.main;
+package com.v4.frame.main;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
+import java.awt.Font;
 import java.awt.SystemColor;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import com.frame.component.IFrame;
 import com.frame.component.PanelFactory;
-import com.frame.component.fabricate.ComponentFabricator;
-import com.frame.component.fabricate.TitleFabricator;
-
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import com.v4.frame.IFrame;
+import com.v4.frame.component.fabricate.ComponentFabricator;
+import com.v4.frame.component.fabricate.TitleFabricator;
 
 public class MainFrame extends JFrame implements IFrame {
 
@@ -41,6 +37,7 @@ public class MainFrame extends JFrame implements IFrame {
 		fabricate();
 	}
 
+	@Override
 	public void initMainComponent() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 999, 603);
@@ -55,35 +52,33 @@ public class MainFrame extends JFrame implements IFrame {
 		contentPane.add(panel_title, BorderLayout.NORTH);
 
 		JButton btnRegister = new JButton("Register");
-		btnRegister.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
+		btnRegister.setFont(new Font("新細明體", Font.PLAIN, 30));
 		btnRegister.setFocusable(false);
 		btnRegister.setBackground(SystemColor.control);
 		panel_title.add(btnRegister);
-		titleFabricator.add(PanelFactory.REGISTER, btnRegister);
+		// 組件分離
+		titleFabricator.add(TitleFabricator.REGISTERBTN, btnRegister);
 
 		JButton btnView = new JButton("View");
+		btnView.setFont(new Font("新細明體", Font.PLAIN, 30));
 		btnView.setFocusable(false);
 		btnView.setBackground(SystemColor.control);
 		panel_title.add(btnView);
-		titleFabricator.add(PanelFactory.VIEW, btnView);
+		// 組件分離
+		titleFabricator.add(TitleFabricator.VIEWBTN, btnView);
 
 	}
 
+	//card panel
 	private void initContentComponent() {
 		JPanel panel_content = new JPanel();
 		contentPane.add(panel_content, BorderLayout.CENTER);
 		panel_content.setLayout(new CardLayout(0, 0));
-		titleFabricator.add("panelContent", panel_content);
+		titleFabricator.add(TitleFabricator.FATHERPANEL, panel_content);
 	}
 
 	private void fabricate() {
 		titleFabricator.fabricate();
 	}
-
-	
 
 }

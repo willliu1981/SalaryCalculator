@@ -1,7 +1,8 @@
-package com.v4.tools;
+package com.v4;
 
-import com.v4.model.Wage;
 import com.v4.model.punch.PunchStrategy;
+
+import test.test4.Wage;
 
 public class Wages {
 

@@ -1,4 +1,4 @@
-package com.frame.component.fabricate;
+package com.v4.frame.component.fabricate;
 
 import java.util.HashMap;
 import java.util.Map;

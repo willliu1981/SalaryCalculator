@@ -1,4 +1,4 @@
-package com.frame.component.fabricate;
+package com.v4.frame.component.fabricate;
 
 import java.awt.CardLayout;
 import java.awt.Font;
@@ -9,9 +9,12 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import com.frame.component.PanelFactory;
-import com.frame.component.tool.XComponents;
+import com.v4.tools.Components;
 
 public class TitleFabricator extends ComponentFabricator {
+	static public final String FATHERPANEL = "panelContent";
+	static public final String REGISTERBTN = PanelFactory.REGISTER;
+	static public final String VIEWBTN = PanelFactory.VIEW;
 	private JPanel panelFather = null;
 	private JButton btnRegister = null;
 	private JButton btnView = null;
@@ -19,7 +22,7 @@ public class TitleFabricator extends ComponentFabricator {
 	private void switchCardPanel(String name) {
 		CardLayout layout = (CardLayout) panelFather.getLayout();
 
-		if (!XComponents.containPanel(panelFather, name)) {
+		if (!Components.containPanel(new PanelFactory(),panelFather, name)) {
 			panelFather.add(new PanelFactory().getPanel(name), name);
 		}
 		layout.show(panelFather, name);
@@ -27,32 +30,29 @@ public class TitleFabricator extends ComponentFabricator {
 
 	@Override
 	public void fabricate() {
-		String strPanelFather = "panelContent";
-		String strRegister = "register";
-		String strView = "view";
 
-		if (this.isExist(strPanelFather)) {
-			panelFather = (JPanel) this.get(strPanelFather);
+		if (this.isExist(FATHERPANEL)) {
+			panelFather = (JPanel) this.get(FATHERPANEL);
 		} else {
 			throw new RuntimeException("找不到重要 component");
 		}
 
-		if (this.isExist(strRegister)) {
-			btnRegister = (JButton) this.get(strRegister);
+		if (this.isExist(REGISTERBTN)) {
+			btnRegister = (JButton) this.get(REGISTERBTN);
 			btnRegister.setFont(new Font("新細明體", Font.PLAIN, 36));
 			btnRegister.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					switchCardPanel(strRegister);
+					switchCardPanel(REGISTERBTN);
 				}
 			});
 		}
 
-		if (this.isExist(strView)) {
-			btnView = (JButton) this.get(strView);
+		if (this.isExist(VIEWBTN)) {
+			btnView = (JButton) this.get(VIEWBTN);
 			btnView.setFont(new Font("新細明體", Font.PLAIN, 36));
 			btnView.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					switchCardPanel(strView);
+					switchCardPanel(VIEWBTN);
 				}
 			});
 		}

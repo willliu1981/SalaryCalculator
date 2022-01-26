@@ -1,12 +1,12 @@
-package com.v4.model;
+package test.test4;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import com.v4.model.User;
 import com.v4.model.punch.Punch;
-import com.v4.model.punch.PunchStrategy;
 import com.v4.tools.Punches;
 
 public class Wage {
@@ -61,7 +61,6 @@ public class Wage {
 		}
 		return this.holdingPunch;
 	}
-	
 
 	private void addHoldingPunch() {
 		if (this.holdingPunchIsNew == true) {
@@ -76,44 +75,46 @@ public class Wage {
 	}
 
 	public void next() {
-		Punch hold=this.getHoldingPunch();
-		if (hold.getPunchIn()==null) {
+		Punch hold = this.getHoldingPunch();
+		if (hold.getPunchIn() == null) {
 			newHoldingPunch();
 			return;
 		}
 
 		Optional<Punch> punchOp = this.punches.stream()
+				.filter(x -> x.getPunchIn() != null)
 				.sorted((t1,
 						t2) -> (int) (t1.getPunchIn().getTime()
 								- t2.getPunchIn().getTime()))
-				.filter(x -> Punches.isAfter(x.getPunchIn(),
+				.filter(x2 -> Punches.isAfter(x2.getPunchIn(),
 						getHoldingPunch().getPunchIn()))
 				.findFirst();
 		if (punchOp.isPresent()) {
 			this.holdingPunch = punchOp.get();
-			this.holdingPunchIsNew=false;
+			this.holdingPunchIsNew = false;
 		} else {
 			newHoldingPunch();
 		}
 	}
 
 	public void previous() {
-		Punch hold=this.getHoldingPunch();
-		if (hold.getPunchIn()==null) {
+		Punch hold = this.getHoldingPunch();
+		if (hold.getPunchIn() == null) {
 			newHoldingPunch();
 			return;
 		}
 
 		Optional<Punch> punchOp = this.punches.stream()
+				.filter(x -> x.getPunchIn() != null)
 				.sorted((t1,
 						t2) -> (int) (t2.getPunchIn().getTime()
 								- t1.getPunchIn().getTime()))
-				.filter(x -> Punches.isBefore(x.getPunchIn(),
+				.filter(x2 -> Punches.isBefore(x2.getPunchIn(),
 						getHoldingPunch().getPunchIn()))
 				.findFirst();
 		if (punchOp.isPresent()) {
 			this.holdingPunch = punchOp.get();
-			this.holdingPunchIsNew=false;
+			this.holdingPunchIsNew = false;
 		} else {
 			newHoldingPunch();
 		}

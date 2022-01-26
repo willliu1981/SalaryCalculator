@@ -1,18 +1,19 @@
-package com.frame.component.tool;
+package com.v4.tools;
 
 import java.awt.Component;
 
 import javax.swing.JComponent;
 
 import com.frame.component.PanelFactory;
+import com.frame.component.xcomponent.IPanelFactory;
 
-public class XComponents {
+public class Components {
 
-	public static boolean containPanel(JComponent father, String comp) {
+	public static boolean containPanel(IPanelFactory factory,JComponent father, String comp) {
 		Component[] comps = father.getComponents();
 		for (int i = 0; i < comps.length; i++) {
 			if (comps[i].getName()
-					.equals(new PanelFactory().getPanel(comp).getName())) {
+					.equals(factory.getPanel(comp).getName())) {
 				return true;
 			}
 		}
