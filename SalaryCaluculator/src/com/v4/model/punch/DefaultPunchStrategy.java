@@ -1,8 +1,8 @@
 package com.v4.model.punch;
 
-import java.sql.Date;
 import java.sql.Timestamp;
 
+//手動輸入
 public class DefaultPunchStrategy implements PunchStrategy {
 
 	@Override

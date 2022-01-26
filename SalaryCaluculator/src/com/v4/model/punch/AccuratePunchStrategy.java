@@ -2,6 +2,7 @@ package com.v4.model.punch;
 
 import java.sql.Timestamp;
 
+//以現在時間登記
 public class AccuratePunchStrategy implements PunchStrategy {
 
 	@Override

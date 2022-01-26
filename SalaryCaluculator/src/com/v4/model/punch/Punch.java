@@ -43,19 +43,19 @@ public class Punch {
 		this.date = date;
 	}
 
-	public Timestamp getPunch_in() {
+	public Timestamp getPunchIn() {
 		return punch_in;
 	}
 
-	public void setPunch_in(Timestamp punch_in) {
+	public void setPunchIn(Timestamp punch_in) {
 		this.punch_in = punch_in;
 	}
 
-	public Timestamp getPunch_out() {
+	public Timestamp getPunchOut() {
 		return punch_out;
 	}
 
-	public void setPunch_out(Timestamp punch_out) {
+	public void setPunchOut(Timestamp punch_out) {
 		this.punch_out = punch_out;
 	}
 

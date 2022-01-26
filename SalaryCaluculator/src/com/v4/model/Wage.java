@@ -12,7 +12,8 @@ public class Wage {
 	private List<Punch> punchs = new ArrayList<>();
 	private Timestamp punchIn;
 	private Timestamp punchOut;
-
+	private Punch holdingPunch;
+	private boolean holdedPunchIsNew = true;
 
 	public Wage() {
 
@@ -21,9 +22,6 @@ public class Wage {
 	public Wage(User user) {
 		this.user = user;
 	}
-
-
-
 
 	public Timestamp getPunchIn() {
 		return punchIn;
@@ -42,13 +40,30 @@ public class Wage {
 	}
 
 	public void punchIn(Timestamp punchIn) {
-		Punch punch = new Punch();
-		punch.setPunch_in(punchIn);
-		this.punchs.add(punch);
+		Punch punch = getHoldPunch();
+		punch.setPunchIn(punchIn);
+		this.addHoldedPunch();
 	}
 
-	public void pubchOut() {
-		
+	public void punchOut(Timestamp punchOut) {
+		Punch punch = getHoldPunch();
+		punch.setPunchOut(punchOut);
+		this.addHoldedPunch();
+	}
+
+	private Punch getHoldPunch() {
+		if (this.holdingPunch == null) {
+			this.holdingPunch = new Punch();
+			this.holdedPunchIsNew = true;
+		}
+		return this.holdingPunch;
+	}
+
+	private void addHoldedPunch() {
+		if (this.holdedPunchIsNew == true) {
+			this.punchs.add(holdingPunch);
+			this.holdedPunchIsNew = false;
+		}
 	}
 
 	public List<Punch> testGetPunch() {
