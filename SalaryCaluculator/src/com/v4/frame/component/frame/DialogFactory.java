@@ -17,9 +17,7 @@ public class DialogFactory extends AbsFrameFactory {
 		frame = new DialogFrame();
 		if (frame != null) {
 			((IDialog) frame).setContentComponent(contentPanelName);
-			frame.setVisible(true);
 		}
-
 		return frame;
 	}
 

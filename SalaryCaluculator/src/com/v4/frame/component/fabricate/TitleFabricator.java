@@ -2,6 +2,7 @@ package com.v4.frame.component.fabricate;
 
 import java.awt.CardLayout;
 import java.awt.Font;
+import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -12,6 +13,10 @@ import com.v4.frame.component.panel.PanelFactory;
 import com.v4.tools.Components;
 
 public class TitleFabricator extends ComponentFabricator {
+	public TitleFabricator(Window frameFather) {
+		super(frameFather);
+	}
+
 	static public final String FATHERPANEL = "panelContent";
 	static public final String REGISTERBTN = PanelFactory.REGISTER;
 	static public final String VIEWBTN = PanelFactory.VIEW;
@@ -22,10 +27,12 @@ public class TitleFabricator extends ComponentFabricator {
 	private void switchCardPanel(String name) {
 		CardLayout layout = (CardLayout) panelFather.getLayout();
 
-		if (!Components.containPanel(new PanelFactory(),panelFather, name)) {
+		if (!Components.containPanel(new PanelFactory(), panelFather, name)) {
 			panelFather.add(new PanelFactory().getPanel(name), name);
 		}
 		layout.show(panelFather, name);
+		this.getFrameFather().setVisible(true);
+		
 	}
 
 	@Override

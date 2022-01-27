@@ -1,4 +1,4 @@
-package com.frame.component.dailog;
+package com.v4.frame.component.panel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +12,7 @@ import com.frame.component.xcomponent.Dispatcher;
 	用於擴展各種類型的Dialog
 */
 public abstract class DialogPanel extends JPanel implements Dispatchable {
-	private final List<Dispatcher> dispatchers = new ArrayList<>();
+	protected final List<Dispatcher> dispatchers = new ArrayList<>();
 
 	@Override
 	public void addDispatcher(Dispatcher dispatcher) {
@@ -22,7 +22,9 @@ public abstract class DialogPanel extends JPanel implements Dispatchable {
 
 	@Override
 	public void foreachDispatch(Object o) {
-		this.dispatchers.forEach(x -> x.dispatch(o));
+		this.dispatchers.forEach(x -> x.receive(o));
 	}
 
+
+	
 }

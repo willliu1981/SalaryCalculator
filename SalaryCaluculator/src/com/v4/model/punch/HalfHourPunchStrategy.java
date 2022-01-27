@@ -3,7 +3,7 @@ package com.v4.model.punch;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
-//手動輸入,並以半小時為一個區間計算
+//手動輸入,並以半小時為一個區間計算 
 public class HalfHourPunchStrategy implements PunchStrategy {
 
 	@Override

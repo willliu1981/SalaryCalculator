@@ -5,7 +5,8 @@ import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 
-import com.exception.FindErrorException;
+import com.v4.exception.FindErrorException;
+
 
 public class FrameGenerator {
 	private final static Set<AbsFrameFactory> factories = new HashSet<>();
@@ -22,6 +23,7 @@ public class FrameGenerator {
 		if (frame == null) {
 			throw new FindErrorException("找不到 " + compName + " ,無法創建Frame");
 		}
+		frame.setVisible(true);
 		return frame;
 	}
 }

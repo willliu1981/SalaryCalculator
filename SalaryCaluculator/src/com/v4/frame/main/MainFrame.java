@@ -19,7 +19,7 @@ public class MainFrame extends JFrame implements IFrame {
 
 	private JPanel contentPane;
 
-	private ComponentFabricator titleFabricator = new TitleFabricator();
+	private ComponentFabricator titleFabricator = new TitleFabricator(this);
 
 	/**
 	 * Create the frame.
@@ -66,7 +66,6 @@ public class MainFrame extends JFrame implements IFrame {
 		panel_title.add(btnView);
 		// 組件分離
 		titleFabricator.add(TitleFabricator.VIEWBTN, btnView);
-
 	}
 
 	//card panel

@@ -5,11 +5,11 @@ import java.awt.Font;
 import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-import com.frame.component.dailog.DialogPanel;
 import com.frame.component.xcomponent.Dispatcher;
 import com.frame.component.xcomponent.IDialog;
 import com.v4.frame.component.frame.DialogFactory;
@@ -39,7 +39,7 @@ public class DateDailogPanel extends DialogPanel {
 						.getFrame(DialogFactory.MONTHDIALOG);
 				dialog.addDispatcher(new Dispatcher() {
 					@Override
-					public void dispatch(Object o) {
+					public void receive(Object o) {
 						if (o instanceof Integer) {
 							month = ((Integer) o).intValue();
 							btnMonth.setText("月份:" + month);
@@ -57,13 +57,13 @@ public class DateDailogPanel extends DialogPanel {
 		panel_1.add(btnMonth);
 
 		JButton btnDay = new JButton("Day");
-		btnMonth.addActionListener(new ActionListener() {
+		btnDay.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				IDialog dialog = (IDialog) FrameGenerator
 						.getFrame(DialogFactory.DAYDIALOG);
 				dialog.addDispatcher(new Dispatcher() {
 					@Override
-					public void dispatch(Object o) {
+					public void receive(Object o) {
 						if (o instanceof Integer) {
 							day = ((Integer) o).intValue();
 							btnDay.setText("日期:" + day);
@@ -89,8 +89,8 @@ public class DateDailogPanel extends DialogPanel {
 	}
 
 	@Override
-	public void updateDispatcher() {
-		this.foreachDispatch(null);
+	public List<Dispatcher> getDispatchers() {
+		return this.dispatchers;
 	}
 
 }

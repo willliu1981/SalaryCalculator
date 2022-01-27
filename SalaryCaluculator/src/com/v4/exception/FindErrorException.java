@@ -1,4 +1,4 @@
-package com.exception;
+package com.v4.exception;
 
 public class FindErrorException extends RuntimeException {
 	public FindErrorException() {

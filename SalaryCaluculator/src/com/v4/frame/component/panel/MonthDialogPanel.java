@@ -15,10 +15,11 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-import com.frame.component.dailog.DialogPanel;
+import com.frame.component.xcomponent.Dispatcher;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.List;
 
 public class MonthDialogPanel extends DialogPanel {
 	private JList list;
@@ -42,7 +43,7 @@ public class MonthDialogPanel extends DialogPanel {
 		list.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
-				updateDispatcher();
+				updateDispatcher(Integer.valueOf(list.getSelectedIndex() + 1));
 			}
 		});
 		list.setFont(new Font("新細明體", Font.PLAIN, 30));
@@ -64,7 +65,7 @@ public class MonthDialogPanel extends DialogPanel {
 	}
 
 	@Override
-	public void updateDispatcher() {
-		this.foreachDispatch(Integer.valueOf(list.getSelectedIndex() + 1))	;
+	public List<Dispatcher> getDispatchers() {
+		return this.dispatchers;
 	}
 }

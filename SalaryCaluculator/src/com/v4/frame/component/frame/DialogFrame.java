@@ -14,11 +14,11 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import com.exception.FindErrorException;
 import com.frame.component.xcomponent.DialogPanelFactory;
 import com.frame.component.xcomponent.Dispatchable;
 import com.frame.component.xcomponent.Dispatcher;
 import com.frame.component.xcomponent.IDialog;
+import com.v4.exception.FindErrorException;
 
 /*
  * 自定 Dialog 的共同窗口
@@ -33,7 +33,7 @@ public class DialogFrame extends JDialog implements IDialog {
 	 * Create the dialog.
 	 */
 	public DialogFrame() {
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 900, 450);
 		getContentPane().setLayout(new BorderLayout());
 		baseContentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(baseContentPanel, BorderLayout.CENTER);
@@ -46,7 +46,7 @@ public class DialogFrame extends JDialog implements IDialog {
 				JButton okButton = new JButton("OK");
 				okButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						updateDispatcher();
+						updateDispatcher(dispatchResult);
 						dispose();
 					}
 				});
@@ -84,15 +84,10 @@ public class DialogFrame extends JDialog implements IDialog {
 		Dispatchable dispatchable = (Dispatchable) panel;
 		dispatchable.addDispatcher(new Dispatcher() {
 			@Override
-			public void dispatch(Object o) {
+			public void receive(Object o) {
 				dispatchResult = o;
 			}
 		});
-	}
-
-	@Override
-	public void updateDispatcher() {
-		foreachDispatch(dispatchResult);
 	}
 
 	@Override
@@ -101,8 +96,8 @@ public class DialogFrame extends JDialog implements IDialog {
 	}
 
 	@Override
-	public void foreachDispatch(Object o) {
-		this.dispatchers.forEach(x -> x.dispatch(o));
+	public List<Dispatcher> getDispatchers() {
+		return this.dispatchers;
 	}
 
 }
