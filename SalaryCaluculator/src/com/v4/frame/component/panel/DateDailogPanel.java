@@ -10,6 +10,7 @@ import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+import com.frame.component.xcomponent.DialogPanelFactory;
 import com.frame.component.xcomponent.Dispatcher;
 import com.frame.component.xcomponent.IDialog;
 import com.v4.frame.component.frame.DialogFactory;
@@ -36,7 +37,7 @@ public class DateDailogPanel extends DialogPanel {
 		btnMonth.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				IDialog dialog = (IDialog) FrameGenerator
-						.getFrame(DialogFactory.MONTHDIALOG);
+						.getFrame(DialogFactory.MONTHDIALOG,new DialogPanelFactory());
 				dialog.addDispatcher(new Dispatcher() {
 					@Override
 					public void receive(Object o) {
@@ -60,7 +61,7 @@ public class DateDailogPanel extends DialogPanel {
 		btnDay.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				IDialog dialog = (IDialog) FrameGenerator
-						.getFrame(DialogFactory.DAYDIALOG);
+						.getFrame(DialogFactory.DAYDIALOG,new DialogPanelFactory());
 				dialog.addDispatcher(new Dispatcher() {
 					@Override
 					public void receive(Object o) {
@@ -78,13 +79,6 @@ public class DateDailogPanel extends DialogPanel {
 		btnDay.setBounds(302, 31, 193, 53);
 		btnDay.setFont(new Font("新細明體", Font.PLAIN, 36));
 		panel_1.add(btnDay);
-
-		JButton btnOK = new JButton("Ok");
-		btnOK.setFocusable(false);
-		btnOK.setBackground(SystemColor.control);
-		btnOK.setBounds(212, 271, 193, 53);
-		btnOK.setFont(new Font("新細明體", Font.PLAIN, 36));
-		panel_1.add(btnOK);
 
 	}
 

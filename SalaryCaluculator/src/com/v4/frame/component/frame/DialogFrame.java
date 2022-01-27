@@ -19,6 +19,7 @@ import com.frame.component.xcomponent.Dispatchable;
 import com.frame.component.xcomponent.Dispatcher;
 import com.frame.component.xcomponent.IDialog;
 import com.v4.exception.FindErrorException;
+import com.v4.frame.component.panel.IPanelFactory;
 
 /*
  * 自定 Dialog 的共同窗口
@@ -74,9 +75,9 @@ public class DialogFrame extends JDialog implements IDialog {
 	}
 
 	@Override
-	public void setContentComponent(String compName) {
+	public void setContentComponent(String compName,IPanelFactory factory) {
 		baseContentPanel.removeAll();
-		JPanel panel = new DialogPanelFactory().getPanel(compName, this);
+		JPanel panel = factory.getPanel(compName, this);
 		if (panel == null) {
 			throw new FindErrorException("沒找到 " + compName + " ,因此無法加入 Panel");
 		}

@@ -6,6 +6,8 @@ import java.util.Map;
 
 import javax.swing.JComponent;
 
+import com.v4.frame.component.panel.IPanelFactory;
+
 /*
  * 用於拆分 Frame 裡數量龐大的組件
  */
@@ -42,6 +44,6 @@ public abstract class ComponentFabricator {
 		this.frameFather = frameFather;
 	}
 
-	public abstract void fabricate();
+	public abstract void fabricate(IPanelFactory factory);
 
 }

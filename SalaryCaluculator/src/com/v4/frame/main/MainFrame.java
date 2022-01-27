@@ -68,7 +68,7 @@ public class MainFrame extends JFrame implements IFrame {
 		titleFabricator.add(TitleFabricator.VIEWBTN, btnView);
 	}
 
-	//card panel
+	// card panel
 	private void initContentComponent() {
 		JPanel panel_content = new JPanel();
 		contentPane.add(panel_content, BorderLayout.CENTER);
@@ -77,7 +77,7 @@ public class MainFrame extends JFrame implements IFrame {
 	}
 
 	private void fabricate() {
-		titleFabricator.fabricate();
+		titleFabricator.fabricate(new PanelFactory());
 	}
 
 }

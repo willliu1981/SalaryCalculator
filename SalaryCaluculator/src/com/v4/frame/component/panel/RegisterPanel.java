@@ -15,6 +15,7 @@ import javax.swing.AbstractListModel;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 
+import com.frame.component.xcomponent.DialogPanelFactory;
 import com.v4.frame.component.frame.DialogFactory;
 import com.v4.frame.component.frame.FrameGenerator;
 
@@ -43,7 +44,8 @@ public class RegisterPanel extends JPanel {
 		btnNewButton.setBackground(SystemColor.control);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				FrameGenerator.getFrame(DialogFactory.DATEDIALOG);
+				FrameGenerator.getFrame(DialogFactory.DATEDIALOG,
+						new DialogPanelFactory());
 			}
 		});
 		btnNewButton.setBounds(38, 31, 193, 53);

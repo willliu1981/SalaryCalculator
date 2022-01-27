@@ -4,10 +4,12 @@ import java.awt.Window;
 
 import javax.swing.JFrame;
 
+import com.v4.frame.component.panel.IPanelFactory;
+
 public class JFrameFactory extends AbsFrameFactory {
 	public static final String TESTJFRAME = "testjframe";
 
-	public Window getFrameInstance(String contentPanelName) {
+	public Window getFrameInstance(String contentPanelName, IPanelFactory factory) {
 		JFrame frame = null;
 		switch (contentPanelName) {
 		case TESTJFRAME:
@@ -22,5 +24,7 @@ public class JFrameFactory extends AbsFrameFactory {
 		}
 		return frame;
 	}
+
+
 
 }

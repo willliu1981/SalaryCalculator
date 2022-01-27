@@ -2,10 +2,10 @@ package com.v4.frame.component.frame;
 
 import java.awt.Window;
 import java.util.HashSet;
-import java.util.Optional;
 import java.util.Set;
 
 import com.v4.exception.FindErrorException;
+import com.v4.frame.component.panel.IPanelFactory;
 
 
 public class FrameGenerator {
@@ -16,9 +16,9 @@ public class FrameGenerator {
 		factories.add(factory);
 	}
 
-	public static Window getFrame(String compName) {
+	public static Window getFrame(String compName,IPanelFactory factory) {
 		factories.stream()
-				.filter(x -> (frame = x.getFrameInstance(compName)) != null)
+				.filter(x -> (frame = x.getFrameInstance(compName,factory)) != null)
 				.findAny();
 		if (frame == null) {
 			throw new FindErrorException("找不到 " + compName + " ,無法創建Frame");

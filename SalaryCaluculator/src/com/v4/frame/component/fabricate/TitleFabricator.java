@@ -9,10 +9,13 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+import com.v4.frame.component.panel.IPanelFactory;
 import com.v4.frame.component.panel.PanelFactory;
 import com.v4.tools.Components;
 
 public class TitleFabricator extends ComponentFabricator {
+	private IPanelFactory factory; 
+	
 	public TitleFabricator(Window frameFather) {
 		super(frameFather);
 	}
@@ -24,11 +27,11 @@ public class TitleFabricator extends ComponentFabricator {
 	private JButton btnRegister = null;
 	private JButton btnView = null;
 
-	private void switchCardPanel(String name) {
+	private void switchCardPanel(String name,IPanelFactory factory) {
 		CardLayout layout = (CardLayout) panelFather.getLayout();
 
-		if (!Components.containPanel(new PanelFactory(), panelFather, name)) {
-			panelFather.add(new PanelFactory().getPanel(name), name);
+		if (!Components.containPanel(factory, panelFather, name)) {
+			panelFather.add(factory.getPanel(name), name);
 		}
 		layout.show(panelFather, name);
 		this.getFrameFather().setVisible(true);
@@ -36,7 +39,7 @@ public class TitleFabricator extends ComponentFabricator {
 	}
 
 	@Override
-	public void fabricate() {
+	public void fabricate(IPanelFactory factory) {
 
 		if (this.isExist(FATHERPANEL)) {
 			panelFather = (JPanel) this.get(FATHERPANEL);
@@ -49,7 +52,7 @@ public class TitleFabricator extends ComponentFabricator {
 			btnRegister.setFont(new Font("新細明體", Font.PLAIN, 36));
 			btnRegister.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					switchCardPanel(REGISTERBTN);
+					switchCardPanel(REGISTERBTN,factory);
 				}
 			});
 		}
@@ -59,7 +62,7 @@ public class TitleFabricator extends ComponentFabricator {
 			btnView.setFont(new Font("新細明體", Font.PLAIN, 36));
 			btnView.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					switchCardPanel(VIEWBTN);
+					switchCardPanel(VIEWBTN,factory);
 				}
 			});
 		}

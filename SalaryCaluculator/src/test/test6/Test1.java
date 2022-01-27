@@ -8,7 +8,7 @@ public class Test1 {
 
 	public static void main(String[] args) {
 		Setting.initialize();
-		FrameGenerator.getFrame(DialogFactory.MONTHDIALOG);
+		FrameGenerator.getFrame(DialogFactory.MONTHDIALOG, null);
 	}
 
 }
