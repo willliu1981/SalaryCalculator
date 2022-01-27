@@ -11,7 +11,7 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-import com.frame.component.xcomponent.Dispatcher;
+import com.v4.frame.component.listener.Dispatcher;
 
 public class DayDialogPanel extends DialogPanel {
 	private JList list;

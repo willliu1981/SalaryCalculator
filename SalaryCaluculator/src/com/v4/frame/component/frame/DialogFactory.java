@@ -4,7 +4,6 @@ import java.awt.Window;
 
 import javax.swing.JDialog;
 
-import com.frame.component.xcomponent.IDialog;
 import com.v4.frame.component.panel.IPanelFactory;
 import com.v4.frame.component.panel.MonthDialogPanel;
 

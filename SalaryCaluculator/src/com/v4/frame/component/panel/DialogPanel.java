@@ -5,8 +5,8 @@ import java.util.List;
 
 import javax.swing.JPanel;
 
-import com.frame.component.xcomponent.Dispatchable;
-import com.frame.component.xcomponent.Dispatcher;
+import com.v4.frame.component.listener.Dispatchable;
+import com.v4.frame.component.listener.Dispatcher;
 
 /*
 	用於擴展各種類型的Dialog

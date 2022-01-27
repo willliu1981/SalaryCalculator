@@ -10,11 +10,10 @@ import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-import com.frame.component.xcomponent.DialogPanelFactory;
-import com.frame.component.xcomponent.Dispatcher;
-import com.frame.component.xcomponent.IDialog;
 import com.v4.frame.component.frame.DialogFactory;
 import com.v4.frame.component.frame.FrameGenerator;
+import com.v4.frame.component.frame.IDialog;
+import com.v4.frame.component.listener.Dispatcher;
 
 public class DateDailogPanel extends DialogPanel {
 	private int month;
@@ -36,14 +35,16 @@ public class DateDailogPanel extends DialogPanel {
 		JButton btnMonth = new JButton("Month");
 		btnMonth.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				IDialog dialog = (IDialog) FrameGenerator
-						.getFrame(DialogFactory.MONTHDIALOG,new DialogPanelFactory());
+				IDialog dialog = (IDialog) FrameGenerator.getFrame(
+						DialogFactory.MONTHDIALOG, new DialogPanelFactory());
 				dialog.addDispatcher(new Dispatcher() {
 					@Override
 					public void receive(Object o) {
 						if (o instanceof Integer) {
 							month = ((Integer) o).intValue();
 							btnMonth.setText("月份:" + month);
+							updateDispatcher(
+									String.format("%d月%d日", month, day));
 						}
 					}
 				});
@@ -60,14 +61,16 @@ public class DateDailogPanel extends DialogPanel {
 		JButton btnDay = new JButton("Day");
 		btnDay.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				IDialog dialog = (IDialog) FrameGenerator
-						.getFrame(DialogFactory.DAYDIALOG,new DialogPanelFactory());
+				IDialog dialog = (IDialog) FrameGenerator.getFrame(
+						DialogFactory.DAYDIALOG, new DialogPanelFactory());
 				dialog.addDispatcher(new Dispatcher() {
 					@Override
 					public void receive(Object o) {
 						if (o instanceof Integer) {
 							day = ((Integer) o).intValue();
 							btnDay.setText("日期:" + day);
+							updateDispatcher(
+									String.format("%d月%d日", month, day));
 						}
 					}
 				});

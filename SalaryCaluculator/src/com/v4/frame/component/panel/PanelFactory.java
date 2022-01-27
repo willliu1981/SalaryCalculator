@@ -4,9 +4,6 @@ import java.awt.Window;
 
 import javax.swing.JPanel;
 
-import com.frame.component.ViewPanel;
-import com.frame.component.dailog.RegisterTimeDailogPanel;
-
 public class PanelFactory implements IPanelFactory{
 	public static final String REGISTER = "register";
 	public static final String VIEW = "view";

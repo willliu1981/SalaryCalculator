@@ -9,19 +9,23 @@ import javax.swing.BoxLayout;
 import java.awt.Font;
 import java.awt.Insets;
 import java.awt.event.ActionListener;
+import java.util.List;
 import java.awt.event.ActionEvent;
 import javax.swing.JList;
 import javax.swing.AbstractListModel;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 
-import com.frame.component.xcomponent.DialogPanelFactory;
 import com.v4.frame.component.frame.DialogFactory;
+import com.v4.frame.component.frame.DialogFrame;
 import com.v4.frame.component.frame.FrameGenerator;
+import com.v4.frame.component.listener.Dispatchable;
+import com.v4.frame.component.listener.Dispatcher;
 
 import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 import java.awt.SystemColor;
+import java.awt.Window;
 
 public class RegisterPanel extends JPanel {
 
@@ -44,8 +48,14 @@ public class RegisterPanel extends JPanel {
 		btnNewButton.setBackground(SystemColor.control);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				FrameGenerator.getFrame(DialogFactory.DATEDIALOG,
-						new DialogPanelFactory());
+				DialogFrame frame = (DialogFrame) FrameGenerator.getFrame(
+						DialogFactory.DATEDIALOG, new DialogPanelFactory());
+				frame.addDispatcher(new Dispatcher() {
+					@Override
+					public void receive(Object o) {
+						btnNewButton.setText((String) o);
+					}
+				});
 			}
 		});
 		btnNewButton.setBounds(38, 31, 193, 53);
@@ -94,4 +104,5 @@ public class RegisterPanel extends JPanel {
 		scrollPane.setViewportView(list);
 
 	}
+
 }

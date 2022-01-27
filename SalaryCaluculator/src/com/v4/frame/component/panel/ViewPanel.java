@@ -1,4 +1,4 @@
-package com.frame.component;
+package com.v4.frame.component.panel;
 
 import javax.swing.JPanel;
 import java.awt.BorderLayout;

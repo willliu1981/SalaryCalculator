@@ -14,11 +14,10 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import com.frame.component.xcomponent.DialogPanelFactory;
-import com.frame.component.xcomponent.Dispatchable;
-import com.frame.component.xcomponent.Dispatcher;
-import com.frame.component.xcomponent.IDialog;
 import com.v4.exception.FindErrorException;
+import com.v4.frame.component.listener.Dispatchable;
+import com.v4.frame.component.listener.Dispatcher;
+import com.v4.frame.component.panel.DialogPanelFactory;
 import com.v4.frame.component.panel.IPanelFactory;
 
 /*

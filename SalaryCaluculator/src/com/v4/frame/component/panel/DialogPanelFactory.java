@@ -1,14 +1,10 @@
-package com.frame.component.xcomponent;
+package com.v4.frame.component.panel;
 
 import java.awt.Window;
 
 import javax.swing.JPanel;
 
 import com.v4.frame.component.frame.DialogFactory;
-import com.v4.frame.component.panel.DateDailogPanel;
-import com.v4.frame.component.panel.DayDialogPanel;
-import com.v4.frame.component.panel.IPanelFactory;
-import com.v4.frame.component.panel.MonthDialogPanel;
 
 public class DialogPanelFactory implements IPanelFactory {
 
