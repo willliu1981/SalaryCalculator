@@ -1,4 +1,4 @@
-package com.frame.setting;
+package com.v4.setting;
 
 import com.v4.frame.component.frame.DialogFactory;
 import com.v4.frame.component.frame.FrameGenerator;

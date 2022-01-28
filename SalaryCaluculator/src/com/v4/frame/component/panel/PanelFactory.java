@@ -25,7 +25,7 @@ public class PanelFactory implements IPanelFactory{
 			panel = new ViewPanel();
 			break;
 		case DATEDAILOG:
-			panel = new DateDailogPanel();
+			panel = new DateDialogPanel();
 			break;
 		case REGISTERTIMEDAILOG:
 			panel = new RegisterTimeDailogPanel();

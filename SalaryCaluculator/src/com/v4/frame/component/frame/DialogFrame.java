@@ -17,7 +17,6 @@ import javax.swing.border.EmptyBorder;
 import com.v4.exception.FindErrorException;
 import com.v4.frame.component.listener.Dispatchable;
 import com.v4.frame.component.listener.Dispatcher;
-import com.v4.frame.component.panel.DialogPanelFactory;
 import com.v4.frame.component.panel.IPanelFactory;
 
 /*
@@ -87,6 +86,8 @@ public class DialogFrame extends JDialog implements IDialog {
 			public void receive(Object o) {
 				dispatchResult = o;
 			}
+			
+			
 		});
 	}
 

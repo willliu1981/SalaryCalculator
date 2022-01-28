@@ -1,8 +1,9 @@
-package com.v4.frame.main;
+package com.v4;
 
 import java.awt.EventQueue;
 
-import com.frame.setting.Setting;
+import com.v4.frame.main.MainFrame;
+import com.v4.setting.Setting;
 
 public class Run {
 	public static void main(String[] s) {

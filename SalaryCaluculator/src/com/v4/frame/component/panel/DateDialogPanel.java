@@ -14,15 +14,16 @@ import com.v4.frame.component.frame.DialogFactory;
 import com.v4.frame.component.frame.FrameGenerator;
 import com.v4.frame.component.frame.IDialog;
 import com.v4.frame.component.listener.Dispatcher;
+import com.v4.model.Result;
 
-public class DateDailogPanel extends DialogPanel {
+public class DateDialogPanel extends DialogPanel {
 	private int month;
 	private int day;
 
 	/**
 	 * Create the panel.
 	 */
-	public DateDailogPanel() {
+	public DateDialogPanel() {
 		setLayout(new BorderLayout(0, 0));
 
 		JPanel panel = new JPanel();
@@ -43,8 +44,9 @@ public class DateDailogPanel extends DialogPanel {
 						if (o instanceof Integer) {
 							month = ((Integer) o).intValue();
 							btnMonth.setText("月份:" + month);
-							updateDispatcher(
-									String.format("%d月%d日", month, day));
+							Result res = new Result();
+							res.add(DialogFactory.MONTHDIALOG, month);
+							updateDispatcher(res);
 						}
 					}
 				});
@@ -69,8 +71,9 @@ public class DateDailogPanel extends DialogPanel {
 						if (o instanceof Integer) {
 							day = ((Integer) o).intValue();
 							btnDay.setText("日期:" + day);
-							updateDispatcher(
-									String.format("%d月%d日", month, day));
+							Result res = new Result();
+							res.add(DialogFactory.DAYDIALOG, day);
+							updateDispatcher(res);
 						}
 					}
 				});

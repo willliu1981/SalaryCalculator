@@ -30,7 +30,7 @@ public class DialogPanelFactory implements IPanelFactory {
 			panel = new DayDialogPanel();
 			break;
 		case DATEDIALOG:
-			panel = new DateDailogPanel();
+			panel = new DateDialogPanel();
 			break;
 		default:
 			break;
