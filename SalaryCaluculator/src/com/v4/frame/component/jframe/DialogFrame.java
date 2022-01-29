@@ -21,6 +21,7 @@ import com.v4.listener.Dispatcher;
 
 /*
  * 自定 Dialog 的共同窗口
+ * 藉由設定 Panel 取得自定義的視窗
  */
 public class DialogFrame extends JDialog implements IDialog {
 

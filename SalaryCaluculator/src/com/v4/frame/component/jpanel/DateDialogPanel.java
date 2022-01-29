@@ -10,8 +10,8 @@ import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-import com.v4.frame.component.jframe.DialogFactory;
-import com.v4.frame.component.jframe.FrameGenerator;
+import com.v4.frame.component.jframe.DialogFrameFactory;
+import com.v4.frame.component.jframe.FrameAndDialogGenerator;
 import com.v4.frame.component.jframe.IDialog;
 import com.v4.listener.Dispatcher;
 import com.v4.model.Result;
@@ -36,8 +36,8 @@ public class DateDialogPanel extends DialogPanel {
 		JButton btnMonth = new JButton("Month");
 		btnMonth.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				IDialog dialog = (IDialog) FrameGenerator.getFrame(
-						DialogFactory.MONTHDIALOG, new DialogPanelFactory());
+				IDialog dialog = (IDialog) FrameAndDialogGenerator.getFrame(
+						DialogFrameFactory.MONTHDIALOG, new DialogPanelFactory());
 				dialog.addDispatcher(new Dispatcher() {
 					@Override
 					public void receive(Object o) {
@@ -45,7 +45,7 @@ public class DateDialogPanel extends DialogPanel {
 							month = ((Integer) o).intValue();
 							btnMonth.setText("月份:" + month);
 							Result res = new Result();
-							res.add(DialogFactory.MONTHDIALOG, month);
+							res.add(DialogFrameFactory.MONTHDIALOG, month);
 							updateDispatcher(res);
 						}
 					}
@@ -63,8 +63,8 @@ public class DateDialogPanel extends DialogPanel {
 		JButton btnDay = new JButton("Day");
 		btnDay.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				IDialog dialog = (IDialog) FrameGenerator.getFrame(
-						DialogFactory.DAYDIALOG, new DialogPanelFactory());
+				IDialog dialog = (IDialog) FrameAndDialogGenerator.getFrame(
+						DialogFrameFactory.DAYDIALOG, new DialogPanelFactory());
 				dialog.addDispatcher(new Dispatcher() {
 					@Override
 					public void receive(Object o) {
@@ -72,7 +72,7 @@ public class DateDialogPanel extends DialogPanel {
 							day = ((Integer) o).intValue();
 							btnDay.setText("日期:" + day);
 							Result res = new Result();
-							res.add(DialogFactory.DAYDIALOG, day);
+							res.add(DialogFrameFactory.DAYDIALOG, day);
 							updateDispatcher(res);
 						}
 					}

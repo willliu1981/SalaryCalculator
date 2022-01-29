@@ -16,9 +16,9 @@ import javax.swing.AbstractListModel;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 
-import com.v4.frame.component.jframe.DialogFactory;
+import com.v4.frame.component.jframe.DialogFrameFactory;
 import com.v4.frame.component.jframe.DialogFrame;
-import com.v4.frame.component.jframe.FrameGenerator;
+import com.v4.frame.component.jframe.FrameAndDialogGenerator;
 import com.v4.listener.Dispatchable;
 import com.v4.listener.Dispatcher;
 
@@ -48,8 +48,8 @@ public class RegisterPanel extends JPanel {
 		btnNewButton.setBackground(SystemColor.control);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				DialogFrame frame = (DialogFrame) FrameGenerator.getFrame(
-						DialogFactory.DATEDIALOG, new DialogPanelFactory());
+				DialogFrame frame = (DialogFrame) FrameAndDialogGenerator.getFrame(
+						DialogFrameFactory.DATEDIALOG, new DialogPanelFactory());
 				frame.addDispatcher(new Dispatcher() {
 					@Override
 					public void receive(Object o) {

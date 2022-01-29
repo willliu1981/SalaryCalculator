@@ -10,19 +10,18 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import com.v4.frame.component.jpanel.IPanelFactory;
-import com.v4.frame.component.jpanel.PanelFactory;
+import com.v4.frame.component.jpanel.JFramePanelFactory;
 import com.v4.tools.Components;
 
 public class TitleFabricator extends ComponentFabricator {
-	private IPanelFactory factory; 
 	
 	public TitleFabricator(Window frameFather) {
 		super(frameFather);
 	}
 
 	static public final String FATHERPANEL = "panelContent";
-	static public final String REGISTERBTN = PanelFactory.REGISTER;
-	static public final String VIEWBTN = PanelFactory.VIEW;
+	static public final String REGISTERBTN = JFramePanelFactory.REGISTER;
+	static public final String VIEWBTN = JFramePanelFactory.VIEW;
 	private JPanel panelFather = null;
 	private JButton btnRegister = null;
 	private JButton btnView = null;

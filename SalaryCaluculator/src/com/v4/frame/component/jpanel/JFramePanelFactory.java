@@ -4,12 +4,14 @@ import java.awt.Window;
 
 import javax.swing.JPanel;
 
-public class PanelFactory implements IPanelFactory{
+/*
+ * 取得 JFrame 的 Panel 工廠
+ */
+public class JFramePanelFactory implements IPanelFactory {
 	public static final String REGISTER = "register";
 	public static final String VIEW = "view";
 	public static final String DATEDAILOG = "dateDailog";
 	public static final String REGISTERTIMEDAILOG = "registerTimeDailog";
-	public static final String MONTHDAILOG = "monthDailog";
 
 	public JPanel getPanel(String name) {
 		return getPanel(name, null);
@@ -29,9 +31,6 @@ public class PanelFactory implements IPanelFactory{
 			break;
 		case REGISTERTIMEDAILOG:
 			panel = new RegisterTimeDailogPanel();
-			break;
-		case MONTHDAILOG:
-			panel = new MonthDialogPanel();
 			break;
 		default:
 			break;

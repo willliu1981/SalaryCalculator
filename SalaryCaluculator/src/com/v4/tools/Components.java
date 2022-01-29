@@ -5,7 +5,7 @@ import java.awt.Component;
 import javax.swing.JComponent;
 
 import com.v4.frame.component.jpanel.IPanelFactory;
-import com.v4.frame.component.jpanel.PanelFactory;
+import com.v4.frame.component.jpanel.JFramePanelFactory;
 
 public class Components {
 

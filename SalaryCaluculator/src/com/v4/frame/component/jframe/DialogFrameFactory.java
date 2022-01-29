@@ -7,7 +7,10 @@ import javax.swing.JDialog;
 import com.v4.frame.component.jpanel.IPanelFactory;
 import com.v4.frame.component.jpanel.MonthDialogPanel;
 
-public class DialogFactory extends AbsFrameFactory {
+/*
+ * 設定資料型窗口工廠
+ */
+public class DialogFrameFactory extends AbsFrameFactory {
 	public static final String MONTHDIALOG = "monthdialog";
 	public static final String DAYDIALOG = "daydialog";
 	public static final String DATEDIALOG = "datedialog";

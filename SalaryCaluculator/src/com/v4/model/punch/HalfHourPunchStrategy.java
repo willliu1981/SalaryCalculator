@@ -30,7 +30,7 @@ public class HalfHourPunchStrategy implements PunchStrategy {
 		int sec = local.getSecond();
 		local = local.minusMinutes(minu);
 		local = local.minusSeconds(sec);
-
+ 
 		if (minu >= 30) {
 			local = local.plusMinutes(30);
 		}
