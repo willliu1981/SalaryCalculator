@@ -25,6 +25,7 @@ public class DispatcherTest {
 				@Override
 				public void receive(Result o) {
 					System.out.println("order(result): " + o);
+					
 				}
 
 			});

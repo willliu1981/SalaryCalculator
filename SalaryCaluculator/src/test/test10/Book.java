@@ -19,13 +19,18 @@ public class Book<T extends User> {
 			user = Stream.of(types).map(x -> {
 				T u = null;
 				try {
-					u = ((Class<T>) x).newInstance();
+					System.out.println("typeName="+x.getClass());
+					System.out.println("instanceof= "+(x instanceof Class));
+					if(x instanceof Class) {
+						
+						u = ((Class<T>) x).newInstance();
+					}
 				} catch (InstantiationException | IllegalAccessException e) {
 					e.printStackTrace();
 				}
 				return u;
 			}).filter(y -> y instanceof User).findAny()
-					.orElseThrow(FindErrorException::new);
+					.orElse(null);
 		}
 
 		System.out.println("result: " + user);

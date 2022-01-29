@@ -8,6 +8,8 @@ import java.util.stream.Stream;
 
 import com.v4.model.Result;
 
+import test.test10.User;
+
 public interface Dispatchable<T extends Result> {
 	void addDispatcher(Dispatcher<T> dispatcher);
 
@@ -25,18 +27,35 @@ public interface Dispatchable<T extends Result> {
 		this.getDispatchers().forEach(x -> x.receive(o));
 
 		Type[] interfaceTypes = this.getClass().getGenericInterfaces();
-		Optional<Type> ResultOp = Stream.of(interfaceTypes)
-				.filter(x -> x instanceof Result).findAny();
+		T instanceT = null;
 
-		
-		Class<T> clazz =null;
-		T t = null;
-		try {
-			t = clazz.newInstance();
-		} catch (InstantiationException | IllegalAccessException e) {
-			e.printStackTrace();
-		}
-		foreachDispatch(t);
+		System.out.println("x:" + x.getClass());
+		instanceT = Stream.of(interfaceTypes).map(x -> {
+			T user = null;
+			if (x instanceof ParameterizedType) {
+				ParameterizedType pt = (ParameterizedType) x;
+				Type[] types = pt.getActualTypeArguments();
+				user = Stream.of(types).map(m -> {
+					T u = null;
+					try {
+						// System.out
+						// .println("x instanceof Class:" + (x instanceof
+						// Class));
+						if (x instanceof Class) {
+							u = ((Class<T>) x).newInstance();
+						}
+					} catch (InstantiationException
+							| IllegalAccessException e) {
+						e.printStackTrace();
+					}
+					return u;
+				}).filter(n -> n instanceof Result).findAny().orElse(null);
+			}
+			return user;
+		}).filter(y -> y instanceof Result).findAny().orElse(null);
+
+		instanceT.add(o);
+		foreachDispatch(instanceT);
 	}
 
 	default void foreachDispatch(T res) {
