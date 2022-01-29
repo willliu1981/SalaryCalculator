@@ -16,13 +16,10 @@ public class Store {
 			}
 
 			@Override
-			public void receive(Result o) {
-				System.out.println(o);
+			public void receive(Result result) {
+				Object res = result.get();
+				System.out.println(res);
 			}
-
-		
-			
-			
 
 		});
 
