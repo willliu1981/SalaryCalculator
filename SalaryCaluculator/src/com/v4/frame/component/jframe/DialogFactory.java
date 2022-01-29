@@ -1,11 +1,11 @@
-package com.v4.frame.component.frame;
+package com.v4.frame.component.jframe;
 
 import java.awt.Window;
 
 import javax.swing.JDialog;
 
-import com.v4.frame.component.panel.IPanelFactory;
-import com.v4.frame.component.panel.MonthDialogPanel;
+import com.v4.frame.component.jpanel.IPanelFactory;
+import com.v4.frame.component.jpanel.MonthDialogPanel;
 
 public class DialogFactory extends AbsFrameFactory {
 	public static final String MONTHDIALOG = "monthdialog";

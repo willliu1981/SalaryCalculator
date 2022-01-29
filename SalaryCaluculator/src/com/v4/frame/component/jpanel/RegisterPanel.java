@@ -1,4 +1,4 @@
-package com.v4.frame.component.panel;
+package com.v4.frame.component.jpanel;
 
 import javax.swing.JPanel;
 
@@ -16,11 +16,11 @@ import javax.swing.AbstractListModel;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 
-import com.v4.frame.component.frame.DialogFactory;
-import com.v4.frame.component.frame.DialogFrame;
-import com.v4.frame.component.frame.FrameGenerator;
-import com.v4.frame.component.listener.Dispatchable;
-import com.v4.frame.component.listener.Dispatcher;
+import com.v4.frame.component.jframe.DialogFactory;
+import com.v4.frame.component.jframe.DialogFrame;
+import com.v4.frame.component.jframe.FrameGenerator;
+import com.v4.listener.Dispatchable;
+import com.v4.listener.Dispatcher;
 
 import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;

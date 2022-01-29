@@ -6,7 +6,7 @@ import java.util.Map;
 
 import javax.swing.JComponent;
 
-import com.v4.frame.component.panel.IPanelFactory;
+import com.v4.frame.component.jpanel.IPanelFactory;
 
 /*
  * 用於拆分 Frame 裡數量龐大的組件

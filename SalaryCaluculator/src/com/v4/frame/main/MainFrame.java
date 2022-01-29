@@ -13,7 +13,7 @@ import javax.swing.border.EmptyBorder;
 import com.v4.frame.IFrame;
 import com.v4.frame.component.fabricate.ComponentFabricator;
 import com.v4.frame.component.fabricate.TitleFabricator;
-import com.v4.frame.component.panel.PanelFactory;
+import com.v4.frame.component.jpanel.PanelFactory;
 
 public class MainFrame extends JFrame implements IFrame {
 

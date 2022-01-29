@@ -3,8 +3,8 @@ package test.test6;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.v4.frame.component.listener.Dispatchable;
-import com.v4.frame.component.listener.Dispatcher;
+import com.v4.listener.Dispatchable;
+import com.v4.listener.Dispatcher;
 import com.v4.model.Result;
 
 

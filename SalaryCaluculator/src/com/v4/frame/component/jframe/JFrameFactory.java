@@ -1,10 +1,10 @@
-package com.v4.frame.component.frame;
+package com.v4.frame.component.jframe;
 
 import java.awt.Window;
 
 import javax.swing.JFrame;
 
-import com.v4.frame.component.panel.IPanelFactory;
+import com.v4.frame.component.jpanel.IPanelFactory;
 
 public class JFrameFactory extends AbsFrameFactory {
 	public static final String TESTJFRAME = "testjframe";

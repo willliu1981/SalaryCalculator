@@ -1,4 +1,4 @@
-package com.v4.frame.component.panel;
+package com.v4.frame.component.jpanel;
 
 import java.awt.BorderLayout;
 import java.awt.Font;
@@ -10,10 +10,10 @@ import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-import com.v4.frame.component.frame.DialogFactory;
-import com.v4.frame.component.frame.FrameGenerator;
-import com.v4.frame.component.frame.IDialog;
-import com.v4.frame.component.listener.Dispatcher;
+import com.v4.frame.component.jframe.DialogFactory;
+import com.v4.frame.component.jframe.FrameGenerator;
+import com.v4.frame.component.jframe.IDialog;
+import com.v4.listener.Dispatcher;
 import com.v4.model.Result;
 
 public class DateDialogPanel extends DialogPanel {

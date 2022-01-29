@@ -1,11 +1,11 @@
-package com.v4.frame.component.frame;
+package com.v4.frame.component.jframe;
 
 import java.awt.Window;
 import java.util.HashSet;
 import java.util.Set;
 
 import com.v4.exception.FindErrorException;
-import com.v4.frame.component.panel.IPanelFactory;
+import com.v4.frame.component.jpanel.IPanelFactory;
 
 
 public class FrameGenerator {

@@ -1,25 +1,33 @@
-package com.v4.frame.component.panel;
+package com.v4.frame.component.jpanel;
 
 import java.awt.BorderLayout;
 import java.awt.Font;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.util.List;
+import java.awt.Insets;
+import java.awt.SystemColor;
+import java.awt.Window;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.AbstractListModel;
+import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-import com.v4.frame.component.listener.Dispatcher;
+import com.v4.listener.Dispatcher;
 
-public class DayDialogPanel extends DialogPanel {
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.List;
+
+public class MonthDialogPanel extends DialogPanel {
 	private JList list;
 
 	/**
 	 * Create the panel.
 	 */
-	public DayDialogPanel() {
+	public MonthDialogPanel() {
 
 		setLayout(new BorderLayout(0, 0));
 
@@ -40,8 +48,8 @@ public class DayDialogPanel extends DialogPanel {
 		});
 		list.setFont(new Font("新細明體", Font.PLAIN, 30));
 		list.setModel(new AbstractListModel() {
-			String[] values = new String[] { "1", "2", "3", "4", "5", "6", "7",
-					"8", "9", "10" };
+			String[] values = new String[] { "一月", "二月", "三月", "四月", "五月", "六月",
+					"七月", "八月", "九月", "十月", "十一月", "十二月" };
 
 			public int getSize() {
 				return values.length;

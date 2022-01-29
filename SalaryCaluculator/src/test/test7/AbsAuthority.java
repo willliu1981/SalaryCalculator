@@ -4,7 +4,7 @@ import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.stream.Stream;
 
-public class AbsAuthority<T, E> {
+public class AbsAuthority<T, E> implements IAuthority<User>{
 
 	void m() {
 		Class<?> thisClass = this.getClass();

@@ -1,12 +1,12 @@
-package com.v4.frame.component.panel;
+package com.v4.frame.component.jpanel;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JPanel;
 
-import com.v4.frame.component.listener.Dispatchable;
-import com.v4.frame.component.listener.Dispatcher;
+import com.v4.listener.Dispatchable;
+import com.v4.listener.Dispatcher;
 
 /*
 	用於擴展各種類型的Dialog
