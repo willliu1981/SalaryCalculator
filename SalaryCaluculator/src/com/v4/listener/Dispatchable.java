@@ -50,6 +50,14 @@ public interface Dispatchable<T extends Result> {
 			return result;
 		}).filter(y -> y instanceof Result).findAny().orElse(null);
 
+		if (finalInstance == null) {
+			try {
+				finalInstance = (T) Result.class.newInstance();
+			} catch (InstantiationException | IllegalAccessException e) {
+				e.printStackTrace();
+			}
+		}
+
 		finalInstance.add(o);
 		foreachDispatch(finalInstance);
 	}
