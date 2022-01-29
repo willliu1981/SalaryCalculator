@@ -16,6 +16,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 import com.v4.listener.Dispatcher;
+import com.v4.model.Result;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -65,7 +66,7 @@ public class MonthDialogPanel extends DialogPanel {
 	}
 
 	@Override
-	public List<Dispatcher> getDispatchers() {
+	public List<Dispatcher<Result>> getDispatchers() {
 		return this.dispatchers;
 	}
 }

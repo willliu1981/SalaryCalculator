@@ -21,6 +21,7 @@ import com.v4.frame.component.jframe.DialogFrame;
 import com.v4.frame.component.jframe.FrameAndDialogGenerator;
 import com.v4.listener.Dispatchable;
 import com.v4.listener.Dispatcher;
+import com.v4.model.Result;
 
 import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
@@ -43,24 +44,33 @@ public class RegisterPanel extends JPanel {
 		panel.add(panel_1, BorderLayout.CENTER);
 		panel_1.setLayout(null);
 
-		JButton btnNewButton = new JButton("Date");
-		btnNewButton.setFocusable(false);
-		btnNewButton.setBackground(SystemColor.control);
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btnDate = new JButton("Date");
+		btnDate.setFocusable(false);
+		btnDate.setBackground(SystemColor.control);
+		btnDate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				DialogFrame frame = (DialogFrame) FrameAndDialogGenerator.getFrame(
-						DialogFrameFactory.DATEDIALOG, new DialogPanelFactory());
-				frame.addDispatcher(new Dispatcher() {
+				DialogFrame frame = (DialogFrame) FrameAndDialogGenerator
+						.getFrame(DialogFrameFactory.DATEDIALOG,
+								new DialogPanelFactory());
+				frame.addDispatcher(new Dispatcher<Result>() {
 					@Override
 					public void receive(Object o) {
-						btnNewButton.setText(o.toString());
 					}
+
+					@Override
+					public void receive(Result result) {
+						String date = String.format("%s月%s日",
+								result.get(DialogFrameFactory.MONTHDIALOG),
+								result.get(DialogFrameFactory.DAYDIALOG));
+						btnDate.setText(date);
+					}
+
 				});
 			}
 		});
-		btnNewButton.setBounds(38, 31, 193, 53);
-		btnNewButton.setFont(new Font("新細明體", Font.PLAIN, 36));
-		panel_1.add(btnNewButton);
+		btnDate.setBounds(38, 31, 193, 53);
+		btnDate.setFont(new Font("新細明體", Font.PLAIN, 36));
+		panel_1.add(btnDate);
 
 		JButton btnNewButton_1 = new JButton("Register");
 		btnNewButton_1.setFocusable(false);

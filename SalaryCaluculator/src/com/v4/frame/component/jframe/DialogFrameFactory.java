@@ -17,11 +17,9 @@ public class DialogFrameFactory extends AbsFrameFactory {
 
 	public Window getFrameInstance(String contentPanelName,
 			IPanelFactory factory) {
-		JDialog frame = null;
-		frame = new DialogFrame();
-		if (frame != null) {
-			((IDialog) frame).setContentComponent(contentPanelName, factory);
-		}
+		DialogFrame frame = new DialogFrame();
+		frame.setContentComponent(contentPanelName, factory);
+
 		return frame;
 	}
 

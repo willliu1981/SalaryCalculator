@@ -12,6 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 import com.v4.listener.Dispatcher;
+import com.v4.model.Result;
 
 public class DayDialogPanel extends DialogPanel {
 	private JList list;
@@ -57,7 +58,7 @@ public class DayDialogPanel extends DialogPanel {
 	}
 
 	@Override
-	public List<Dispatcher> getDispatchers() {
+	public List<Dispatcher<Result>> getDispatchers() {
 		return this.dispatchers;
 	}
 }

@@ -15,10 +15,14 @@ import com.v4.frame.component.jframe.FrameAndDialogGenerator;
 import com.v4.frame.component.jframe.IDialog;
 import com.v4.listener.Dispatcher;
 import com.v4.model.Result;
-
+//dispatcherResult 的清空問題
+/*
+ * 
+ */
 public class DateDialogPanel extends DialogPanel {
 	private int month;
 	private int day;
+	private Result dispatcherResult = new Result();
 
 	/**
 	 * Create the panel.
@@ -37,16 +41,17 @@ public class DateDialogPanel extends DialogPanel {
 		btnMonth.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				IDialog dialog = (IDialog) FrameAndDialogGenerator.getFrame(
-						DialogFrameFactory.MONTHDIALOG, new DialogPanelFactory());
+						DialogFrameFactory.MONTHDIALOG,
+						new DialogPanelFactory());
 				dialog.addDispatcher(new Dispatcher() {
 					@Override
 					public void receive(Object o) {
 						if (o instanceof Integer) {
 							month = ((Integer) o).intValue();
 							btnMonth.setText("月份:" + month);
-							Result res = new Result();
-							res.add(DialogFrameFactory.MONTHDIALOG, month);
-							updateDispatcher(res);
+							dispatcherResult.add(DialogFrameFactory.MONTHDIALOG,
+									month);
+							updateDispatcher(dispatcherResult);
 						}
 					}
 				});
@@ -65,15 +70,15 @@ public class DateDialogPanel extends DialogPanel {
 			public void actionPerformed(ActionEvent e) {
 				IDialog dialog = (IDialog) FrameAndDialogGenerator.getFrame(
 						DialogFrameFactory.DAYDIALOG, new DialogPanelFactory());
-				dialog.addDispatcher(new Dispatcher() {
+				dialog.addDispatcher(new Dispatcher<Result>() {
 					@Override
 					public void receive(Object o) {
 						if (o instanceof Integer) {
 							day = ((Integer) o).intValue();
 							btnDay.setText("日期:" + day);
-							Result res = new Result();
-							res.add(DialogFrameFactory.DAYDIALOG, day);
-							updateDispatcher(res);
+							dispatcherResult.add(DialogFrameFactory.DAYDIALOG,
+									day);
+							updateDispatcher(dispatcherResult);
 						}
 					}
 				});
@@ -89,7 +94,7 @@ public class DateDialogPanel extends DialogPanel {
 	}
 
 	@Override
-	public List<Dispatcher> getDispatchers() {
+	public List<Dispatcher<Result>> getDispatchers() {
 		return this.dispatchers;
 	}
 

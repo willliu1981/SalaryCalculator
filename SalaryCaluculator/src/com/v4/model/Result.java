@@ -19,6 +19,10 @@ public class Result {
 	}
 
 	private Object getResultWithContainKey(String containKey) {
+		System.out.println("xxxx:" + !getResults().containsKey(containKey));
+		this.getResults().forEach(
+				(x, y) -> System.out.printf("key=%s,value=%s\n", x, y));
+
 		if (!getResults().containsKey(containKey)) {
 			throw new FindErrorException();
 		}
@@ -34,7 +38,6 @@ public class Result {
 	}
 
 	public Object get(String name) {
-
 		return getResultWithContainKey(name);
 	}
 
@@ -42,12 +45,12 @@ public class Result {
 		Object o = null;
 		try {
 			o = getResultWithContainKey(DEFAULT);
-		} catch (RuntimeErrorException e) {
+		} catch (RuntimeException e) {
 			e.printStackTrace();
 			try {
 				o = getResults().entrySet().stream().findFirst().get();
-			} catch (RuntimeErrorException e2) {
-				e2.printStackTrace();
+			} catch (RuntimeException e2) {
+				e.printStackTrace();
 			}
 		}
 		return o;

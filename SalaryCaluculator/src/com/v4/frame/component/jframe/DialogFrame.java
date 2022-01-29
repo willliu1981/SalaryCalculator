@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import com.v4.exception.FindErrorException;
+import com.v4.frame.component.IHasContentComponent;
 import com.v4.frame.component.jpanel.IPanelFactory;
 import com.v4.listener.Dispatchable;
 import com.v4.listener.Dispatcher;
@@ -24,11 +25,12 @@ import com.v4.model.Result;
  * 自定 Dialog 的共同窗口
  * 藉由設定 Panel 取得自定義的視窗
  */
-public class DialogFrame extends JDialog implements IDialog {
+public class DialogFrame extends JDialog
+		implements IDialog, IHasContentComponent {
 
 	private final JPanel baseContentPanel = new JPanel();
 	private final List<Dispatcher<Result>> dispatchers = new ArrayList<>();
-	private Object dispatchResult = null;
+	private Result dispatchResult = null;
 
 	/**
 	 * Create the dialog.
@@ -75,7 +77,7 @@ public class DialogFrame extends JDialog implements IDialog {
 	}
 
 	@Override
-	public void setContentComponent(String compName,IPanelFactory factory) {
+	public void setContentComponent(String compName, IPanelFactory factory) {
 		baseContentPanel.removeAll();
 		JPanel panel = factory.getPanel(compName, this);
 		if (panel == null) {
@@ -83,18 +85,24 @@ public class DialogFrame extends JDialog implements IDialog {
 		}
 		baseContentPanel.add(panel, BorderLayout.CENTER);
 		Dispatchable dispatchable = (Dispatchable) panel;
-		dispatchable.addDispatcher(new Dispatcher() {
+		dispatchable.addDispatcher(new Dispatcher<Result>() {
+
 			@Override
 			public void receive(Object o) {
-				dispatchResult = o;
+				// TODO Auto-generated method stub
+
 			}
-			
-			
+
+			@Override
+			public void receive(Result result) {
+				dispatchResult = result;
+			}
+
 		});
 	}
 
 	@Override
-	public void addDispatcher(Dispatcher dispatcher) {
+	public void addDispatcher(Dispatcher<Result> dispatcher) {
 		this.dispatchers.add(dispatcher);
 	}
 
