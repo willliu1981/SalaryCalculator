@@ -27,35 +27,31 @@ public interface Dispatchable<T extends Result> {
 		this.getDispatchers().forEach(x -> x.receive(o));
 
 		Type[] interfaceTypes = this.getClass().getGenericInterfaces();
-		T instanceT = null;
+		T finalInstance = null;
 
-		System.out.println("x:" + x.getClass());
-		instanceT = Stream.of(interfaceTypes).map(x -> {
-			T user = null;
+		finalInstance = Stream.of(interfaceTypes).map(x -> {
+			T result = null;
 			if (x instanceof ParameterizedType) {
 				ParameterizedType pt = (ParameterizedType) x;
 				Type[] types = pt.getActualTypeArguments();
-				user = Stream.of(types).map(m -> {
-					T u = null;
+				result = Stream.of(types).map(type -> {
+					T instance = null;
 					try {
-						// System.out
-						// .println("x instanceof Class:" + (x instanceof
-						// Class));
-						if (x instanceof Class) {
-							u = ((Class<T>) x).newInstance();
+						if (type instanceof Class) {
+							instance = ((Class<T>) type).newInstance();
 						}
 					} catch (InstantiationException
 							| IllegalAccessException e) {
 						e.printStackTrace();
 					}
-					return u;
-				}).filter(n -> n instanceof Result).findAny().orElse(null);
+					return instance;
+				}).filter(i -> i instanceof Result).findAny().orElse(null);
 			}
-			return user;
+			return result;
 		}).filter(y -> y instanceof Result).findAny().orElse(null);
 
-		instanceT.add(o);
-		foreachDispatch(instanceT);
+		finalInstance.add(o);
+		foreachDispatch(finalInstance);
 	}
 
 	default void foreachDispatch(T res) {
