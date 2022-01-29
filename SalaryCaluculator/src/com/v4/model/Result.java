@@ -13,18 +13,15 @@ public class Result {
 
 	private Map<String, Object> getResults() {
 		if (results.size() == 0) {
-			throw new FindErrorException();
+			throw new FindErrorException("Result:size=0");
 		}
 		return this.results;
 	}
 
 	private Object getResultWithContainKey(String containKey) {
-		System.out.println("xxxx:" + !getResults().containsKey(containKey));
-		this.getResults().forEach(
-				(x, y) -> System.out.printf("key=%s,value=%s\n", x, y));
-
 		if (!getResults().containsKey(containKey)) {
-			throw new FindErrorException();
+			throw new FindErrorException(
+					"Result:not contain key=" + containKey);
 		}
 		return this.results.get(containKey);
 	}
@@ -38,19 +35,27 @@ public class Result {
 	}
 
 	public Object get(String name) {
-		return getResultWithContainKey(name);
+		Object o = null;
+		try {
+			o = getResultWithContainKey(name);
+		} catch (RuntimeException e) {
+			System.out.println(e.getMessage());
+		}
+
+		return o;
 	}
 
 	public Object get() {
 		Object o = null;
+
 		try {
 			o = getResultWithContainKey(DEFAULT);
 		} catch (RuntimeException e) {
-			e.printStackTrace();
+			System.out.println(e.getMessage());
 			try {
 				o = getResults().entrySet().stream().findFirst().get();
 			} catch (RuntimeException e2) {
-				e.printStackTrace();
+				System.out.println(e.getMessage());
 			}
 		}
 		return o;
