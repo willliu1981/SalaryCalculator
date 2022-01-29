@@ -18,6 +18,7 @@ import com.v4.exception.FindErrorException;
 import com.v4.frame.component.jpanel.IPanelFactory;
 import com.v4.listener.Dispatchable;
 import com.v4.listener.Dispatcher;
+import com.v4.model.Result;
 
 /*
  * 自定 Dialog 的共同窗口
@@ -26,7 +27,7 @@ import com.v4.listener.Dispatcher;
 public class DialogFrame extends JDialog implements IDialog {
 
 	private final JPanel baseContentPanel = new JPanel();
-	private final List<Dispatcher> dispatchers = new ArrayList<>();
+	private final List<Dispatcher<Result>> dispatchers = new ArrayList<>();
 	private Object dispatchResult = null;
 
 	/**
@@ -98,7 +99,7 @@ public class DialogFrame extends JDialog implements IDialog {
 	}
 
 	@Override
-	public List<Dispatcher> getDispatchers() {
+	public List<Dispatcher<Result>> getDispatchers() {
 		return this.dispatchers;
 	}
 

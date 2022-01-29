@@ -53,7 +53,7 @@ public class RegisterPanel extends JPanel {
 				frame.addDispatcher(new Dispatcher() {
 					@Override
 					public void receive(Object o) {
-						btnNewButton.setText((String) o);
+						btnNewButton.setText(o.toString());
 					}
 				});
 			}

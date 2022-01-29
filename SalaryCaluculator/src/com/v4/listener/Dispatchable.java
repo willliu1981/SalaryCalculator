@@ -19,12 +19,11 @@ public interface Dispatchable<T extends Result> {
 		this.foreachDispatch(o);
 	}
 
-	default void updateDispatcher(Result res) {
+	default void updateDispatcher(T res) {
 		this.foreachDispatch(res);
 	}
 
 	default void foreachDispatch(Object o) {
-		this.getDispatchers().forEach(x -> x.receive(o));
 
 		Type[] interfaceTypes = this.getClass().getGenericInterfaces();
 		T finalInstance = null;
@@ -64,5 +63,6 @@ public interface Dispatchable<T extends Result> {
 
 	default void foreachDispatch(T res) {
 		this.getDispatchers().forEach(x -> x.receive(res));
+		this.getDispatchers().forEach(x -> x.receive(res.get()));
 	}
 }
