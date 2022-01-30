@@ -19,7 +19,7 @@ import com.v4.model.Result;
 /*
  * 
  */
-public class DateDialogPanel extends DialogPanel {
+public class DateDialogPanel extends AbsDialogPanel {
 	private int month;
 	private int day;
 	private Result dispatcherResult = new Result();
@@ -93,9 +93,5 @@ public class DateDialogPanel extends DialogPanel {
 
 	}
 
-	@Override
-	public List<Dispatcher<Result>> getDispatchers() {
-		return this.dispatchers;
-	}
 
 }

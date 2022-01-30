@@ -133,8 +133,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="15" language="java" name="com.v4.frame.component.jpanel.DialogPanel" project="SalaryCaluculator" 
-    file="/SalaryCaluculator/src/com/v4/frame/component/jpanel/DialogPanel.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="15" language="java" name="com.v4.frame.component.jpanel.AbsDialogPanel" project="SalaryCaluculator" 
+    file="/SalaryCaluculator/src/com/v4/frame/component/jpanel/AbsDialogPanel.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1849" y="739"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      

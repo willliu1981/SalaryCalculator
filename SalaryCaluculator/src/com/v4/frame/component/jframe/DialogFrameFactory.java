@@ -14,6 +14,7 @@ public class DialogFrameFactory extends AbsFrameFactory {
 	public static final String MONTHDIALOG = "monthdialog";
 	public static final String DAYDIALOG = "daydialog";
 	public static final String DATEDIALOG = "datedialog";
+	public static final String LISTDIALOG = "listdialog";
 
 	public Window getFrameInstance(String contentPanelName,
 			IPanelFactory factory) {

@@ -12,7 +12,7 @@ import com.v4.model.Result;
 /*
 	用於擴展各種類型的Dialog
 */
-public abstract class DialogPanel extends JPanel implements IDialog {
+public abstract class AbsDialogPanel extends JPanel implements IDialog {
 	protected final List<Dispatcher<Result>> dispatchers = new ArrayList<>();
 
 	@Override
@@ -21,6 +21,9 @@ public abstract class DialogPanel extends JPanel implements IDialog {
 
 	}
 
-
+	@Override
+	public List<Dispatcher<Result>> getDispatchers() {
+		return this.dispatchers;
+	}
 
 }

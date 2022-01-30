@@ -31,6 +31,7 @@ public class DialogFrame extends JDialog
 	private final JPanel baseContentPanel = new JPanel();
 	private final List<Dispatcher<Result>> dispatchers = new ArrayList<>();
 	private Result dispatchResult = null;
+	private JPanel contentPanel;
 
 	/**
 	 * Create the dialog.
@@ -79,12 +80,12 @@ public class DialogFrame extends JDialog
 	@Override
 	public void setContentComponent(String compName, IPanelFactory factory) {
 		baseContentPanel.removeAll();
-		JPanel panel = factory.getPanel(compName, this);
-		if (panel == null) {
+		contentPanel = factory.getPanel(compName, this);
+		if (contentPanel == null) {
 			throw new FindErrorException("沒找到 " + compName + " ,因此無法加入 Panel");
 		}
-		baseContentPanel.add(panel, BorderLayout.CENTER);
-		Dispatchable dispatchable = (Dispatchable) panel;
+		baseContentPanel.add(contentPanel, BorderLayout.CENTER);
+		Dispatchable dispatchable = (Dispatchable) contentPanel;
 		dispatchable.addDispatcher(new Dispatcher<Result>() {
 
 			@Override
@@ -109,6 +110,12 @@ public class DialogFrame extends JDialog
 	@Override
 	public List<Dispatcher<Result>> getDispatchers() {
 		return this.dispatchers;
+	}
+
+	@Override
+	public JPanel getContentComponent() {
+		// TODO Auto-generated method stub
+		return this.contentPanel;
 	}
 
 }

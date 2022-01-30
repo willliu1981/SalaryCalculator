@@ -22,7 +22,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.List;
 
-public class MonthDialogPanel extends DialogPanel {
+public class MonthDialogPanel extends AbsDialogPanel {
 	private JList list;
 
 	/**
@@ -65,8 +65,5 @@ public class MonthDialogPanel extends DialogPanel {
 
 	}
 
-	@Override
-	public List<Dispatcher<Result>> getDispatchers() {
-		return this.dispatchers;
-	}
+
 }
