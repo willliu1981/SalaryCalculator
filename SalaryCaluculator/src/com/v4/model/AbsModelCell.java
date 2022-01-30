@@ -1,12 +1,12 @@
 package com.v4.model;
 
-public class ModelCell {
+public abstract class AbsModelCell {
 	private String name;
 
-	public ModelCell() {
+	public AbsModelCell() {
 	}
 
-	public ModelCell(String name) {
+	public AbsModelCell(String name) {
 		this.setName(name);
 	}
 

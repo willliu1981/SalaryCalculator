@@ -6,24 +6,22 @@ import java.util.List;
 import javax.swing.ListModel;
 import javax.swing.event.ListDataListener;
 
-public class ListDialogModel implements ListModel<ModelCell> {
-	private List<ModelCell> list=new ArrayList<>();
-	private List<ListDataListener> listeners=new ArrayList<>();
+public class ListDialogModel<T extends AbsModelCell> implements ListModel<T> {
+	private List<T> list = new ArrayList<>();
+	private List<ListDataListener> listeners = new ArrayList<>();
 
-	
-	
 	@Override
 	public int getSize() {
 		// TODO Auto-generated method stub
 		return list.size();
 	}
 
-	public void addElement(ModelCell cell) {
+	public void addElement(T cell) {
 		this.list.add(cell);
 	}
-	
+
 	@Override
-	public ModelCell getElementAt(int index) {
+	public T getElementAt(int index) {
 		// TODO Auto-generated method stub
 		return this.list.get(index);
 	}
