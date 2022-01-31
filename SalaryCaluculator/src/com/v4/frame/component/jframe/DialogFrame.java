@@ -81,6 +81,7 @@ public class DialogFrame extends JDialog
 	@Override
 	public void setContentComponent(String compName, IPanelFactory factory) {
 		baseContentPanel.removeAll();
+		
 		if (factory instanceof DialogPanelFactory) {
 			contentPanel = factory.getPanel(compName, this);
 		} else {

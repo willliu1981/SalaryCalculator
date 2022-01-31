@@ -17,12 +17,21 @@ public class FrameAndDialogGenerator {
 
 	public static void setFactory(AbsFrameFactory factory) {
 		factories.add(factory);
+
 	}
 
 	public static Window getFrame(String compName, IPanelFactory factory) {
+		return getFrame(compName, factory, true);
+	}
+
+	public static Window getFrame(String compName, IPanelFactory factory,
+			boolean visible) {
 		factories.stream().filter(x -> {
 			try {
 				frame = x.getFrameInstance(compName, factory);
+				if (frame == null) {
+					return false;
+				}
 			} catch (RuntimeException e) {
 				return false;
 			}
@@ -31,7 +40,7 @@ public class FrameAndDialogGenerator {
 		if (frame == null) {
 			throw new FindErrorException("找不到 " + compName + " ,無法創建Frame");
 		}
-		// frame.setVisible(true);
+		frame.setVisible(visible);
 		return frame;
 	}
 }

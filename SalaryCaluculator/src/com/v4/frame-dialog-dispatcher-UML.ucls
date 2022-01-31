@@ -3,7 +3,7 @@
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="com.v4.model.Result" project="SalaryCaluculator" 
     file="/SalaryCaluculator/src/com/v4/model/Result.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="460" y="370"/>    
+    <position height="-1" width="-1" x="198" y="333"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -12,7 +12,7 @@
   </class>  
   <class id="2" language="java" name="com.v4.model.DefaultModelCell" project="SalaryCaluculator" 
     file="/SalaryCaluculator/src/com/v4/model/DefaultModelCell.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1230" y="610"/>    
+    <position height="-1" width="-1" x="933" y="647"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -21,7 +21,7 @@
   </class>  
   <class id="3" language="java" name="com.v4.model.AbsModelCell" project="SalaryCaluculator" 
     file="/SalaryCaluculator/src/com/v4/model/AbsModelCell.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1443" y="405"/>    
+    <position height="-1" width="-1" x="1281" y="528"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -30,7 +30,7 @@
   </class>  
   <class id="4" language="java" name="com.v4.model.ListDialogModel" project="SalaryCaluculator" 
     file="/SalaryCaluculator/src/com/v4/model/ListDialogModel.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1191" y="184"/>    
+    <position height="-1" width="-1" x="1313" y="165"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -39,7 +39,7 @@
   </class>  
   <interface id="5" language="java" name="com.v4.listener.Dispatchable" project="SalaryCaluculator" 
     file="/SalaryCaluculator/src/com/v4/listener/Dispatchable.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="146" y="394"/>    
+    <position height="-1" width="-1" x="343" y="668"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -48,7 +48,7 @@
   </interface>  
   <interface id="6" language="java" name="com.v4.listener.Dispatcher" project="SalaryCaluculator" 
     file="/SalaryCaluculator/src/com/v4/listener/Dispatcher.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="192" y="145"/>    
+    <position height="-1" width="-1" x="510" y="300"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -58,70 +58,61 @@
   <class id="7" language="java" name="com.v4.frame.component.jpanel.ListDialogPanel" project="SalaryCaluculator" 
     file="/SalaryCaluculator/src/com/v4/frame/component/jpanel/ListDialogPanel.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="777" y="305"/>    
+    <position height="-1" width="-1" x="882" y="328"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="8" language="java" name="com.v4.frame.component.jpanel.AbsDialogPanel" project="SalaryCaluculator" 
-    file="/SalaryCaluculator/src/com/v4/frame/component/jpanel/AbsDialogPanel.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="516" y="97"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <association id="9">    
+  <association id="8">    
     <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="10" name="list"/>      
-      <multiplicity id="11" minimum="0" maximum="2147483647"/>    
+      <attribute id="9" name="list"/>      
+      <multiplicity id="10" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <dependency id="12">    
+  <dependency id="11">    
     <end type="SOURCE" refId="5"/>    
     <end type="TARGET" refId="1"/>  
   </dependency>  
-  <dependency id="13">    
+  <dependency id="12">    
     <end type="SOURCE" refId="5"/>    
     <end type="TARGET" refId="6"/>  
   </dependency>  
-  <dependency id="14">    
+  <dependency id="13">    
     <end type="SOURCE" refId="7"/>    
     <end type="TARGET" refId="3"/>  
   </dependency>  
-  <association id="15">    
+  <association id="14">    
     <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="16" name="model"/>      
-      <multiplicity id="17" minimum="0" maximum="1"/>    
+      <attribute id="15" name="model"/>      
+      <multiplicity id="16" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="4" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="18">    
+  <generalization id="17">    
     <end type="SOURCE" refId="2"/>    
     <end type="TARGET" refId="3"/>  
   </generalization>  
-  <dependency id="19">    
+  <dependency id="18">    
     <end type="SOURCE" refId="6"/>    
     <end type="TARGET" refId="1"/>  
   </dependency>  
-  <dependency id="20">    
-    <end type="SOURCE" refId="8"/>    
-    <end type="TARGET" refId="1"/>  
-  </dependency>  
-  <association id="21">    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="22" name="dispatchers"/>      
-      <multiplicity id="23" minimum="0" maximum="2147483647"/>    
+  <association id="19">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="20" name="dispatchers"/>      
+      <multiplicity id="21" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="6" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
+  <dependency id="22">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="6"/>  
+  </dependency>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    

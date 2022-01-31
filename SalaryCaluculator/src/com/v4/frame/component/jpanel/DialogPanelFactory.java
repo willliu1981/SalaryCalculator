@@ -24,6 +24,7 @@ public class DialogPanelFactory implements IPanelFactory {
 
 	public JPanel getPanel(String name, Window father) {
 		JPanel panel = null;
+		
 		switch (name) {
 		case MONTHDIALOG:
 			panel = new MonthDialogPanel();
@@ -42,6 +43,7 @@ public class DialogPanelFactory implements IPanelFactory {
 		}
 		if (panel != null) {
 			panel.setName(name);
+			
 		}
 		return panel;
 	}

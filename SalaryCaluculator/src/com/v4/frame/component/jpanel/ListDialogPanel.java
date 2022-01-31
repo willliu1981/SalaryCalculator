@@ -23,6 +23,7 @@ import com.v4.model.ListDialogResult;
 public class ListDialogPanel<T extends AbsModelCell<?, ?>> extends JPanel
 		implements IListModelComponent<ListDialogModel<T>>,
 		ListDialogDispatchable<ListDialogResult> {
+
 	protected List<Dispatcher<ListDialogResult>> dispatchers = new ArrayList<>();
 	protected ListDialogModel<T> model;
 	protected JList<?> list = new JList();
