@@ -26,7 +26,7 @@ public class FrameAndDialogGenerator {
 		if (frame == null) {
 			throw new FindErrorException("找不到 " + compName + " ,無法創建Frame");
 		}
-		frame.setVisible(true);
+		//frame.setVisible(true);
 		return frame;
 	}
 }

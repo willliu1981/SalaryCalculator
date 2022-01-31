@@ -7,18 +7,18 @@ import com.v4.listener.Dispatchable;
 import com.v4.listener.Dispatcher;
 import com.v4.model.Result;
 
-public class Book implements Dispatchable<MyResult> {
+public class Book implements Dispatchable<ListDialogResult> {
 
-	List<Dispatcher<MyResult>> disps = new ArrayList<>();
+	List<Dispatcher<ListDialogResult>> disps = new ArrayList<>();
 
 	@Override
-	public void addDispatcher(Dispatcher<MyResult> dispatcher) {
+	public void addDispatcher(Dispatcher<ListDialogResult> dispatcher) {
 		this.getDispatchers().add(dispatcher);
 
 	}
 
 	@Override
-	public List<Dispatcher<MyResult>> getDispatchers() {
+	public List<Dispatcher<ListDialogResult>> getDispatchers() {
 		return this.disps;
 	}
 	

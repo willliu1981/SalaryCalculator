@@ -1,13 +1,17 @@
 package com.v4.frame.component.jpanel;
 
+import java.awt.BorderLayout;
 import java.awt.Window;
 
 import javax.swing.JPanel;
+
+import com.v4.frame.component.jframe.JFrameFactory;
 
 /*
  * 取得 JFrame 的 Panel 工廠
  */
 public class JFramePanelFactory implements IPanelFactory {
+	public static final String TESTJPANEL = JFrameFactory.TEST;
 	public static final String REGISTER = "register";
 	public static final String VIEW = "view";
 	public static final String DATEDAILOG = "dateDailog";
@@ -20,6 +24,11 @@ public class JFramePanelFactory implements IPanelFactory {
 	public JPanel getPanel(String name, Window father) {
 		JPanel panel = null;
 		switch (name) {
+		case TESTJPANEL:
+			panel = new JPanel();
+			panel.setLayout(new BorderLayout());
+			panel.setBounds(0, 0, 500, 380);
+			break;
 		case REGISTER:
 			panel = new RegisterPanel();
 			break;

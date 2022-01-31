@@ -1,31 +1,31 @@
 package com.v4.frame.component.jpanel;
 
-import javax.swing.JPanel;
 import java.awt.BorderLayout;
+import java.awt.Font;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.DefaultListModel;
+import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.ListModel;
 
 import com.v4.frame.component.IListModelComponent;
 import com.v4.listener.Dispatcher;
+import com.v4.listener.ListDialogDispatchable;
 import com.v4.model.AbsModelCell;
 import com.v4.model.ListDialogModel;
-import com.v4.model.Result;
+import com.v4.model.ListDialogResult;
 
-import test.test11.MyResult;
-
-import javax.swing.JLabel;
-import java.awt.Font;
-
-public class ListDialogPanel<T extends AbsModelCell> extends AbsDialogPanel
-		implements IListModelComponent<ListDialogModel<T>> {
-
-	protected ListDialogModel model;
-	protected JList list = new JList();
+public class ListDialogPanel<T extends AbsModelCell<?, ?>> extends JPanel
+		implements IListModelComponent<ListDialogModel<T>>,
+		ListDialogDispatchable<ListDialogResult> {
+	protected List<Dispatcher<ListDialogResult>> dispatchers = new ArrayList<>();
+	protected ListDialogModel<T> model;
+	protected JList<?> list = new JList();
 	protected JScrollPane scrollPane = new JScrollPane();
 
 	public ListDialogPanel() {
@@ -54,13 +54,33 @@ public class ListDialogPanel<T extends AbsModelCell> extends AbsDialogPanel
 		this.list = new JList(model);
 		this.list.setFont(new Font(Font.SERIF, Font.PLAIN, 30));
 		scrollPane.setViewportView(list);
-
+		list.getSelectionModel();
+		list.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				AbsModelCell cell = (AbsModelCell) list.getSelectedValue();
+				ListDialogResult result = new ListDialogResult();
+				result.add(cell);
+				updateDispatcher(result);
+			}
+		});
 	}
 
 	@Override
-	public ListDialogModel getModel() {
+	public ListDialogModel<T> getModel() {
 		// TODO Auto-generated method stub
 		return this.model;
+	}
+
+	@Override
+	public void addDispatcher(Dispatcher<ListDialogResult> dispatcher) {
+		this.dispatchers.add(dispatcher);
+	}
+
+	@Override
+	public List<Dispatcher<ListDialogResult>> getDispatchers() {
+		// TODO Auto-generated method stub
+		return this.dispatchers;
 	}
 
 }

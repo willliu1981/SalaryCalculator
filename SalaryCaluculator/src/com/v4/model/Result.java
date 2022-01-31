@@ -7,11 +7,11 @@ import javax.management.RuntimeErrorException;
 
 import com.v4.exception.FindErrorException;
 
-public class Result {
+public class Result<T> {
 	private final String DEFAULT = "default-" + this.hashCode();
-	private Map<String, Object> results = new HashMap<>();
+	private Map<String, T> results = new HashMap<>();
 
-	private Map<String, Object> getResults() {
+	private Map<String, T> getResults() {
 		if (results.size() == 0) {
 			throw new FindErrorException("Result:size=0");
 		}
@@ -26,11 +26,11 @@ public class Result {
 		return this.results.get(containKey);
 	}
 
-	public void add(String name, Object o) {
+	public void add(String name, T o) {
 		this.results.put(name, o);
 	}
 
-	public void add(Object o) {
+	public void add(T o) {
 		this.results.put(DEFAULT, o);
 	}
 
