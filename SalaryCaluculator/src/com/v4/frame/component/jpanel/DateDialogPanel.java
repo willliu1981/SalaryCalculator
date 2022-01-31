@@ -6,9 +6,11 @@ import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+import com.v4.factory.listmodel.ListModelFactory;
 import com.v4.frame.component.IListModelComponent;
 import com.v4.frame.component.jframe.DialogFrame;
 import com.v4.frame.component.jframe.DialogFrameFactory;
@@ -44,25 +46,12 @@ public class DateDialogPanel extends AbsDialogPanel {
 		JButton btnMonth = new JButton("Month");
 		btnMonth.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
 				DialogFrame dialog = (DialogFrame) FrameAndDialogGenerator
 						.getFrame(DialogFrameFactory.LISTDIALOG,
 								new DialogPanelFactory());
-
-				IListModelComponent<ListDialogModel<DefaultModelCell>> comp = (IListModelComponent<ListDialogModel<DefaultModelCell>>) dialog
-						.getContentComponent();
-				ListDialogModel<DefaultModelCell> model = new ListDialogModel<>();
-				DefaultModelCell cell = new DefaultModelCell("一月");
-				cell.setValue(1);
-				model.addElement(cell);
-				DefaultModelCell cell2 = new DefaultModelCell("二月");
-				cell2.setValue(2);
-				model.addElement(cell2);
-				DefaultModelCell cell3 = new DefaultModelCell("三月");
-				cell3.setValue(3);
-				model.addElement(cell3);
-				comp.setModel(model);
-
+				ListModelFactory.setModel(
+						(IListModelComponent) dialog.getContentComponent(),
+						ListModelFactory.MONTH);
 				dialog.addDispatcher(new Dispatcher() {
 
 					@Override
@@ -83,14 +72,9 @@ public class DateDialogPanel extends AbsDialogPanel {
 								cell);
 
 						updateDispatcher(dispatcherResult);
-
 					}
-
-				}
-
-				);
+				});
 			}
-
 		});
 
 		btnMonth.setFocusable(false);
@@ -102,18 +86,32 @@ public class DateDialogPanel extends AbsDialogPanel {
 		JButton btnDay = new JButton("Day");
 		btnDay.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				IDialog dialog = (IDialog) FrameAndDialogGenerator.getFrame(
-						DialogFrameFactory.DAYDIALOG, new DialogPanelFactory());
-				dialog.addDispatcher(new Dispatcher<Result>() {
+				DialogFrame dialog = (DialogFrame) FrameAndDialogGenerator
+						.getFrame(DialogFrameFactory.LISTDIALOG,
+								new DialogPanelFactory());
+				ListModelFactory.setModel(
+						(IListModelComponent) dialog.getContentComponent(),
+						ListModelFactory.Day);
+				dialog.addDispatcher(new Dispatcher() {
+
 					@Override
 					public void receive(Object o) {
-						if (o instanceof Integer) {
-							day = ((Integer) o).intValue();
-							btnDay.setText("日期:" + day);
-							dispatcherResult.add(DialogFrameFactory.DAYDIALOG,
-									day);
-							updateDispatcher(dispatcherResult);
-						}
+						// TODO Auto-generated method stub
+
+					}
+
+					@Override
+					public void receive(Result result) {
+						DefaultModelCell cell = (DefaultModelCell) result.get();
+
+						int m = (int) cell.getValue();
+
+						day = m;
+						btnDay.setText("月份:" + day);
+						dispatcherResult.add(DialogFrameFactory.DAYDIALOG,
+								cell);
+
+						updateDispatcher(dispatcherResult);
 					}
 				});
 			}

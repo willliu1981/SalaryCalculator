@@ -1,5 +1,6 @@
 package com.v4.model;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -13,7 +14,7 @@ public class Result<T> {
 
 	private Map<String, T> getResults() {
 		if (results.size() == 0) {
-			throw new FindErrorException("Result:size=0");
+			throw new FindErrorException(this + ":size=0");
 		}
 		return this.results;
 	}
@@ -21,7 +22,7 @@ public class Result<T> {
 	private Object getResultWithContainKey(String containKey) {
 		if (!getResults().containsKey(containKey)) {
 			throw new FindErrorException(
-					"Result:not contain key=" + containKey);
+					this + ":not contain key=" + containKey);
 		}
 		return this.results.get(containKey);
 	}
