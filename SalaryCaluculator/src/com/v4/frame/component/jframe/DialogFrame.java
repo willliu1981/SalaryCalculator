@@ -16,6 +16,7 @@ import javax.swing.border.EmptyBorder;
 
 import com.v4.exception.FindErrorException;
 import com.v4.frame.component.IHasContentComponent;
+import com.v4.frame.component.jpanel.DialogPanelFactory;
 import com.v4.frame.component.jpanel.IPanelFactory;
 import com.v4.listener.Dispatchable;
 import com.v4.listener.Dispatcher;
@@ -31,7 +32,7 @@ public class DialogFrame extends JDialog
 	private final JPanel baseContentPanel = new JPanel();
 	private final List<Dispatcher<Result>> dispatchers = new ArrayList<>();
 	private Result dispatchResult = null;
-	private JPanel contentPanel;
+	private JPanel contentPanel=null;
 
 	/**
 	 * Create the dialog.
@@ -80,9 +81,13 @@ public class DialogFrame extends JDialog
 	@Override
 	public void setContentComponent(String compName, IPanelFactory factory) {
 		baseContentPanel.removeAll();
-		contentPanel = factory.getPanel(compName, this);
-		if (contentPanel == null) {
-			throw new FindErrorException("沒找到 " + compName + " ,因此無法加入 Panel");
+		if (factory instanceof DialogPanelFactory) {
+			contentPanel = factory.getPanel(compName, this);
+		} else {
+			if (contentPanel == null) {
+				throw new FindErrorException(
+						"沒找到 " + compName + " ,因此無法加入 Panel");
+			}
 		}
 		baseContentPanel.add(contentPanel, BorderLayout.CENTER);
 		Dispatchable dispatchable = (Dispatchable) contentPanel;

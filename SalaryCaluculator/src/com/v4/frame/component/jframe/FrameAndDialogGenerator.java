@@ -19,14 +19,19 @@ public class FrameAndDialogGenerator {
 		factories.add(factory);
 	}
 
-	public static Window getFrame(String compName,IPanelFactory factory) {
-		factories.stream()
-				.filter(x -> (frame = x.getFrameInstance(compName,factory)) != null)
-				.findAny();
+	public static Window getFrame(String compName, IPanelFactory factory) {
+		factories.stream().filter(x -> {
+			try {
+				frame = x.getFrameInstance(compName, factory);
+			} catch (RuntimeException e) {
+				return false;
+			}
+			return true;
+		}).findAny();
 		if (frame == null) {
 			throw new FindErrorException("找不到 " + compName + " ,無法創建Frame");
 		}
-		//frame.setVisible(true);
+		// frame.setVisible(true);
 		return frame;
 	}
 }

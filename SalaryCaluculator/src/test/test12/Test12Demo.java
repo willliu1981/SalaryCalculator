@@ -37,31 +37,31 @@ public class Test12Demo {
 		model.addElement(cell2);
 		model.addElement(cell3);
 		dia.setModel(model);
+		dialog.addDispatcher(new Dispatcher() {
+
+			@Override
+			public void receive(Object o) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void receive(Result result) {
+				ListDialogResult r = (ListDialogResult) result;
+				DefaultModelCell cell = (DefaultModelCell) r.get();
+				System.out.println(cell.getName());
+			}
+
+		});
 
 		JFrame f = (JFrame) FrameAndDialogGenerator
-				.getFrame(JFrameFactory.TEST, new JFramePanelFactory());
+				.getFrame(JFrameFactory.TESTJFRAME, new JFramePanelFactory());
 		JButton b = new JButton("test");
 		f.getContentPane().add(b);
 		b.addMouseListener(new MouseAdapter() {
 
 			@Override
 			public void mousePressed(MouseEvent e) {
-				dialog.addDispatcher(new Dispatcher() {
-
-					@Override
-					public void receive(Object o) {
-						// TODO Auto-generated method stub
-
-					}
-
-					@Override
-					public void receive(Result result) {
-						ListDialogResult r = (ListDialogResult) result;
-						DefaultModelCell cell = (DefaultModelCell) r.get();
-						System.out.println(cell.getName());
-					}
-
-				});
 
 				dialog.setVisible(true);
 

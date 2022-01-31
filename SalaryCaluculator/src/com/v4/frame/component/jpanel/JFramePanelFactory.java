@@ -11,7 +11,7 @@ import com.v4.frame.component.jframe.JFrameFactory;
  * 取得 JFrame 的 Panel 工廠
  */
 public class JFramePanelFactory implements IPanelFactory {
-	public static final String TESTJPANEL = JFrameFactory.TEST;
+	public static final String TESTJFRAME = JFrameFactory.TESTJFRAME;
 	public static final String REGISTER = "register";
 	public static final String VIEW = "view";
 	public static final String DATEDAILOG = "dateDailog";
@@ -24,10 +24,8 @@ public class JFramePanelFactory implements IPanelFactory {
 	public JPanel getPanel(String name, Window father) {
 		JPanel panel = null;
 		switch (name) {
-		case TESTJPANEL:
-			panel = new JPanel();
-			panel.setLayout(new BorderLayout());
-			panel.setBounds(0, 0, 500, 380);
+		case TESTJFRAME:
+			//default null
 			break;
 		case REGISTER:
 			panel = new RegisterPanel();
