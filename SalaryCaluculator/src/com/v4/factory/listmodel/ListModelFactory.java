@@ -3,7 +3,6 @@ package com.v4.factory.listmodel;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.swing.JPanel;
 import javax.swing.ListModel;
 
 import com.v4.frame.component.IListModelComponent;
@@ -28,6 +27,8 @@ public class ListModelFactory {
 
 	public static final String MONTH = "month";
 	public static final String Day = "day";
+	public static final String HOUR = "hour";
+	public static final String MINUTE = "minute";
 
 	public static _ListModelFactory setFactory(String name,
 			AbsListModelFactory factory) {
