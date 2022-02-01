@@ -21,6 +21,7 @@ import com.v4.frame.component.jpanel.IPanelFactory;
 import com.v4.listener.Dispatchable;
 import com.v4.listener.Dispatcher;
 import com.v4.model.Result;
+import com.v4.xml.XMLFactory;
 
 /*
  * 自定 Dialog 的共同窗口
@@ -32,7 +33,7 @@ public class DialogFrame extends JDialog
 	private final JPanel baseContentPanel = new JPanel();
 	private final List<Dispatcher<Result>> dispatchers = new ArrayList<>();
 	private Result dispatchResult = null;
-	private JPanel contentPanel=null;
+	private JPanel contentPanel = null;
 
 	/**
 	 * Create the dialog.
@@ -81,9 +82,10 @@ public class DialogFrame extends JDialog
 	@Override
 	public void setContentComponent(String compName, IPanelFactory factory) {
 		baseContentPanel.removeAll();
-		
+
 		if (factory instanceof DialogPanelFactory) {
-			contentPanel = factory.getPanel(compName, this);
+			//contentPanel = factory.getPanel(compName, this);
+			contentPanel = (JPanel) XMLFactory.getXMLClassInstance(compName);
 		} else {
 			if (contentPanel == null) {
 				throw new FindErrorException(

@@ -11,6 +11,7 @@ import com.v4.frame.component.jframe.JFrameFactory;
 
 public class Setting {
 	public static void initialize() {
+		XMLCreator.createXMLData();
 		FrameAndDialogGenerator.setFactory(new DialogFrameFactory());
 		FrameAndDialogGenerator.setFactory(new JFrameFactory());
 		ListModelFactory

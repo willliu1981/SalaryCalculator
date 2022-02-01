@@ -20,6 +20,7 @@ import com.v4.listener.Dispatcher;
 import com.v4.model.DefaultModelCell;
 import com.v4.model.ListDialogModel;
 import com.v4.model.Result;
+import com.v4.xml.XMLFactory;
 
 //dispatcherResult 的清空問題
 /*
@@ -43,15 +44,21 @@ public class DateDialogPanel extends AbsDialogPanel {
 		JPanel panel_1 = new JPanel();
 		panel.add(panel_1, BorderLayout.CENTER);
 		panel_1.setLayout(null);
+
 		JButton btnMonth = new JButton("Month");
 		btnMonth.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+
+				// *
 				DialogFrame dialog = (DialogFrame) FrameAndDialogGenerator
 						.getFrame(DialogFrameFactory.LISTDIALOG,
 								new DialogPanelFactory());
+				// */
+
 				ListModelFactory.setModel(
 						(IListModelComponent) dialog.getContentComponent(),
 						ListModelFactory.MONTH);
+
 				dialog.addDispatcher(new Dispatcher() {
 
 					@Override

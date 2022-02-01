@@ -39,6 +39,7 @@ class UserHandler2 extends DefaultHandler {
 		if (qName.equalsIgnoreCase("student")) {
 			ModelFactory.creatNewModel();
 			String rollNo = attributes.getValue("rollno");
+		
 			ModelFactory.creatingModel("id", rollNo);
 			System.out.println("Roll No : " + rollNo);
 		} else if (qName.equalsIgnoreCase("firstname")) {
