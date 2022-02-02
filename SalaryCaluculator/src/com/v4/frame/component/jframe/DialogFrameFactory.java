@@ -17,10 +17,10 @@ public class DialogFrameFactory extends AbsFrameFactory {
 	public static final String LISTDIALOG = "listdialog";
 
 	public Window getFrameInstance(String contentPanelName,
-			IPanelFactory factory) {
+			IPanelFactory panelFactory) {
 		DialogFrame frame = new DialogFrame();
 
-		frame.setContentComponent(contentPanelName, factory);
+		frame.setContentComponent(contentPanelName, panelFactory);
 
 		return frame;
 	}

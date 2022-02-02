@@ -11,7 +11,7 @@ import com.v4.frame.component.jpanel.IPanelFactory;
  * Frame 和 Dialog 產生器
  * 需注入次級 Panel 工廠
  */
-public class FrameAndDialogGenerator {
+public class XFrameAndDialogGenerator {
 	private final static Set<AbsFrameFactory> factories = new HashSet<>();
 	private static Window frame;
 
@@ -21,8 +21,10 @@ public class FrameAndDialogGenerator {
 	}
 
 
-	public static Window getFrame(String compName, IPanelFactory factory) {
-		return getFrame(compName, factory, true);
+	public static Window getFrame(String compName) {
+		
+		
+		return null;
 	}
 
 	public static Window getFrame(String compName, IPanelFactory panelFactory,
