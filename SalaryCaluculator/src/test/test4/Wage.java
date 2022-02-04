@@ -120,12 +120,17 @@ public class Wage {
 		}
 	}
 
-	public List<Punch> testGetPunches() {
+	public List<Punch> getPunches() {
 		return this.punches;
 	}
 
-	public Punch testGetHoldingPunch() {
+	public Punch getHoldingPunchFortest() {
 		return this.holdingPunch;
+	}
+
+	public void printListForTest() {
+		System.out.println("test :" + this.getClass());
+		punches.forEach(x -> System.out.println("  " + x));
 	}
 
 }

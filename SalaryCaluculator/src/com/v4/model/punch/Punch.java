@@ -59,4 +59,9 @@ public class Punch {
 		this.punch_out = punch_out;
 	}
 
+	public String toString() {
+		return String.format("in=%s, out=%s", this.getPunchIn(),
+				this.getPunchOut());
+	}
+
 }

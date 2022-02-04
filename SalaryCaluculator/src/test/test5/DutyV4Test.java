@@ -39,18 +39,18 @@ public class DutyV4Test {
 		wage.setPunchIn(Timestamp.valueOf("2022-1-20 18:02:22"));
 		Wages.punchIn(wage, halfHourPunchStrategy);
 
-		wage.testGetPunches().forEach(x -> System.out.printf("in=%s  out=%s\n",
+		wage.getPunches().forEach(x -> System.out.printf("in=%s  out=%s\n",
 				x.getPunchIn(), x.getPunchOut()));
-		System.out.println("size : " + wage.testGetPunches().size());
+		System.out.println("size : " + wage.getPunches().size());
 		
 		wage.next();
-		System.out.println("hold : " + wage.testGetHoldingPunch().getPunchIn());
+		System.out.println("hold : " + wage.getHoldingPunchFortest().getPunchIn());
 		wage.next();
-		System.out.println("hold : " + wage.testGetHoldingPunch().getPunchIn());
+		System.out.println("hold : " + wage.getHoldingPunchFortest().getPunchIn());
 		wage.next();
-		System.out.println("hold : " + wage.testGetHoldingPunch().getPunchIn());
+		System.out.println("hold : " + wage.getHoldingPunchFortest().getPunchIn());
 		wage.next();
-		System.out.println("hold : " + wage.testGetHoldingPunch().getPunchIn());
+		System.out.println("hold : " + wage.getHoldingPunchFortest().getPunchIn());
 		
 		
 
