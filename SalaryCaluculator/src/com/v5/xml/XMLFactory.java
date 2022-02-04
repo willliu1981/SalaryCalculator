@@ -38,7 +38,9 @@ public class XMLFactory {
 	public static Object getXMLClassInstance(String name) {
 		String className = classes.entrySet().stream()
 				.filter(x -> x.getKey().equalsIgnoreCase(name)).findFirst()
-				.orElseThrow(FindErrorException::new).getValue().getClassName();
+				.orElseThrow(() -> new FindErrorException(
+						XMLFactory.class + ":" + name))
+				.getValue().getClassName();
 		Object o = null;
 		try {
 			Class<?> clazz = Class.forName(className);

@@ -4,7 +4,6 @@ import java.awt.BorderLayout;
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,12 +12,14 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-import com.v4.frame.component.IListModelComponent;
-import com.v4.listener.Dispatcher;
-import com.v4.listener.ListDialogDispatchable;
-import com.v4.model.AbsModelCell;
-import com.v4.model.ListDialogModel;
-import com.v4.model.ListDialogResult;
+import com.v5.dispatcher.Dispatcher;
+import com.v5.dispatcher.ListDialogDispatchable;
+import com.v5.dispatcher.model.ListDialogResult;
+import com.v5.model.AbsModelCell;
+import com.v5.model.ListDialogModel;
+import com.v5.window.interfaces.IListModelComponent;
+
+
 
 public class ListDialogPanel<T extends AbsModelCell<?, ?>> extends JPanel
 		implements IListModelComponent<ListDialogModel<T>>,

@@ -7,7 +7,6 @@ import java.util.Set;
 import com.v5.exception.FindErrorException;
 import com.v5.window.jpanel.factory.IPanelFactory;
 
-
 /*
  * Frame 和 Dialog 產生器
  * 需注入次級 Panel 工廠
@@ -20,7 +19,6 @@ public class FrameAndDialogGenerator {
 		factories.add(factory);
 
 	}
-
 
 	public static Window getFrame(String compName, IPanelFactory factory) {
 		return getFrame(compName, factory, true);
@@ -35,6 +33,8 @@ public class FrameAndDialogGenerator {
 					return false;
 				}
 			} catch (RuntimeException e) {
+				System.out.println(
+						FrameAndDialogGenerator.class + ":" + e.getMessage());
 				return false;
 			}
 			return true;

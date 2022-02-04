@@ -24,7 +24,6 @@ public class DialogFrameFactory extends AbsFrameFactory {
 		DialogFrame frame = new DialogFrame();
 
 		frame.setContentComponent(contentPanelName, panelFactory);
-
 		return frame;
 	}
 

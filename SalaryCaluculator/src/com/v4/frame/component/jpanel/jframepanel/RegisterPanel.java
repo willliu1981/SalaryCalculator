@@ -18,7 +18,6 @@ import javax.swing.ListSelectionModel;
 import com.v5.dispatcher.Dispatcher;
 import com.v5.dispatcher.model.Result;
 import com.v5.dispatcher.model.Wage;
-import com.v5.frame.component.jpanel.factory.DialogPanelFactory;
 import com.v5.model.DefaultModelCell;
 import com.v5.model.punch.HalfHourPunchStrategy;
 import com.v5.tools.Dialogs;
@@ -26,6 +25,7 @@ import com.v5.tools.Wages;
 import com.v5.window.factory.DialogFrameFactory;
 import com.v5.window.factory.FrameAndDialogGenerator;
 import com.v5.window.jframe.DialogFrame;
+import com.v5.window.jpanel.factory.DialogPanelFactory;
 
 
 

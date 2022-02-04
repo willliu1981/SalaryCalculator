@@ -18,12 +18,11 @@ import com.v5.dispatcher.Dispatchable;
 import com.v5.dispatcher.Dispatcher;
 import com.v5.dispatcher.model.Result;
 import com.v5.exception.FindErrorException;
-import com.v5.frame.component.jpanel.factory.DialogPanelFactory;
 import com.v5.window.factory.IDialog;
 import com.v5.window.interfaces.IHasContentComponent;
+import com.v5.window.jpanel.factory.DialogPanelFactory;
 import com.v5.window.jpanel.factory.IPanelFactory;
 import com.v5.xml.XMLFactory;
-
 
 /*
  * 自定 Dialog 的共同窗口
@@ -85,7 +84,7 @@ public class DialogFrame extends JDialog
 	public void setContentComponent(String compName, IPanelFactory factory) {
 		baseContentPanel.removeAll();
 		if (factory instanceof DialogPanelFactory) {
-			contentPanel = (JPanel)   XMLFactory .getXMLClassInstance(compName);
+			contentPanel = (JPanel) XMLFactory.getXMLClassInstance(compName);
 		} else {
 			if (contentPanel == null) {
 				throw new FindErrorException(

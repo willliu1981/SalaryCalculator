@@ -1,4 +1,4 @@
-package com.v5.frame.component.jpanel.factory;
+package com.v5.window.jframe.factory;
 
 import java.awt.BorderLayout;
 import java.awt.Window;

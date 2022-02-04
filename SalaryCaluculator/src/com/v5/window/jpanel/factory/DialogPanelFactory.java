@@ -4,7 +4,6 @@ import java.awt.Window;
 
 import javax.swing.JPanel;
 
-import com.v5.window.factory.DialogFrameFactory;
 import com.v5.window.jpanel.ListDialogPanel;
 
 
@@ -17,11 +16,11 @@ public class DialogPanelFactory implements IPanelFactory {
 
 	}
 
-	public static final String MONTHDIALOG = DialogFrameFactory.MONTHDIALOG;
-	public static final String DATEDIALOG = DialogFrameFactory.DATEDIALOG;
-	public static final String TIMEDIALOG = DialogFrameFactory.TIMEDIALOG;
-	public static final String DAYDIALOG = DialogFrameFactory.DAYDIALOG;
-	public static final String LISTDIALOG = DialogFrameFactory.LISTDIALOG;
+	//public static final String MONTHDIALOG = DialogFrameFactory.MONTHDIALOG;
+	//public static final String DATEDIALOG = DialogFrameFactory.DATEDIALOG;
+	//public static final String TIMEDIALOG = DialogFrameFactory.TIMEDIALOG;
+	//public static final String DAYDIALOG = DialogFrameFactory.DAYDIALOG;
+	public static final String LISTDIALOG = "listdialog";
 
 	public JPanel getPanel(String name) {
 		return getPanel(name, null);
@@ -33,16 +32,16 @@ public class DialogPanelFactory implements IPanelFactory {
 		switch (name) {
 		/*
 		case MONTHDIALOG:
-			panel = new MonthDialogPanel();//棄用?
+			//panel = new MonthDialogPanel();//棄用?
 			break;
 		case DAYDIALOG:
-			panel = new DayDialogPanel();//棄用?
+			//panel = new DayDialogPanel();//棄用?
 			break;
 		case DATEDIALOG:
-			panel = new DateDialogPanel();
+			//panel = new DateDialogPanel();
 			break;
 		case TIMEDIALOG:
-			panel = new TimeDialogPanel();
+			//panel = new TimeDialogPanel();
 			break;
 			//*/
 		case LISTDIALOG:
