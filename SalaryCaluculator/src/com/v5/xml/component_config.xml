@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<comp>
+		<const id="monthDialog"
+			class="com.v4.frame.component.jpanel.MonthDialogPanel" />
+		<const id="datedialog"
+			class="com.v4.frame.component.jpanel.dialogpanel.DateDialogPanel" />
+		<const id="timedialog"
+			class="com.v4.frame.component.jpanel.dialogpanel.TimeDialogPanel" />
+		<const id="daydialog"
+			class="com.v4.frame.component.jpanel.DayDialogPanel" />
+		<const id="listdialog"
+			class="com.v4.frame.component.jpanel.ListDialogPanel" />
+	</comp>
+
+
+
+</config>

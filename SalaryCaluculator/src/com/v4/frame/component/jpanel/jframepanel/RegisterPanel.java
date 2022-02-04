@@ -15,20 +15,22 @@ import javax.swing.JScrollPane;
 import javax.swing.ListModel;
 import javax.swing.ListSelectionModel;
 
-import com.v4.frame.component.jframe.DialogFrame;
 import com.v4.frame.component.jframe.DialogFrameFactory;
 import com.v4.frame.component.jframe.FrameAndDialogGenerator;
 import com.v4.frame.component.jpanel.factory.DialogPanelFactory;
-import com.v4.listener.Dispatcher;
-import com.v4.model.DefaultModelCell;
-import com.v4.model.Result;
+
 import com.v4.model.punch.HalfHourPunchStrategy;
 import com.v4.tools.Wages;
+import com.v5.dispatcher.Dispatcher;
+import com.v5.dispatcher.model.Result;
+import com.v5.model.DefaultModelCell;
+import com.v5.window.jframe.DialogFrame;
 
 import test.test4.Wage;
 
 public class RegisterPanel extends JPanel {
 	private final static String DefaultYearForTest = "2022";
+	private final static String DefaultMonthForTest = "1";
 	private String date;
 	private String time;
 	private final static Wage defaultWageForTest = new Wage();
@@ -54,8 +56,9 @@ public class RegisterPanel extends JPanel {
 		btnDate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				DialogFrame frame = (DialogFrame) FrameAndDialogGenerator
-						.getFrame(DialogFrameFactory.DATEDIALOG,
+						.getFrame(DialogFrameFactory.LISTDIALOG,
 								new DialogPanelFactory());
+
 				frame.addDispatcher(new Dispatcher<Result>() {
 					@Override
 					public void receive(Object o) {
