@@ -54,6 +54,6 @@ public class XMLFactory {
 	}
 
 	public static void print() {
-		classes.forEach((x, y) -> System.out.println(y.getClassName()));
+		classes.forEach((x, y) -> System.out.println("  "+y.getClassName()));
 	}
 }

@@ -45,13 +45,13 @@ public class Wage {
 	public void punchIn(Timestamp punchIn) {
 		Punch punch = getHoldingPunch();
 		punch.setPunchIn(punchIn);
-		this.addHoldingPunch();
+		this.addToHoldingPunches();
 	}
 
 	public void punchOut(Timestamp punchOut) {
 		Punch punch = getHoldingPunch();
 		punch.setPunchOut(punchOut);
-		this.addHoldingPunch();
+		this.addToHoldingPunches();
 	}
 
 	private Punch getHoldingPunch() {
@@ -62,7 +62,7 @@ public class Wage {
 		return this.holdingPunch;
 	}
 
-	private void addHoldingPunch() {
+	private void addToHoldingPunches() {
 		if (this.holdingPunchIsNew == true) {
 			this.punches.add(holdingPunch);
 			this.holdingPunchIsNew = false;

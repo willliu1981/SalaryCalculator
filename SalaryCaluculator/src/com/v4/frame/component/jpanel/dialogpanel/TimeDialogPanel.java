@@ -1,4 +1,4 @@
-package com.v4.frame.component.jpanel;
+package com.v4.frame.component.jpanel.dialogpanel;
 
 import java.awt.BorderLayout;
 import java.awt.Font;
@@ -16,6 +16,8 @@ import com.v4.frame.component.jframe.DialogFrame;
 import com.v4.frame.component.jframe.DialogFrameFactory;
 import com.v4.frame.component.jframe.FrameAndDialogGenerator;
 import com.v4.frame.component.jframe.IDialog;
+import com.v4.frame.component.jpanel.AbsDialogPanel;
+import com.v4.frame.component.jpanel.factory.DialogPanelFactory;
 import com.v4.listener.Dispatcher;
 import com.v4.model.DefaultModelCell;
 import com.v4.model.ListDialogModel;
@@ -26,15 +28,15 @@ import com.v4.xml.XMLFactory;
 /*
  * 
  */
-public class DateDialogPanel extends AbsDialogPanel {
-	private int month;
-	private int day;
+public class TimeDialogPanel extends AbsDialogPanel {
+	private int hour;
+	private int miniute;
 	private Result dispatcherResult = new Result();
 
 	/**
 	 * Create the panel.
 	 */
-	public DateDialogPanel() {
+	public TimeDialogPanel() {
 		setLayout(new BorderLayout(0, 0));
 
 		JPanel panel = new JPanel();
@@ -45,7 +47,7 @@ public class DateDialogPanel extends AbsDialogPanel {
 		panel.add(panel_1, BorderLayout.CENTER);
 		panel_1.setLayout(null);
 
-		JButton btnMonth = new JButton("Month");
+		JButton btnMonth = new JButton("Hour");
 		btnMonth.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -57,7 +59,7 @@ public class DateDialogPanel extends AbsDialogPanel {
 
 				ListModelFactory.setModel(
 						(IListModelComponent) dialog.getContentComponent(),
-						ListModelFactory.MONTH);
+						ListModelFactory.HOUR);
 
 				dialog.addDispatcher(new Dispatcher() {
 
@@ -73,9 +75,9 @@ public class DateDialogPanel extends AbsDialogPanel {
 
 						int m = (int) cell.getValue();
 
-						month = m;
-						btnMonth.setText("月份:" + month);
-						dispatcherResult.add(DialogFrameFactory.MONTHDIALOG,
+						hour = m;
+						btnMonth.setText("時:" + hour);
+						dispatcherResult.add(DialogFrameFactory.HOURDIALOG,
 								cell);
 
 						updateDispatcher(dispatcherResult);
@@ -90,7 +92,7 @@ public class DateDialogPanel extends AbsDialogPanel {
 		btnMonth.setFont(new Font("新細明體", Font.PLAIN, 36));
 		panel_1.add(btnMonth);
 
-		JButton btnDay = new JButton("Day");
+		JButton btnDay = new JButton("Minute");
 		btnDay.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				DialogFrame dialog = (DialogFrame) FrameAndDialogGenerator
@@ -98,7 +100,7 @@ public class DateDialogPanel extends AbsDialogPanel {
 								new DialogPanelFactory());
 				ListModelFactory.setModel(
 						(IListModelComponent) dialog.getContentComponent(),
-						ListModelFactory.Day);
+						ListModelFactory.MINUTE);
 				dialog.addDispatcher(new Dispatcher() {
 
 					@Override
@@ -113,9 +115,9 @@ public class DateDialogPanel extends AbsDialogPanel {
 
 						int m = (int) cell.getValue();
 
-						day = m;
-						btnDay.setText("月份:" + day);
-						dispatcherResult.add(DialogFrameFactory.DAYDIALOG,
+						miniute = m;
+						btnDay.setText("分:" + miniute);
+						dispatcherResult.add(DialogFrameFactory.MINUTEDIALOG,
 								cell);
 
 						updateDispatcher(dispatcherResult);

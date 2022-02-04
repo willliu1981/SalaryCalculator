@@ -2,11 +2,11 @@ package test.test5;
 
 import java.sql.Timestamp;
 
-import com.v4.Wages;
 import com.v4.model.punch.AccuratePunchStrategy;
 import com.v4.model.punch.DefaultPunchStrategy;
 import com.v4.model.punch.HalfHourPunchStrategy;
 import com.v4.model.punch.PunchStrategy;
+import com.v4.tools.Wages;
 
 import test.test4.Wage;
 

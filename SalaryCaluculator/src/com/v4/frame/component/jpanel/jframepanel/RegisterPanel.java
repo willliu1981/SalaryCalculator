@@ -1,34 +1,35 @@
-package com.v4.frame.component.jpanel;
-
-import javax.swing.JPanel;
+package com.v4.frame.component.jpanel.jframepanel;
 
 import java.awt.BorderLayout;
-import javax.swing.JLabel;
-import javax.swing.JButton;
-import javax.swing.BoxLayout;
 import java.awt.Font;
-import java.awt.Insets;
-import java.awt.event.ActionListener;
-import java.util.List;
+import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
-import javax.swing.JList;
+import java.awt.event.ActionListener;
+import java.sql.Timestamp;
+
 import javax.swing.AbstractListModel;
-import javax.swing.JTable;
+import javax.swing.JButton;
+import javax.swing.JList;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
 
-import com.v4.frame.component.jframe.DialogFrameFactory;
 import com.v4.frame.component.jframe.DialogFrame;
+import com.v4.frame.component.jframe.DialogFrameFactory;
 import com.v4.frame.component.jframe.FrameAndDialogGenerator;
-import com.v4.listener.Dispatchable;
+import com.v4.frame.component.jpanel.factory.DialogPanelFactory;
 import com.v4.listener.Dispatcher;
+import com.v4.model.DefaultModelCell;
 import com.v4.model.Result;
+import com.v4.tools.Wages;
 
-import javax.swing.JScrollBar;
-import javax.swing.JScrollPane;
-import java.awt.SystemColor;
-import java.awt.Window;
+import test.test4.Wage;
 
 public class RegisterPanel extends JPanel {
+	private final static String DefaultYearForTest = "2022";
+	private String date;
+	private String time;
+	private final static Wage defaultWageForTest=new Wage();
 
 	/**
 	 * Create the panel.
@@ -59,12 +60,16 @@ public class RegisterPanel extends JPanel {
 
 					@Override
 					public void receive(Result result) {
-						String date = String.format("%s月%s日",
-								result.get(DialogFrameFactory.MONTHDIALOG),
-								result.get(DialogFrameFactory.DAYDIALOG));
+						DefaultModelCell monthCell = (DefaultModelCell) result
+								.get(DialogFrameFactory.MONTHDIALOG);
+						int m = (int) monthCell.getValue();
+						DefaultModelCell dayCell = (DefaultModelCell) result
+								.get(DialogFrameFactory.DAYDIALOG);
+						int d = (int) dayCell.getValue();
+
+						date = String.format(DefaultYearForTest + "-%s-%s", m, d);
 						btnDate.setText(date);
 					}
-
 				});
 			}
 		});
@@ -72,19 +77,49 @@ public class RegisterPanel extends JPanel {
 		btnDate.setFont(new Font("新細明體", Font.PLAIN, 36));
 		panel_1.add(btnDate);
 
-		JButton btnNewButton_1 = new JButton("Register");
-		btnNewButton_1.setFocusable(false);
-		btnNewButton_1.setBackground(SystemColor.control);
-		btnNewButton_1.addActionListener(new ActionListener() {
+		JButton btnTime = new JButton("Time");
+		btnTime.setFocusable(false);
+		btnTime.setBackground(SystemColor.control);
+		btnTime.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// DialogFactory.getFrameInstance(PanelFactory.REGISTERTIMEDAILOG);
+				DialogFrame frame = (DialogFrame) FrameAndDialogGenerator
+						.getFrame(DialogFrameFactory.TIMEDIALOG,
+								new DialogPanelFactory());
+				frame.addDispatcher(new Dispatcher<Result>() {
+					@Override
+					public void receive(Object o) {
+					}
+
+					@Override
+					public void receive(Result result) {
+						DefaultModelCell hourCell = (DefaultModelCell) result
+								.get(DialogFrameFactory.HOURDIALOG);
+						int h = (int) hourCell.getValue();
+						DefaultModelCell minuteCell = (DefaultModelCell) result
+								.get(DialogFrameFactory.MINUTEDIALOG);
+						int m = (int) minuteCell.getValue();
+
+						time = String.format("%s:%s:0", h, m);
+						btnTime.setText(time);
+					}
+
+				});
 			}
 		});
-		btnNewButton_1.setBounds(291, 31, 193, 53);
-		btnNewButton_1.setFont(new Font("新細明體", Font.PLAIN, 36));
-		panel_1.add(btnNewButton_1);
+		btnTime.setBounds(291, 31, 193, 53);
+		btnTime.setFont(new Font("新細明體", Font.PLAIN, 36));
+		panel_1.add(btnTime);
 
-		JButton btnNewButton_2 = new JButton("New button");
+		JButton btnNewButton_2 = new JButton("punch");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Timestamp d=Timestamp.valueOf(date);
+				Timestamp t=Timestamp.valueOf(time);
+				
+				//Wages.punchIn(defaultWageForTest, );
+				
+			}
+		});
 		btnNewButton_2.setFocusable(false);
 		btnNewButton_2.setBackground(SystemColor.control);
 		btnNewButton_2.setBounds(682, 112, 193, 53);

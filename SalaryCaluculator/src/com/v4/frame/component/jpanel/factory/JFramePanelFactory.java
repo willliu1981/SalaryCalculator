@@ -1,4 +1,4 @@
-package com.v4.frame.component.jpanel;
+package com.v4.frame.component.jpanel.factory;
 
 import java.awt.BorderLayout;
 import java.awt.Window;
@@ -6,6 +6,11 @@ import java.awt.Window;
 import javax.swing.JPanel;
 
 import com.v4.frame.component.jframe.JFrameFactory;
+import com.v4.frame.component.jpanel.IPanelFactory;
+import com.v4.frame.component.jpanel.RegisterTimeDailogPanel;
+import com.v4.frame.component.jpanel.ViewPanel;
+import com.v4.frame.component.jpanel.dialogpanel.DateDialogPanel;
+import com.v4.frame.component.jpanel.jframepanel.RegisterPanel;
 
 /*
  * 取得 JFrame 的 Panel 工廠

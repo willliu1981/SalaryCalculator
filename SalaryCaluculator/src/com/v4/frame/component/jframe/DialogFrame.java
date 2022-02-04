@@ -16,8 +16,8 @@ import javax.swing.border.EmptyBorder;
 
 import com.v4.exception.FindErrorException;
 import com.v4.frame.component.IHasContentComponent;
-import com.v4.frame.component.jpanel.DialogPanelFactory;
 import com.v4.frame.component.jpanel.IPanelFactory;
+import com.v4.frame.component.jpanel.factory.DialogPanelFactory;
 import com.v4.listener.Dispatchable;
 import com.v4.listener.Dispatcher;
 import com.v4.model.Result;

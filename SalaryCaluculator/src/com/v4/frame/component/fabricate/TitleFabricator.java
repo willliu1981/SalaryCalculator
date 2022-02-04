@@ -10,7 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import com.v4.frame.component.jpanel.IPanelFactory;
-import com.v4.frame.component.jpanel.JFramePanelFactory;
+import com.v4.frame.component.jpanel.factory.JFramePanelFactory;
 import com.v4.tools.Components;
 
 public class TitleFabricator extends ComponentFabricator {

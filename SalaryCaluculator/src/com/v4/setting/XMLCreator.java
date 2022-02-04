@@ -24,7 +24,7 @@ public class XMLCreator {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println("xml creator:");
+		System.out.println("xml creator:"+XMLCreator.class);
 		XMLFactory.print();
 	}
 }
