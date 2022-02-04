@@ -12,21 +12,20 @@ import javax.swing.JPanel;
 import com.v5.tools.Components;
 import com.v5.window.jpanel.factory.IPanelFactory;
 
-
 public class TitleFabricator extends ComponentFabricator {
-	
+
 	public TitleFabricator(Window frameFather) {
 		super(frameFather);
 	}
 
-	static public final String FATHERPANEL = "panelContent";
-	static public final String REGISTERBTN = "registerbtn";
-	static public final String VIEWBTN = "viewbtn";
+	static public final String FATHERPANEL = "fatherpanel";
+	static public final String REGISTER = "register";
+	static public final String VIEW = "view";
 	private JPanel panelFather = null;
 	private JButton btnRegister = null;
 	private JButton btnView = null;
 
-	private void switchCardPanel(String name,IPanelFactory factory) {
+	private void switchCardPanel(String name, IPanelFactory factory) {
 		CardLayout layout = (CardLayout) panelFather.getLayout();
 
 		if (!Components.containPanel(factory, panelFather, name)) {
@@ -34,7 +33,7 @@ public class TitleFabricator extends ComponentFabricator {
 		}
 		layout.show(panelFather, name);
 		this.getFrameFather().setVisible(true);
-		
+
 	}
 
 	@Override
@@ -46,22 +45,22 @@ public class TitleFabricator extends ComponentFabricator {
 			throw new RuntimeException("找不到重要 component");
 		}
 
-		if (this.isExist(REGISTERBTN)) {
-			btnRegister = (JButton) this.get(REGISTERBTN);
+		if (this.isExist(REGISTER)) {
+			btnRegister = (JButton) this.get(REGISTER);
 			btnRegister.setFont(new Font("新細明體", Font.PLAIN, 36));
 			btnRegister.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					switchCardPanel(REGISTERBTN,factory);
+					switchCardPanel(REGISTER, factory);
 				}
 			});
 		}
 
-		if (this.isExist(VIEWBTN)) {
-			btnView = (JButton) this.get(VIEWBTN);
+		if (this.isExist(VIEW)) {
+			btnView = (JButton) this.get(VIEW);
 			btnView.setFont(new Font("新細明體", Font.PLAIN, 36));
 			btnView.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					switchCardPanel(VIEWBTN,factory);
+					switchCardPanel(VIEW, factory);
 				}
 			});
 		}

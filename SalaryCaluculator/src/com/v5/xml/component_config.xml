@@ -10,7 +10,7 @@
 		<const id="daydialog"
 			class="com.v4.frame.component.jpanel.DayDialogPanel" />
 		<const id="listdialog"
-			class="com.v4.frame.component.jpanel.ListDialogPanel" />
+			class="com.v5.window.jpanel.ListDialogPanel" />
 	</comp>
 
 

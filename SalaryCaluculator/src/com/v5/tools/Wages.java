@@ -5,13 +5,14 @@ import java.io.File;
 import javax.swing.DefaultListModel;
 import javax.swing.ListModel;
 
-import com.v4.model.punch.PunchStrategy;
+import com.v5.dispatcher.model.Wage;
+import com.v5.model.punch.PunchStrategy;
 
-import test.test4.Wage;
+
 
 public class Wages {
 
-	public static void punchIn(Wage wage, PunchStrategy punchStrategy) {
+	public static void punchIn( Wage wage, PunchStrategy punchStrategy) {
 		wage.punchIn(punchStrategy.punchIn(wage.getPunchIn()));
 	}
 

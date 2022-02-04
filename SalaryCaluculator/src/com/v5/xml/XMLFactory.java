@@ -2,9 +2,8 @@ package com.v5.xml;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Map.Entry;
 
-import com.v4.exception.FindErrorException;
+import com.v5.exception.FindErrorException;
 
 public class XMLFactory {
 	public static final String ID = "id";
@@ -46,7 +45,6 @@ public class XMLFactory {
 			o = clazz.newInstance();
 		} catch (ClassNotFoundException | InstantiationException
 				| IllegalAccessException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -54,6 +52,6 @@ public class XMLFactory {
 	}
 
 	public static void print() {
-		classes.forEach((x, y) -> System.out.println("  "+y.getClassName()));
+		classes.forEach((x, y) -> System.out.println("  " + y.getClassName()));
 	}
 }

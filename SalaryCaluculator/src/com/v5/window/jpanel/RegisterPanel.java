@@ -15,24 +15,28 @@ import javax.swing.JScrollPane;
 import javax.swing.ListModel;
 import javax.swing.ListSelectionModel;
 
-import com.v4.frame.component.jframe.DialogFrame;
-import com.v4.frame.component.jframe.DialogFrameFactory;
-import com.v4.frame.component.jframe.FrameAndDialogGenerator;
-import com.v4.frame.component.jpanel.factory.DialogPanelFactory;
-import com.v4.listener.Dispatcher;
-import com.v4.model.DefaultModelCell;
-import com.v4.model.Result;
-import com.v4.model.punch.HalfHourPunchStrategy;
-import com.v4.tools.Wages;
+import com.v5.dispatcher.Dispatcher;
+import com.v5.dispatcher.model.Result;
+import com.v5.dispatcher.model.Wage;
+import com.v5.frame.component.jpanel.factory.DialogPanelFactory;
+import com.v5.model.DefaultModelCell;
+import com.v5.model.punch.HalfHourPunchStrategy;
+import com.v5.tools.Dialogs;
+import com.v5.tools.Wages;
+import com.v5.window.factory.DialogFrameFactory;
+import com.v5.window.factory.FrameAndDialogGenerator;
+import com.v5.window.jframe.DialogFrame;
 
-import test.test4.Wage;
+
 
 public class RegisterPanel extends JPanel {
 	private final static String DefaultYearForTest = "2022";
+	private final static String DefaultMonthForTest = "1";
 	private String date;
 	private String time;
 	private final static Wage defaultWageForTest = new Wage();
 	private JList list;
+
 
 	/**
 	 * Create the panel.
@@ -53,9 +57,13 @@ public class RegisterPanel extends JPanel {
 		btnDate.setBackground(SystemColor.control);
 		btnDate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				DialogFrame frame = (DialogFrame) FrameAndDialogGenerator
-						.getFrame(DialogFrameFactory.DATEDIALOG,
+				DialogFrame frame = (DialogFrame)  FrameAndDialogGenerator
+						.getFrame(DialogFrameFactory.LISTDIALOG,
 								new DialogPanelFactory());
+ 
+				Dialogs.getDialogListTool()
+						.setListModel(frame.getContentComponent(), "day");
+
 				frame.addDispatcher(new Dispatcher<Result>() {
 					@Override
 					public void receive(Object o) {
@@ -63,15 +71,12 @@ public class RegisterPanel extends JPanel {
 
 					@Override
 					public void receive(Result result) {
-						DefaultModelCell monthCell = (DefaultModelCell) result
-								.get(DialogFrameFactory.MONTHDIALOG);
-						int m = (int) monthCell.getValue();
 						DefaultModelCell dayCell = (DefaultModelCell) result
 								.get(DialogFrameFactory.DAYDIALOG);
 						int d = (int) dayCell.getValue();
 
-						date = String.format(DefaultYearForTest + "-%s-%s", m,
-								d);
+						date = String.format("%s-%s-%s", DefaultYearForTest,
+								DefaultMonthForTest, d);
 						btnDate.setText(date);
 					}
 				});
@@ -120,7 +125,7 @@ public class RegisterPanel extends JPanel {
 				Timestamp ts = Timestamp
 						.valueOf(String.format("%s %s", date, time));
 				defaultWageForTest.setPunchIn(ts);
-				Wages.punchIn(defaultWageForTest, new HalfHourPunchStrategy());
+				  Wages .punchIn(defaultWageForTest, new HalfHourPunchStrategy());
 				refreshListModel();
 			}
 		});

@@ -19,8 +19,8 @@ import com.v5.dispatcher.Dispatcher;
 import com.v5.dispatcher.model.Result;
 import com.v5.exception.FindErrorException;
 import com.v5.frame.component.jpanel.factory.DialogPanelFactory;
+import com.v5.window.factory.IDialog;
 import com.v5.window.interfaces.IHasContentComponent;
-import com.v5.window.jframe.factory.IDialog;
 import com.v5.window.jpanel.factory.IPanelFactory;
 import com.v5.xml.XMLFactory;
 
@@ -85,7 +85,6 @@ public class DialogFrame extends JDialog
 	public void setContentComponent(String compName, IPanelFactory factory) {
 		baseContentPanel.removeAll();
 		if (factory instanceof DialogPanelFactory) {
-			//contentPanel = factory.getPanel(compName, this);
 			contentPanel = (JPanel)   XMLFactory .getXMLClassInstance(compName);
 		} else {
 			if (contentPanel == null) {

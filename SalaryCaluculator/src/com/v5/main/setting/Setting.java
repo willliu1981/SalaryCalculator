@@ -1,17 +1,18 @@
 package com.v5.main.setting;
 
-import com.v4.factory.listmodel.ListModelFactory;
-import com.v4.frame.component.jframe.DialogFrameFactory;
-import com.v4.frame.component.jframe.FrameAndDialogGenerator;
-import com.v4.frame.component.jframe.JFrameFactory;
-import com.v4.frame.component.jpanel.dialogpanel.jlist.factory.DayModelFactory;
-import com.v4.frame.component.jpanel.dialogpanel.jlist.factory.HourModelFactory;
-import com.v4.frame.component.jpanel.dialogpanel.jlist.factory.MinuteModelFactory;
-import com.v4.frame.component.jpanel.dialogpanel.jlist.factory.MonthModelFactory;
+import com.v5.window.factory.DialogFrameFactory;
+import com.v5.window.factory.FrameAndDialogGenerator;
+import com.v5.window.factory.JFrameFactory;
+import com.v5.window.factory.jlist.DayModelFactory;
+import com.v5.window.factory.jlist.HourModelFactory;
+import com.v5.window.factory.jlist.ListModelFactory;
+import com.v5.window.factory.jlist.MinuteModelFactory;
+import com.v5.window.factory.jlist.MonthModelFactory;
+import com.v5.xml.factory.XMLCreator;
 
 public class Setting {
 	public static void initialize() {
-		XMLCreator.createXMLData();
+		XMLCreator.createXMLData("src/com/v5/xml/component_config.xml");
 		FrameAndDialogGenerator.setFactory(new DialogFrameFactory());
 		FrameAndDialogGenerator.setFactory(new JFrameFactory());
 		ListModelFactory

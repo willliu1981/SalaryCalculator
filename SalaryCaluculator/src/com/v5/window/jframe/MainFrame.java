@@ -57,7 +57,7 @@ public class MainFrame extends JFrame implements IFrame {
 		btnRegister.setBackground(SystemColor.control);
 		panel_title.add(btnRegister);
 		// 組件分離
-		titleFabricator.add(TitleFabricator.REGISTERBTN, btnRegister);
+		titleFabricator.add(TitleFabricator.REGISTER, btnRegister);
 
 		JButton btnView = new JButton("View");
 		btnView.setFont(new Font("新細明體", Font.PLAIN, 30));
@@ -65,7 +65,7 @@ public class MainFrame extends JFrame implements IFrame {
 		btnView.setBackground(SystemColor.control);
 		panel_title.add(btnView);
 		// 組件分離
-		titleFabricator.add(TitleFabricator.VIEWBTN, btnView);
+		titleFabricator.add(TitleFabricator.VIEW, btnView);
 	}
 
 	// card panel
