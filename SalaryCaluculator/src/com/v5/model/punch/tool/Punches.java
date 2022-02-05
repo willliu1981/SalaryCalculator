@@ -34,4 +34,5 @@ public class Punches {
 
 		return Duration.between(in, out).toMinutes();
 	}
+
 }

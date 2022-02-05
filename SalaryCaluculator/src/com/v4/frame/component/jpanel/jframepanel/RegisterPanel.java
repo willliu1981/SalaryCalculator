@@ -200,7 +200,7 @@ public class RegisterPanel extends JPanel {
 	}
 
 	private void refreshListModel() {
-		ListModel model = Wages.getListModelForMonth(defaultWageForTest, 1);
+		ListModel model = Wages.getListModelWithMonth(defaultWageForTest, 1);
 		this.list.setModel(model);
 	}
 }

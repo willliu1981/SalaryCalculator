@@ -9,8 +9,6 @@ import com.v5.model.User;
 import com.v5.model.punch.Punch;
 import com.v5.model.punch.tool.Punches;
 
-
-
 public class Wage {
 	private User user;
 	private List<Punch> punches = new ArrayList<>();
@@ -88,7 +86,7 @@ public class Wage {
 				.sorted((t1,
 						t2) -> (int) (t1.getPunchIn().getTime()
 								- t2.getPunchIn().getTime()))
-				.filter(x2 ->  Punches.isAfter(x2.getPunchIn(),
+				.filter(x2 -> Punches.isAfter(x2.getPunchIn(),
 						getHoldingPunch().getPunchIn()))
 				.findFirst();
 		if (punchOp.isPresent()) {
