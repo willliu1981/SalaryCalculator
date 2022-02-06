@@ -20,6 +20,10 @@ public class Wages {
 	}
 
 	public static ListModel getListModelWithMonth(Wage wage, int month) {
+		return getListModelOfPunchWithMonth(wage, month);
+	}
+
+	public static ListModel getListModelOfPunchWithMonth(Wage wage, int month) {
 		DefaultListModel model = new DefaultListModel();
 
 		wage.getPunches().forEach(x -> model.addElement(x));

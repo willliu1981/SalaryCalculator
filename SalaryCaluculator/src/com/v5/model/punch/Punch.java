@@ -59,6 +59,51 @@ public class Punch {
 		this.punch_out = punch_out;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ (this.punch_in == null ? 0 : this.punch_in.hashCode());
+		result = prime * result
+				+ (this.punch_out == null ? 0 : this.punch_out.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+
+		if (obj == null) {
+			return false;
+		}
+
+		if (this.getClass() != obj.getClass()) {
+			return false;
+		}
+
+		Punch other = (Punch) obj;
+		if (this.punch_in == null) {
+			if (other.punch_in != null) {
+				return false;
+			}
+		} else if (this.punch_in.getTime() != other.punch_in.getTime()) {
+			return false;
+		}
+
+		if (this.punch_out == null) {
+			if (other.punch_out != null) {
+				return false;
+			}
+		} else if (this.punch_out.getTime() != other.punch_out.getTime()) {
+			return false;
+		}
+
+		return true;
+	}
+
 	public String toString() {
 		return String.format("in=%s, out=%s", this.getPunchIn(),
 				this.getPunchOut());

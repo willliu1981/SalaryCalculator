@@ -5,9 +5,10 @@ import java.awt.Font;
 import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.sql.Timestamp;
 
-import javax.swing.AbstractListModel;
 import javax.swing.JButton;
 import javax.swing.JList;
 import javax.swing.JPanel;
@@ -18,8 +19,10 @@ import javax.swing.ListSelectionModel;
 import com.v5.dispatcher.Dispatcher;
 import com.v5.dispatcher.model.Result;
 import com.v5.dispatcher.model.Wage;
+import com.v5.model.AbsModelCell;
 import com.v5.model.DefaultModelCell;
 import com.v5.model.punch.HalfHourPunchStrategy;
+import com.v5.model.punch.Punch;
 import com.v5.tools.Dialogs;
 import com.v5.tools.Wages;
 import com.v5.window.factory.DialogFrameFactory;
@@ -135,16 +138,13 @@ public class RegisterPanel extends JPanel {
 		panel_1.add(btnPunchIn);
 
 		list = new JList();
-		list.setModel(new AbstractListModel() {
-			String[] values = new String[] { "RRR", "CCC", "ssss", "dfdf", "",
-					"dfsf", "", "dsf" };
+		list.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				Punch punch = (Punch) list.getSelectedValue();
 
-			public int getSize() {
-				return values.length;
-			}
+				System.out.println("RP ");
 
-			public Object getElementAt(int index) {
-				return values[index];
 			}
 		});
 		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -199,7 +199,8 @@ public class RegisterPanel extends JPanel {
 	}
 
 	private void refreshListModel() {
-		ListModel model = Wages.getListModelWithMonth(defaultWageForTest, 1);
+		ListModel model = Wages.getListModelOfPunchWithMonth(defaultWageForTest,
+				1);
 		this.list.setModel(model);
 	}
 }
