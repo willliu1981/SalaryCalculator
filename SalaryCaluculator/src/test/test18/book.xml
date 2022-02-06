@@ -1,12 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<booklist>
-	<book name="Java">
-		<description>Java is a good programming language</description>
-		<author>Wu,Lin</author>
-		<chapters>
-			<chapter id="1" title="First programming">print hello world!</chapter>
-			<chapter id="2" title="Type">byte,int,float,double</chapter>
-			<chapter id="3" title="Collection">List,Set,Map</chapter>
-		</chapters>
-	</book>
-</booklist>
+<?xml version="1.0" encoding="UTF-8"?><booklist><book name="Java" publisher="SunRaise"><description>Java is a good programming language</description><authors>Wu,Lin</authors><chapters><chapter id="1" title="First programming">print hello world!</chapter><chapter id="2" title="Type">byte,int,float,double</chapter><chapter id="3" title="Collection">List,Set,Map</chapter></chapters></book></booklist>

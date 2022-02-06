@@ -15,7 +15,7 @@ import javax.xml.transform.stream.StreamResult;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.AttributesImpl;
 
-public class Test17SaxWriteDemo {
+public class Test18SaxWriteDemo {
 
 	public static void main(String[] args) {
 		List<Book> booklist = new ArrayList<>();
@@ -75,6 +75,8 @@ public class Test17SaxWriteDemo {
 			for (Book b : booklist) {
 				attr.clear();
 				attr.addAttribute("", "", "name", "", b.getName());
+				attr.addAttribute("", "", "publisher", "",
+						b.getPublisher().getName());
 				handler.startElement("", "", "book", attr);
 
 				attr.clear();
@@ -83,13 +85,13 @@ public class Test17SaxWriteDemo {
 						b.getDescription().length());
 				handler.endElement("", "", "description");
 
-				handler.startElement("", "", "author", attr);
+				handler.startElement("", "", "authors", attr);
 				String chars = b.getAuthors().stream().reduce((a1, a2) -> {
 					a1.setName(a1.getName() + "," + a2.getName());
 					return a1;
 				}).get().getName();
 				handler.characters(chars.toCharArray(), 0, chars.length());
-				handler.endElement("", "", "author");
+				handler.endElement("", "", "authors");
 
 				attr.clear();
 				handler.startElement("", "", "chapters", attr);
