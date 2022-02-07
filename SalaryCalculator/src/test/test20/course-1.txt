@@ -1,0 +1,109 @@
+
+< lesson 2 >
+ejb 
+	需是 最上層 類別
+	需是 public 類別
+	不允許 final 定義類別 2-2:19
+	不能為抽象類別
+	建構子需保持空參數
+	不可定義為 final 方法
+
+
+bean 建構子需保持空參數
+
+run 有ejb的servlet時要同時run 整個ejb 管理模組專案
+
+@PostConstruct
+
+@PreDestroy
+
+entity class
+	@Entity 描述class 
+	@Id 描述 PK
+
+< lesson 6 >
+JPQL 6-1:25
+
+在model 的 bean 的 class 前加上@Named("") , @RequestScoped
+ex:
+@Named("Cus")
+@RequestScoped
+public class CusBean implements Serializable{
+    private String cusId;
+    private String cusName;
+    private String cusPhone;
+//略...
+
+在servlet 的成員前加上 @Inject
+ex:
+@WebServlet(name = "DBCusAddServlet", urlPatterns = {"/DBCusAddServlet"})
+public class DBCusAddServlet extends HttpServlet {
+
+    @Inject
+    private CusBean bean;
+//略...
+
+在 jsp 呼叫EL 用 Named 名子的屬性
+ex:
+<label>name:${Cus.cusName}</label>
+
+< lesson 8 >
+	註冊RS 8-1:13
+
+< lesson 9 >
+	jstl 9-1:00
+	是否使用運算式 規則 tld 檔 9-1:28
+
+	ClientBuilder 9-2:26
+	or 使用底層寫法 9-2:32
+
+< lesson 10 >
+	複習JPA 10-0:0
+	
+	JAXB 10-1:10
+
+< lesson 11 >
+	分散式網站架構 11-0:10
+
+	ISO 8601 11-1:27
+
+	jQuery 和 javascript 的相對寫法 11-2:55
+
+
+< lesson 12 >
+	#AJAX 驗證12-0:0
+
+	AJAX 使用 12-1:15
+
+	CDI、注入控制反轉ioC 12-1:50
+
+	beans.xml 12-2:47
+
+
+< lesson 13 >
+	#jsp useBean 13-0:0
+
+	資料庫連接 13-1:50
+
+< lesson 14 >
+	BasicDataSource 14-0:0
+
+	#XML 14-0:45
+
+	Proxy 14-2:45
+
+< lesson 16 >
+	WebSocket 16-0:0
+
+
+
+
+
+	
+
+
+
+
+
+
+
