@@ -1,16 +1,13 @@
 package com.v5.window.jframe.factory;
 
-import java.awt.BorderLayout;
 import java.awt.Window;
 
 import javax.swing.JPanel;
 
-import com.v4.frame.component.jframe.JFrameFactory;
-import com.v4.frame.component.jpanel.IPanelFactory;
-import com.v4.frame.component.jpanel.RegisterTimeDailogPanel;
-import com.v4.frame.component.jpanel.ViewPanel;
-import com.v4.frame.component.jpanel.dialogpanel.DateDialogPanel;
-import com.v4.frame.component.jpanel.jframepanel.RegisterPanel;
+import com.v5.window.factory.JFrameFactory;
+import com.v5.window.jpanel.DateDialogPanel;
+import com.v5.window.jpanel.RegisterPanel;
+import com.v5.window.jpanel.factory.IPanelFactory;
 
 /*
  * 取得 JFrame 的 Panel 工廠
@@ -30,20 +27,20 @@ public class JFramePanelFactory implements IPanelFactory {
 		JPanel panel = null;
 		switch (name) {
 		case TESTJFRAME:
-			//default null
+			// default null
 			break;
 		case REGISTER:
 			panel = new RegisterPanel();
 			break;
-		case VIEW:
-			panel = new ViewPanel();
-			break;
+		// case VIEW:
+		// panel = new ViewPanel();
+		// break;
 		case DATEDAILOG:
 			panel = new DateDialogPanel();
 			break;
-		case REGISTERTIMEDAILOG:
-			panel = new RegisterTimeDailogPanel();
-			break;
+		// case REGISTERTIMEDAILOG:
+		// panel = new RegisterTimeDailogPanel();
+		// break;
 		default:
 			break;
 		}
